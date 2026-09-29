@@ -18,6 +18,13 @@ node kur.js
 
 WordPress'e geçişte: `ust.html` → `header.php`, `alt.html` → `footer.php`, sayfa gövdeleri → Klasik Editör içeriği, infografikler ve profil seçici → kısa kod.
 
+## Yayın adresleri (29 Eylül 2026)
+
+- **GitHub Pages:** https://tasarimmaniayapayzeka.github.io/fintech-zone-demo/ (depo `tasarimmaniayapayzeka/fintech-zone-demo`, herkese açık, sayfalar `noindex`). Güncellemek için: `node kur.js`, sonra `git add -A; git commit -m "..."; git push`. Pages 1-2 dakikada yeniler.
+- **Tek dosya (Claude artifact, hesaba özel):** https://claude.ai/artifact/H29UEcuQ4y3s6LXXStujTA. Üretimi: `node kur-tek.js` → `ftz-demo-tek.html` (13 sayfa tek HTML'de, #hash ile geçiş, görseller gömülü, 3,3 MB).
+- Her iki sürümde de en üstte "tasarım önerisi, resmi site değildir" şeridi var (`kaynak/ust.html`, `.demo-serit`).
+- Not: PowerShell 5.1'de `&&` çalışmaz; komutları `;` ile bağla.
+
 ## Sayfalar (13)
 
 | Dosya | İçerik | İnfografik |
