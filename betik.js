@@ -113,6 +113,72 @@
     }
   }
 
+  /* ---- başlık kelimeleri maskeli açılır (h1; em.vurgu korunur) ---- */
+  var basliklar = document.querySelectorAll('.hero h1, .sayfa-bas h1');
+  if (basliklar.length && !azHareket) {
+    var sira = 0;
+    function sar(dugum) {
+      Array.prototype.slice.call(dugum.childNodes).forEach(function (n) {
+        if (n.nodeType === 3) {
+          var parcalar = n.textContent.split(/(\s+)/);
+          var kap = document.createDocumentFragment();
+          parcalar.forEach(function (p) {
+            if (!p) return;
+            if (/^\s+$/.test(p)) { kap.appendChild(document.createTextNode(p)); return; }
+            var d = document.createElement('span'); d.className = 'kelime';
+            var i = document.createElement('span'); i.textContent = p; i.style.setProperty('--i', sira++);
+            d.appendChild(i); kap.appendChild(d);
+          });
+          n.parentNode.replaceChild(kap, n);
+        } else if (n.nodeType === 1 && !n.classList.contains('kelime')) { sar(n); }
+      });
+    }
+    basliklar.forEach(sar);
+  }
+
+  /* ---- ortaklık halkası: legend üzerine gelince dilim vurgulanır ---- */
+  document.querySelectorAll('.info-halka').forEach(function (h) {
+    var dilimler = h.querySelectorAll('circle.dilim');
+    h.querySelectorAll('li').forEach(function (li, i) {
+      li.addEventListener('mouseenter', function () { h.classList.add('vurgulu'); dilimler.forEach(function (d, j) { d.classList.toggle('secili', i === j); }); });
+      li.addEventListener('mouseleave', function () { h.classList.remove('vurgulu'); dilimler.forEach(function (d) { d.classList.remove('secili'); }); });
+    });
+  });
+
+  /* ---- ortak logoları: akan şerit (sayfada bir kez; hareket azaltmada durağan duvar) ---- */
+  var duvar = document.querySelector('.logo-duvari');
+  if (duvar && !azHareket) {
+    var ic = document.createElement('div');
+    ic.className = 'kayan-ic';
+    while (duvar.firstChild) ic.appendChild(duvar.firstChild);
+    var kopya = ic.cloneNode(true);
+    kopya.setAttribute('aria-hidden', 'true');
+    kopya.querySelectorAll('a').forEach(function (a) { a.tabIndex = -1; });
+    duvar.appendChild(ic); duvar.appendChild(kopya);
+    duvar.classList.add('kayan');
+  }
+
+  /* ---- hero yörüngesi fareyi izler (pointermove; scroll dinleyicisi değil) ---- */
+  var heroAlan = document.querySelector('.hero');
+  var heroYorunge = heroAlan && heroAlan.querySelector('.yorunge');
+  if (heroYorunge && !azHareket && window.matchMedia('(pointer: fine)').matches) {
+    var bekleyen = null;
+    heroAlan.addEventListener('pointermove', function (e) {
+      if (bekleyen) return;
+      bekleyen = requestAnimationFrame(function () {
+        bekleyen = null;
+        var r = heroAlan.getBoundingClientRect();
+        var fx = ((e.clientX - r.left) / r.width - 0.5) * 2;
+        var fy = ((e.clientY - r.top) / r.height - 0.5) * 2;
+        heroYorunge.style.setProperty('--fx', fx.toFixed(3));
+        heroYorunge.style.setProperty('--fy', fy.toFixed(3));
+      });
+    });
+    heroAlan.addEventListener('pointerleave', function () {
+      heroYorunge.style.setProperty('--fx', '0'); heroYorunge.style.setProperty('--fy', '0');
+    });
+  }
+
   /* ---- infografikler: görünür olunca canlanır ---- */
   var infolar = document.querySelectorAll('[data-canli]');
   if (infolar.length) {

@@ -366,6 +366,177 @@ p{margin:0}
   .ust-alt a{padding:12px 0 12px 20px;font-size:15.5px;color:var(--metin-soluk);border-bottom:1px solid var(--cizgi)}
 }
 
+/* ============ hareket katmanı (sürüm 2) ============ */
+/* sayfa girişi */
+main{animation:sayfaGir .6s var(--gecis) both}
+@keyframes sayfaGir{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* hero: kademeli giriş */
+.hero h1,.hero .giris,.hero-dugmeler,.hero-adres{animation:yukariGel .8s var(--gecis) both}
+.hero .giris{animation-delay:.12s}.hero-dugmeler{animation-delay:.24s}.hero-adres{animation-delay:.36s}
+.hero-gorsel{animation:yorungeGir 1.1s var(--gecis) both;animation-delay:.15s}
+@keyframes yukariGel{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes yorungeGir{from{opacity:0;transform:scale(.92) rotate(-6deg)}to{opacity:1;transform:none}}
+/* el yazısı ok kendini çizer */
+.hero-not .el{animation:yukariGel .6s var(--gecis) both;animation-delay:1s}
+.hero-not svg path{stroke-dasharray:140;stroke-dashoffset:140;animation:cizil 1s ease-out forwards;animation-delay:1.3s}
+@keyframes cizil{to{stroke-dashoffset:0}}
+
+/* yörünge yayları: sürekli yavaş dönüş (iç grup) + kaydırmayla dönüş (dış grup, yukarıda) */
+.yorunge .yay-donen{transform-box:view-box;transform-origin:73.59px 79.64px;animation:yaySurekli 40s linear infinite}
+@keyframes yaySurekli{to{transform:rotate(360deg)}}
+.yorunge:hover .yay-donen{animation-duration:14s}
+/* dairesel fotoğraf nefes alır */
+.yorunge .yorunge-foto{animation:nefes 9s ease-in-out infinite alternate}
+@keyframes nefes{from{transform:scale(1)}to{transform:scale(1.035)}}
+.yorunge .yorunge-sayi b{transition:transform .4s var(--gecis)}
+.yorunge:hover .yorunge-sayi b{transform:scale(1.06)}
+/* fare takibi (betik .yorunge'ye --fx/--fy yazar) */
+.hero .yorunge svg{transform:translate(calc(var(--fx,0) * 10px),calc(var(--fy,0) * 10px));transition:transform .5s var(--gecis)}
+.hero .yorunge .yorunge-foto{translate:calc(var(--fx,0) * -6px) calc(var(--fy,0) * -6px);transition:translate .5s var(--gecis)}
+
+/* üst bar kaydırınca incelir; hero görseli yazıdan yavaş kayar */
+@supports (animation-timeline: scroll()){
+  .ust-ic{animation:ustIncel linear both;animation-timeline:scroll();animation-range:0 160px}
+  .ust-logo img{animation:logoKucul linear both;animation-timeline:scroll();animation-range:0 160px}
+  @keyframes ustIncel{to{height:60px}}
+  @keyframes logoKucul{to{height:28px}}
+  .hero-gorsel{animation-name:yorungeGir,heroParalaks;animation-duration:1.1s,1s;animation-timing-function:var(--gecis),linear;animation-fill-mode:both,both;animation-delay:.15s,0s;animation-timeline:auto,scroll();animation-range:normal,0 700px}
+  @keyframes heroParalaks{to{translate:0 -60px}}
+}
+
+/* ortak logoları: akan şerit (betik .kayan sınıfını ekler ve içeriği ikiler) */
+.logo-duvari.kayan{justify-content:flex-start;flex-wrap:nowrap;gap:0;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.logo-duvari.kayan .kayan-ic{display:flex;align-items:center;gap:56px;padding-right:56px;flex:none;animation:kay 38s linear infinite}
+.logo-duvari.kayan:hover .kayan-ic{animation-play-state:paused}
+@keyframes kay{to{transform:translateX(-100%)}}
+
+/* listeler kademeli belirir */
+.neden-liste li:nth-child(2){transition-delay:.08s}.neden-liste li:nth-child(3){transition-delay:.16s}.neden-liste li:nth-child(4){transition-delay:.24s}.neden-liste li:nth-child(5){transition-delay:.32s}
+.adim:nth-child(2){transition-delay:.15s}.adim:nth-child(3){transition-delay:.3s}
+.faal-satir:nth-child(2){transition-delay:.12s}.faal-satir:nth-child(3){transition-delay:.24s}
+.haber-kart:nth-child(2){transition-delay:.08s}.haber-kart:nth-child(3){transition-delay:.16s}.haber-kart:nth-child(4){transition-delay:.24s}.haber-kart:nth-child(5){transition-delay:.32s}.haber-kart:nth-child(6){transition-delay:.4s}
+
+/* adım çizgileri çizilir, rakam oynar */
+.adim{border-top-color:transparent}
+.adim::before{content:"";position:absolute;left:0;top:-2px;height:2px;width:100%;background:var(--charcoal);transform:scaleX(0);transform-origin:left;transition:transform .9s var(--gecis) .1s}
+.adim.gorundu::before{transform:scaleX(1)}
+.adim .no{display:inline-block;transition:transform .4s var(--gecis)}
+.adim:hover .no{transform:translateX(6px) rotate(-6deg)}
+
+/* neden satırları hover */
+.neden-liste li{transition:opacity .45s var(--gecis),transform .45s var(--gecis),background .3s,padding-left .3s}
+.neden-liste li:hover{background:linear-gradient(90deg,var(--porcelain),transparent 70%);padding-left:12px}
+.neden-liste li .no{transition:transform .3s var(--gecis)}
+.neden-liste li:hover .no{transform:scale(1.25)}
+
+/* görsellerde hover yakınlaşma */
+.faal-buyuk a{display:block;overflow:hidden}
+.faal-buyuk img,.haber-kart img,.galeri img,.temsili img{transition:transform .8s var(--gecis)}
+.faal-buyuk a:hover img,.haber-kart:hover img,.galeri img:hover,.temsili:hover img{transform:scale(1.04)}
+.haber-kart{overflow:hidden}
+.faal-satir img{transition:transform .5s var(--gecis)}
+.faal-satir:hover img{transform:scale(1.08) rotate(-3deg)}
+.faal-satir .faal-yazi{transition:background .3s,color .3s}
+.faal-satir:hover .faal-yazi{background:var(--lava);color:var(--beyaz)}
+
+/* düğmeler: hover'da yükselir, ok kayar */
+.dugme{transition:transform .25s var(--gecis),background .18s,color .18s,border-color .18s,box-shadow .25s}
+.dugme:hover{transform:translateY(-2px)}
+.dugme-birincil:hover{box-shadow:0 10px 26px rgba(225,37,27,.28)}
+.dugme svg{transition:transform .25s var(--gecis)}
+.dugme:hover svg{transform:translateX(4px)}
+.devam{transition:letter-spacing .25s,color .2s}
+.devam:hover{letter-spacing:.02em}
+
+/* çipler, sekmeler, akordeon */
+.cip{transition:transform .25s var(--gecis)}
+.haber-kart:hover .cip{transform:translateY(-2px)}
+.profil-panel.aktif{animation:yukariGel .45s var(--gecis) both}
+.profil-sekme{transition:background .18s,color .18s,border-color .18s,transform .2s var(--gecis)}
+.profil-sekme:hover{transform:translateY(-2px)}
+.sss details[open] .sss-govde{animation:yukariGel .4s var(--gecis) both}
+
+/* zaman çizelgesinde yaklaşan etkinlik nabız atar */
+.info-zaman li.gelecek::before{animation:nabiz 2.4s ease-in-out infinite}
+@keyframes nabiz{0%,100%{box-shadow:0 0 0 0 rgba(255,181,72,.55)}50%{box-shadow:0 0 0 9px rgba(255,181,72,0)}}
+
+/* arka plan filigranı: porselen bölümlerde yavaş dönen soluk yay */
+.zemin-porcelain{position:relative;overflow:hidden}
+.zemin-porcelain > .ic{position:relative;z-index:1}
+.zemin-porcelain::before{content:"";position:absolute;right:-12vw;top:-18vw;width:46vw;height:46vw;border-radius:50%;border:2.2vw solid;border-color:var(--lava) transparent var(--lava) transparent;opacity:.05;animation:filigran 80s linear infinite;pointer-events:none}
+@keyframes filigran{to{transform:rotate(360deg)}}
+
+/* asistan düğmesi bir kez selam verir */
+.ftz-as-ac{animation:asistanSelam 1.2s var(--gecis) 2.2s both}
+@keyframes asistanSelam{0%{transform:scale(.6);opacity:0}60%{transform:scale(1.12);opacity:1}100%{transform:none;opacity:1}}
+
+@media (prefers-reduced-motion: reduce){
+  main,.hero h1,.hero .giris,.hero-dugmeler,.hero-adres,.hero-gorsel,.hero-not .el,.hero-not svg path,.yorunge .yay-donen,.yorunge .yorunge-foto,.ust-ic,.ust-logo img,.logo-duvari.kayan .kayan-ic,.profil-panel.aktif,.sss details[open] .sss-govde,.info-zaman li.gelecek::before,.zemin-porcelain::before,.ftz-as-ac{animation:none !important}
+  .hero-not svg path{stroke-dashoffset:0}
+  .adim{border-top-color:var(--charcoal)}
+  .adim::before{display:none}
+  .logo-duvari.kayan{flex-wrap:wrap;mask-image:none;-webkit-mask-image:none}
+  .hero .yorunge svg,.hero .yorunge .yorunge-foto{transform:none;translate:0 0}
+}
+@media (max-width:900px){
+  .zemin-porcelain::before{width:80vw;height:80vw;right:-30vw;top:-30vw;border-width:4vw}
+}
+
+/* ============ sürüm 2: vurucu hero ============ */
+/* başlık kelime kelime açılır (betik kelimeleri sarar) */
+.hero h1{animation:none}
+.kelime{display:inline-block;overflow:hidden;vertical-align:bottom;padding:0 .04em .14em 0;margin-bottom:-.14em}
+.kelime > span{display:inline-block;transform:translateY(112%);animation:kelimeGel .8s var(--gecis) forwards;animation-delay:calc(var(--i) * 75ms + .1s)}
+@keyframes kelimeGel{to{transform:none}}
+/* arka planda yavaş dönen kesikli halkalar */
+.hero{overflow:hidden}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;border:1px dashed rgba(59,74,89,.22);pointer-events:none;z-index:0}
+.hero::before{width:62vw;height:62vw;right:-14vw;top:50%;translate:0 -50%;animation:filigran 140s linear infinite}
+.hero::after{width:46vw;height:46vw;right:-6vw;top:50%;translate:0 -50%;border-style:solid;border-color:rgba(225,37,27,.10) transparent transparent transparent;border-width:2px;animation:filigran 26s linear infinite reverse}
+.hero .ic{position:relative;z-index:1}
+/* uydular: yörüngede dönen gerçek rakam çipleri */
+.uydular{position:absolute;left:32px;top:12px;right:0;bottom:0;pointer-events:none;animation:filigran 70s linear infinite;z-index:2}
+.uydu{position:absolute;left:50%;top:50%;width:0;height:0;transform:rotate(var(--a))}
+.uydu-ic{position:absolute;left:0;top:0;translate:var(--r) 0;animation:uyduTers 70s linear infinite}
+@keyframes uyduTers{from{transform:translate(-50%,-50%) rotate(calc(-1 * var(--a)))}to{transform:translate(-50%,-50%) rotate(calc(-1 * var(--a) - 360deg))}}
+.uydu-ic span{display:inline-flex;align-items:baseline;gap:6px;white-space:nowrap;background:var(--beyaz);border:1px solid var(--cizgi);border-radius:999px;padding:7px 13px 7px 10px;font-family:var(--mono);font-size:11.5px;color:var(--metin-soluk);box-shadow:0 8px 22px rgba(59,74,89,.14);pointer-events:auto}
+.uydu-ic b{font-family:var(--serif);font-weight:400;font-size:20px;line-height:1;color:var(--lava)}
+.hero .yorunge{z-index:1}
+@media (max-width:900px){.uydular{display:none}.hero::before,.hero::after{display:none}}
+
+/* vurgu bandı: sayfada tek koyu blok */
+.vurgu-bant{position:relative;overflow:hidden;background:var(--charcoal-koyu);color:var(--beyaz);padding:88px 0}
+.vurgu-bant::before{content:"";position:absolute;left:-14vw;top:-40vw;width:70vw;height:70vw;border-radius:50%;border:3vw solid;border-color:var(--lava) transparent var(--lava) transparent;opacity:.16;animation:filigran 110s linear infinite;pointer-events:none}
+.vurgu-bant .ic{position:relative;z-index:1}
+.vurgu-bant h2{color:var(--beyaz);font-size:clamp(34px,4.6vw,64px);max-width:16ch}
+.vurgu-bant h2 em{color:var(--butter);font-style:italic}
+.vurgu-rakam{margin:48px 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.vurgu-rakam div{border-top:1px solid rgba(255,255,255,.22);padding-top:16px}
+.vurgu-rakam dt{font-family:var(--serif);font-size:clamp(40px,4.4vw,64px);line-height:1;color:var(--beyaz)}
+.vurgu-rakam dd{margin:8px 0 0;font-family:var(--mono);font-size:12.5px;color:#B9C4CF;letter-spacing:.02em}
+.vurgu-bant .el{color:var(--butter);margin-top:26px}
+@media (max-width:900px){.vurgu-rakam{grid-template-columns:1fr 1fr;gap:22px}.vurgu-bant{padding:64px 0}}
+
+/* akışkan infografik ekleri */
+.info-akis .paket{fill:var(--butter);stroke:var(--beyaz);stroke-width:2}
+.info-yolculuk .gezgin{fill:var(--lava);stroke:var(--beyaz);stroke-width:3;opacity:0;transition:opacity .4s 2.2s}
+.info-yolculuk.canli .gezgin{opacity:1}
+.info-yorunge .bag{stroke:var(--lava);stroke-width:1.2;stroke-dasharray:4 8;opacity:.55;animation:infoAk 1.6s linear infinite}
+.info-yorunge .dugum circle{transition:stroke-width .25s,fill .25s}
+.info-yorunge .dugum:hover circle{stroke-width:4}
+.info-yorunge .dugum.kirmizi:hover circle{stroke:var(--butter)}
+.info-halka svg circle.dilim{transition:stroke-dasharray var(--info-sure) var(--gecis),opacity .3s,stroke-width .3s}
+.info-halka.vurgulu svg circle.dilim{opacity:.25}
+.info-halka.vurgulu svg circle.dilim.secili{opacity:1;stroke-width:32}
+.info-halka li{transition:padding-left .25s var(--gecis);cursor:default}
+.info-halka li:hover{padding-left:8px}
+@media (prefers-reduced-motion: reduce){
+  .kelime > span{transform:none;animation:none}
+  .hero::before,.hero::after,.uydular,.uydu-ic,.vurgu-bant::before,.info-yorunge .bag{animation:none !important}
+  .info-yolculuk .gezgin{opacity:0}
+}
+
 /* ============ infografikler ============ */
 .info{--info-sure:1.2s}
 .info svg{width:100%;height:auto;overflow:visible}

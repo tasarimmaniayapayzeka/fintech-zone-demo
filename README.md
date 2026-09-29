@@ -18,6 +18,12 @@ node kur.js
 
 WordPress'e geçişte: `ust.html` → `header.php`, `alt.html` → `footer.php`, sayfa gövdeleri → Klasik Editör içeriği, infografikler ve profil seçici → kısa kod.
 
+## Sürümler
+
+- **Sürüm 1 (durağan, 29 Eylül):** `v1/` klasörü ve git etiketi `v1`. Canlıda https://tasarimmaniayapayzeka.github.io/fintech-zone-demo/v1/ . Elle düzenlenmez.
+- **Sürüm 2 (hareketli, 29 Eylül, kök dizin):** hareket katmanı eklendi. Hero: kelime kelime maskeli başlık, videonun çevresinde gerçek rakamlı dört "uydu" çipi (7 ortak, 30 girişim, 20 mentör, 1.935 dk), yavaş dönen kesikli halkalar, fare takibi; yaylar sürekli döner, dairesel fotoğraf nefes alır; koyu **vurgu bandı** (sayfadaki tek koyu blok, dört sayaç); ortak logoları akan şerit; listeler kademeli belirir, adım çizgileri çizilir; hover'da görsel yakınlaşma, düğme yükselme; üst bar kaydırınca incelir; porselen bölümlerde dönen yay filigranı. İnfografikler: Gate akışında bağlantı üzerinde hareket eden paketler, kuluçka yolunda ilerleyen nokta, yörüngede merkezden düğümlere akan bağlar, halkada legend hover'ı. Hepsi `prefers-reduced-motion`'da kapanır; 375 px'te uydular ve arka plan halkaları gizlenir.
+- Kaynak: Figma C yönü şablonlarındaki "yörüngede büyük rakam", tarih çipi ve el yazısı not dili hero ve vurgu bandına taşındı.
+
 ## Yayın adresleri (29 Eylül 2026)
 
 - **GitHub Pages:** https://tasarimmaniayapayzeka.github.io/fintech-zone-demo/ (depo `tasarimmaniayapayzeka/fintech-zone-demo`, herkese açık, sayfalar `noindex`). Güncellemek için: `node kur.js`, sonra `git add -A; git commit -m "..."; git push`. Pages 1-2 dakikada yeniler.
