@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fintech Zone · üç yön, üç konsept demosu</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../logo/o-ikon-renkli.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="konsept.css">
+<style>
+body{background:#F2F2F2;color:#3B4A59}
+.bas{padding:120px var(--kenar) 40px;max-width:var(--ic);margin:0 auto}
+.bas h1{font-size:clamp(38px,5vw,68px);max-width:16ch;line-height:1}
+.bas h1 em{color:#E1251B;font-style:italic}
+.bas p{color:#66727F;max-width:64ch;margin-top:18px;font-size:18px}
+.yonler{max-width:var(--ic);margin:0 auto;padding:0 var(--kenar) 96px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.yon{border-radius:20px;overflow:hidden;min-height:520px;display:flex;flex-direction:column;justify-content:space-between;padding:32px;position:relative;transition:transform .35s var(--gecis),box-shadow .35s}
+.yon:hover{transform:translateY(-6px);box-shadow:0 30px 70px rgba(59,74,89,.22)}
+.yon .mono{opacity:.8}
+.yon h2{font-size:34px;margin-top:10px;line-height:1.05}
+.yon p{font-size:15px;margin-top:12px;opacity:.85;max-width:34ch}
+.yon .liste{font-family:var(--mono);font-size:12px;letter-spacing:.04em;line-height:1.8;opacity:.85;margin-top:18px}
+.yon .dugme{align-self:flex-start;margin-top:22px}
+.yon-a{background:radial-gradient(120% 90% at 70% 30%,#2E3B48,#141A20);color:#fff}
+.yon-a::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;border:26px solid;border-color:#E1251B transparent #E1251B transparent;opacity:.5}
+.yon-b{background:#fff url("../gorsel/bina-meydan-800.webp") center/cover;color:#fff}
+.yon-b::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,20,23,.2),rgba(15,20,23,.85))}
+.yon-b>*{position:relative}
+.yon-c{background:#00363D;color:#E6F0F1;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:32px 32px}
+.yon-c::after{content:"";position:absolute;right:-40px;bottom:-40px;width:220px;height:220px;border-radius:50%;border:1px dashed rgba(63,193,204,.6);box-shadow:inset 0 0 0 30px rgba(63,193,204,.06)}
+.karsi{max-width:var(--ic);margin:0 auto;padding:0 var(--kenar) 96px}
+.karsi table{width:100%;border-collapse:collapse;font-size:15px;background:#fff;border-radius:16px;overflow:hidden}
+.karsi th,.karsi td{text-align:left;padding:14px 18px;border-bottom:1px solid #E3E7EA;vertical-align:top}
+.karsi th{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#66727F;font-weight:500}
+.karsi td:first-child{font-weight:500;width:22%}
+@media (max-width:900px){.yonler{grid-template-columns:1fr}.yon{min-height:420px}.karsi{overflow-x:auto}.karsi table{min-width:720px}}
+</style>
+</head>
+<body>
+<div class="k-serit"><b>KONSEPT DEMOLARI</b><span>Fintech Zone İstanbul · üç ayrı yön · her biri çalışan sayfa</span><nav><a href="a-yorunge-3d.html">A</a><a href="b-sinematik.html">B</a><a href="c-terminal.html">C</a><a class="aktif" href="index.html">Karşılaştır</a><a href="../index.html">Sürüm 2</a></nav></div>
+
+<div class="bas">
+  <span class="cip">Yeni yön arayışı</span>
+  <h1 style="margin-top:16px">Eski siteye benzemeyen <em>üç yol.</em></h1>
+  <p>Sürüm 1 ve 2 eski sitenin "hero + bölümler" iskeletini koruyordu. Buradaki üç konsept iskeleti kırar: kaydırmaya kilitlenen sahneler, üç boyutlu yörünge, harflerin içinde yaşayan fotoğraf, kendini yazan terminal. Hepsi resmi renk ve fontlarla, yalnız gerçek rakam ve görselle. Birini seçin, o yönde 13 sayfanın tamamı kurulsun.</p>
+</div>
+
+<div class="yonler">
+  <a class="yon yon-a" href="a-yorunge-3d.html">
+    <div><span class="mono">Konsept A</span><h2>Yörünge 3D</h2><p>Koyu sinematik zemin. Kampüs videosu üç boyutlu yörüngenin merkezinde; yaylar ve halkalar uzayda döner, kamera fareyi ve kaydırmayı izler.</p><div class="liste">Three.js sahne · sabitlenen beş başlık · yatay Fintech Gate turu · 3D halka carousel · fotoğraftan açılan haber</div></div>
+    <span class="dugme dugme-lava">Demoyu aç</span>
+  </a>
+  <a class="yon yon-b" href="b-sinematik.html">
+    <div><span class="mono">Konsept B</span><h2>Finans Kenti Sinematik</h2><p>Açık zemin, dergi tadı. Tam ekran gerçek fotoğraf ve üstünde yaşayan ışık; "İFM'nin içinde" harflerinin içinde kayan siluet.</p><div class="liste">canvas ışık + gren · harf maskesi · yatay kampüs turu · yığılan kartlar · dev rakamlar · dergi düzeni iç sayfa</div></div>
+    <span class="dugme dugme-butter">Demoyu aç</span>
+  </a>
+  <a class="yon yon-c" href="c-terminal.html">
+    <div><span class="mono">Konsept C</span><h2>Terminal</h2><p>Sherpa koyu zemin, fintek ürün arayüzü hissi. Akan veri şeridi, sürüklenen parçacık küre üstünde İstanbul ve Nijerya rotası, kendini yazan başvuru terminali.</p><div class="liste">veri şeridi · Three.js küre · metrik konsolu · terminal · Fintech Gate konsolu ve olay kaydı</div></div>
+    <span class="dugme dugme-butter">Demoyu aç</span>
+  </a>
+</div>
+
+<div class="karsi">
+  <table>
+    <thead><tr><th>Ölçüt</th><th>A · Yörünge 3D</th><th>B · Finans Kenti Sinematik</th><th>C · Terminal</th></tr></thead>
+    <tbody>
+      <tr><td>His</td><td>Vurucu, kurumsal-sinematik, teknoloji</td><td>Prestijli, editoryal, insan ve mekân</td><td>Fintek ürünü gibi, veri odaklı, keskin</td></tr>
+      <tr><td>Kime iyi gelir</td><td>Girişimler ve yatırımcılar; sahne etkisi</td><td>Kurumlar, kamu, basın; güven ve mekân</td><td>Teknik ekipler, bankaların dijital birimleri</td></tr>
+      <tr><td>Teknik</td><td>Three.js + GSAP ScrollTrigger; en ağır</td><td>GSAP + canvas; orta</td><td>Three.js küre + GSAP; orta</td></tr>
+      <tr><td>Mobil</td><td>3D soluklaşır, yatay tur dikeye döner</td><td>Yatay tur dikeye, kartlar sade akar</td><td>Küre soluklaşır, konsol iki sütuna iner</td></tr>
+      <tr><td>WordPress'e taşıma</td><td>Sahneler kısa kod, içerik Klasik Editör</td><td>En kolay: bölümler düz HTML</td><td>Konsol ve terminal kısa kod</td></tr>
+      <tr><td>Risk</td><td>Eski cihazlarda performans; yedek poster gerekir</td><td>Fotoğraf kalitesine bağımlı</td><td>Kamu tarafına fazla "ürün" gelebilir</td></tr>
+    </tbody>
+  </table>
+</div>
+<footer class="k-alt"><span>Fintech Zone İstanbul · tasarım önerisi (demo) · TasarımMania</span><span>29-30 Eylül 2026</span></footer>
+</body>
+</html>

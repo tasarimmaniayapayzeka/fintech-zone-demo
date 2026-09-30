@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Konsept C · Terminal | Fintech Zone İstanbul demo</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../logo/o-ikon-beyaz.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="konsept.css">
+<style>
+body{background:var(--sherpa-koyu);color:#E6F0F1;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:64px 64px}
+.k-ust{color:#fff}
+/* ---------- veri şeridi ---------- */
+.c-serit{position:fixed;left:0;right:0;top:34px;z-index:90;background:var(--sherpa);border-bottom:1px solid rgba(255,255,255,.12);overflow:hidden;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:#CFE6E8;height:34px;display:flex;align-items:center}
+.c-serit-ic{display:flex;gap:44px;white-space:nowrap;padding-left:44px;flex:none;animation:kay 46s linear infinite}
+.c-serit:hover .c-serit-ic{animation-play-state:paused}
+.c-serit b{color:var(--butter);font-weight:500}
+.c-serit i{font-style:normal;color:var(--teal-acik)}
+@keyframes kay{to{transform:translateX(-100%)}}
+.k-ust{top:74px}
+
+/* ---------- hero: parçacık küre ---------- */
+.c-hero{position:relative;min-height:100dvh;overflow:hidden}
+#kure{position:absolute;inset:0;width:100%;height:100%;cursor:grab}
+#kure:active{cursor:grabbing}
+.c-hero-ic{position:relative;z-index:2;min-height:100dvh;display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);align-items:center;padding-top:140px;padding-bottom:60px;pointer-events:none}
+.c-hero-ic > *{pointer-events:auto}
+.c-hero .ust-yazi{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-acik);display:flex;align-items:center;gap:10px}
+.c-hero .ust-yazi::before{content:"";width:8px;height:8px;border-radius:999px;background:var(--butter);box-shadow:0 0 0 0 rgba(255,181,72,.6);animation:nabiz 2s infinite}
+@keyframes nabiz{70%{box-shadow:0 0 0 10px rgba(255,181,72,0)}100%{box-shadow:0 0 0 0 rgba(255,181,72,0)}}
+.c-hero h1{font-size:clamp(44px,6.4vw,96px);line-height:.98;color:#fff;margin-top:20px;max-width:12ch}
+.c-hero h1 em{font-style:italic;color:var(--butter)}
+.c-hero p{color:#B9D3D6;font-size:18px;max-width:44ch;margin-top:24px}
+.c-hero .dugmeler{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.c-hero .dugme-cizgi{color:#fff}
+.c-rota{position:absolute;left:var(--kenar);bottom:36px;z-index:3;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:#B9D3D6;display:grid;gap:8px}
+.c-rota span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:999px;margin-right:10px;vertical-align:middle;background:var(--butter)}
+.c-rota span:nth-child(2)::before{background:var(--teal-acik)}
+@media (max-width:900px){.c-hero-ic{grid-template-columns:1fr;padding-top:150px}#kure{opacity:.6}.c-rota{position:static;margin:0 var(--kenar) 32px}}
+
+/* ---------- konsol: metrikler ---------- */
+.c-konsol{padding:110px 0;border-top:1px solid rgba(255,255,255,.1)}
+.c-konsol h2{font-size:clamp(34px,4.4vw,60px);color:#fff}
+.c-konsol h2 em{color:var(--butter);font-style:italic}
+.c-konsol .giris{color:#B9D3D6;max-width:60ch;margin-top:12px}
+.c-panel{margin-top:44px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);border-radius:16px;overflow:hidden}
+.c-kutu{background:var(--sherpa-koyu);padding:28px;min-height:190px;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+.c-kutu .etiket{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#8FB7BB}
+.c-kutu .deger{font-family:var(--serif);font-size:clamp(44px,4.6vw,72px);line-height:1;color:#fff}
+.c-kutu .deger.butter{color:var(--butter)}
+.c-kutu .alt{font-family:var(--mono);font-size:11.5px;color:#8FB7BB;letter-spacing:.04em}
+.c-kutu.genis{grid-column:span 2}
+.c-kutu .cubuk{height:6px;background:rgba(255,255,255,.1);border-radius:999px;overflow:hidden;margin-top:14px}
+.c-kutu .cubuk i{display:block;height:100%;width:0;background:var(--teal-acik);transition:width 1.6s var(--gecis)}
+.c-kutu.canli .cubuk i{width:var(--w)}
+.c-halka{position:absolute;right:22px;top:22px;width:92px;height:92px}
+.c-halka circle{fill:none;stroke-width:8}
+.c-halka .zemin{stroke:rgba(255,255,255,.12)}
+.c-halka .ilerle{stroke:var(--butter);stroke-linecap:round;stroke-dasharray:264;stroke-dashoffset:264;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset 1.8s var(--gecis)}
+.c-kutu.canli .c-halka .ilerle{stroke-dashoffset:0}
+@media (max-width:900px){.c-panel{grid-template-columns:1fr 1fr}.c-kutu.genis{grid-column:span 2}}
+
+/* ---------- terminal: başvuru süreci ---------- */
+.c-term{padding:110px 0;border-top:1px solid rgba(255,255,255,.1)}
+.c-term-ic{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}
+.c-term h2{font-size:clamp(34px,4.4vw,60px);color:#fff}
+.c-term h2 em{color:var(--teal-acik);font-style:italic}
+.c-term .giris{color:#B9D3D6;margin-top:14px;max-width:44ch}
+.terminal{background:#02272C;border:1px solid rgba(255,255,255,.14);border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.4);font-family:var(--mono);font-size:14px;line-height:1.8;overflow:hidden}
+.terminal .bar{display:flex;gap:8px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.1)}
+.terminal .bar i{width:11px;height:11px;border-radius:999px;background:rgba(255,255,255,.18)}
+.terminal .bar i:first-child{background:var(--lava)} .terminal .bar i:nth-child(2){background:var(--butter)} .terminal .bar i:nth-child(3){background:var(--teal-acik)}
+.terminal .govde{padding:20px 22px;min-height:300px;color:#CFE6E8}
+.terminal .satir{white-space:pre-wrap;opacity:0}
+.terminal .satir.ok::before{content:"✓ ";color:var(--teal-acik)}
+.terminal .satir.in::before{content:"> ";color:var(--butter)}
+.terminal .satir.not{color:#8FB7BB}
+.terminal .imlec{display:inline-block;width:9px;height:17px;background:var(--butter);vertical-align:-3px;animation:imlec 1s steps(2) infinite}
+@keyframes imlec{50%{opacity:0}}
+@media (max-width:900px){.c-term-ic{grid-template-columns:1fr}}
+
+/* ---------- iç sayfa: fintech gate konsolu ---------- */
+.c-gate{padding:110px 0;border-top:1px solid rgba(255,255,255,.1)}
+.c-gate h2{font-size:clamp(34px,4.4vw,60px);color:#fff}
+.c-gate h2 em{color:var(--butter);font-style:italic}
+.c-gate-ic{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:48px;margin-top:40px;align-items:start}
+.c-akis{background:#02272C;border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:28px}
+.c-akis svg{width:100%;height:auto}
+.c-akis text{font-family:var(--mono);font-size:12px;fill:#CFE6E8;text-anchor:middle;letter-spacing:.06em}
+.c-akis .kutu{fill:none;stroke:#8FB7BB;stroke-width:1.2}
+.c-akis .merkez{fill:var(--butter)}
+.c-akis .merkez-t{fill:#02272C;font-size:13px;font-weight:500}
+.c-akis .hat{fill:none;stroke:#8FB7BB;stroke-width:1;stroke-dasharray:4 6;animation:ak 1.4s linear infinite}
+@keyframes ak{to{stroke-dashoffset:-20}}
+.c-akis .paket{fill:var(--teal-acik)}
+.c-log{background:#02272C;border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:22px;font-family:var(--mono);font-size:13px}
+.c-log .etiket{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8FB7BB;margin-bottom:14px}
+.c-log ol{list-style:none;margin:0;padding:0}
+.c-log li{display:grid;grid-template-columns:96px 1fr;gap:14px;padding:10px 0;border-top:1px solid rgba(255,255,255,.08);color:#CFE6E8}
+.c-log li time{color:var(--butter)}
+.c-log li.gelecek{color:#8FB7BB}
+.c-log li.gelecek time{color:var(--teal-acik)}
+@media (max-width:900px){.c-gate-ic{grid-template-columns:1fr}}
+.k-not{color:#B9D3D6}.k-not h3{color:#fff}
+</style>
+</head>
+<body>
+<div class="k-serit"><b>KONSEPT C · TERMİNAL</b><span>Fintech Zone İstanbul için yön demosu · yalnız gerçek rakam ve görsel</span><nav><a href="a-yorunge-3d.html">A</a><a href="b-sinematik.html">B</a><a class="aktif" href="c-terminal.html">C</a><a href="index.html">Karşılaştır</a><a href="../index.html">Sürüm 2</a></nav></div>
+<div class="c-serit" aria-hidden="true"><div class="c-serit-ic" id="serit"><span><b>7</b> kurucu ortak</span><span><b>30</b> girişim <i>ilk Fintech Gate dönemi</i></span><span><b>20</b> mentör</span><span><b>32</b> oturum</span><span><b>288</b> soru-cevap</span><span><b>1.935</b> dakika görüşme</span><span><i>22.09.2026</i> Kurumsal Paydaşlar Çalıştayı, İFM</span><span><i>23.09.2026</i> Webinar 1. bölüm: Bayram Tuzcu</span><span><i>09-10.09.2026</i> GITEX AI Türkiye, CBYFO standı</span><span><i>08.2026</i> Nijerya heyeti ziyareti</span><span><b>TÜBİTAK 1707</b> çağrısı açık</span></div></div>
+<div class="gren" aria-hidden="true"></div>
+
+<header class="k-ust">
+  <a href="c-terminal.html"><img src="../logo/ftz-logo-beyaz.svg" alt="Fintech Zone İstanbul"></a>
+  <nav class="k-menu"><a href="#konsol">Rakamlar</a><a href="#basvuru">Başvuru</a><a href="#gate">Fintech Gate</a></nav>
+  <a class="dugme dugme-butter" href="https://portal.fintech.zone/" target="_blank" rel="noopener">Ön Başvuru</a>
+</header>
+
+<!-- HERO -->
+<section class="c-hero">
+  <canvas id="kure" aria-label="Parçacık küre: İstanbul ve Lagos arasındaki rota"></canvas>
+  <div class="ic c-hero-ic">
+    <div>
+      <div class="ust-yazi">Türkiye'nin fintek teknoparkı</div>
+      <h1>Veriyle konuşan <em>teknopark.</em></h1>
+      <p>İstanbul Finans Merkezi'nin içinde; girişimler, kurumlar ve düzenleyiciler aynı ağda. Rakamlar gerçek, ekran canlı.</p>
+      <div class="dugmeler"><a class="dugme dugme-butter" href="https://portal.fintech.zone/" target="_blank" rel="noopener">Ön Başvuru</a><a class="dugme dugme-cizgi" href="#konsol">Rakamlara bakın</a></div>
+    </div>
+    <div></div>
+  </div>
+  <div class="c-rota"><span>İstanbul · Fintech Zone, İFM</span><span>Lagos · Nijerya finans ve akademi heyeti, Ağustos 2026</span></div>
+</section>
+
+<!-- KONSOL -->
+<section class="c-konsol" id="konsol">
+  <div class="ic">
+    <span class="cip">İlk Fintech Gate dönemi</span>
+    <h2 style="margin-top:14px">Rakamlar <em>canlı.</em></h2>
+    <p class="giris">Her kutu gerçek bir sayıdır; türetilmiş ortalamalar kaynağıyla yazılır. Sayfa açılınca sayar, halkalar dolar.</p>
+    <div class="c-panel">
+      <div class="c-kutu" data-canli><span class="etiket">Girişim</span><span class="deger butter" data-sayac="30">0</span><span class="alt">seçildi, ilk dönem</span></div>
+      <div class="c-kutu" data-canli><span class="etiket">Mentör</span><span class="deger" data-sayac="20">0</span><span class="alt">kurum temsilcisi</span></div>
+      <div class="c-kutu" data-canli><span class="etiket">Oturum</span><span class="deger" data-sayac="32">0</span><span class="alt">15 günde birebir</span></div>
+      <div class="c-kutu" data-canli><span class="etiket">Soru-cevap</span><span class="deger" data-sayac="288">0</span><span class="alt">oturumlarda</span></div>
+      <div class="c-kutu genis" data-canli><svg class="c-halka" viewBox="0 0 100 100"><circle class="zemin" cx="50" cy="50" r="42"/><circle class="ilerle" cx="50" cy="50" r="42"/></svg><span class="etiket">Toplam görüşme</span><span class="deger butter" data-sayac="1935" data-bicim="tr">0</span><span class="alt">dakika · 1.935 ÷ 32 ≈ 60 dk / oturum</span></div>
+      <div class="c-kutu" data-canli><span class="etiket">Oturum / gün</span><span class="deger" data-sayac="2">0</span><span class="alt">32 ÷ 15 ≈ 2,1</span><div class="cubuk"><i style="--w:70%"></i></div></div>
+      <div class="c-kutu" data-canli><span class="etiket">Soru / oturum</span><span class="deger" data-sayac="9">0</span><span class="alt">288 ÷ 32</span><div class="cubuk"><i style="--w:45%"></i></div></div>
+    </div>
+    <p class="mono" style="margin-top:18px;color:#8FB7BB;text-transform:none;letter-spacing:.02em">Çubuklar yalnız türetilmiş ortalamaların göreli büyüklüğünü gösterir; kaynak FTZ ilk dönem özeti.</p>
+  </div>
+</section>
+
+<!-- TERMİNAL: BAŞVURU -->
+<section class="c-term" id="basvuru">
+  <div class="ic c-term-ic">
+    <div>
+      <span class="cip">Başvuru süreci</span>
+      <h2 style="margin-top:14px">Üç komut, <em>bir kampüs.</em></h2>
+      <p class="giris">Ön başvuru portal üzerinden, değerlendirme ekibimizle, sözleşme kabulle. Ekran kaydırınca kendi yazar.</p>
+      <div style="margin-top:28px"><a class="dugme dugme-butter" href="https://portal.fintech.zone/" target="_blank" rel="noopener">Ön Başvuru</a></div>
+    </div>
+    <div class="terminal" id="terminal">
+      <div class="bar"><i></i><i></i><i></i></div>
+      <div class="govde">
+        <div class="satir in">ftz başvur --portal portal.fintech.zone</div>
+        <div class="satir ok">Ön başvuru alındı. Şirket ve ürün bilgileri kaydedildi.</div>
+        <div class="satir in">ftz değerlendir</div>
+        <div class="satir ok">Fintek odağı, ekip ve ürün olgunluğu inceleniyor. Gerekirse ek belge istenir.</div>
+        <div class="satir not">süre ve kriterler: FTZ'den alınacak</div>
+        <div class="satir in">ftz sözleşme --kampüs ifm</div>
+        <div class="satir ok">Kabul. Kampüse yerleşim planlandı: Finanskent Mah. Finans Cad. No: 13/1, Ümraniye.</div>
+        <div class="satir in">_<span class="imlec"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- İÇ SAYFA: FINTECH GATE KONSOLU -->
+<section class="c-gate" id="gate">
+  <div class="ic">
+    <span class="cip">İç sayfa görünümü</span>
+    <h2 style="margin-top:14px">Fintech Gate <em>konsolu.</em></h2>
+    <div class="c-gate-ic">
+      <div class="c-akis">
+        <svg viewBox="0 0 800 260" role="img" aria-label="Kurum, Fintech Gate ve girişim arasında akış">
+          <rect class="kutu" x="30" y="70" width="190" height="90" rx="8"/><text x="125" y="108">KURUM</text><text x="125" y="130" style="fill:#8FB7BB">ihtiyaç tanımı</text>
+          <rect class="kutu" x="580" y="70" width="190" height="90" rx="8"/><text x="675" y="108">GİRİŞİM</text><text x="675" y="130" style="fill:#8FB7BB">fintek ürünü</text>
+          <circle class="merkez" cx="400" cy="115" r="56"/><text class="merkez-t" x="400" y="111">FINTECH</text><text class="merkez-t" x="400" y="128">GATE</text>
+          <path class="hat" d="M220 100 H344"/><path class="hat" d="M456 100 H580"/><path class="hat" d="M580 130 H456" style="animation-direction:reverse"/><path class="hat" d="M344 130 H220" style="animation-direction:reverse"/>
+          <circle class="paket" r="4"><animateMotion dur="2.4s" repeatCount="indefinite" path="M220 100 H344"/></circle>
+          <circle class="paket" r="4"><animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" path="M456 100 H580"/></circle>
+          <circle class="paket" r="4"><animateMotion dur="2.4s" begin=".6s" repeatCount="indefinite" path="M580 130 H456"/></circle>
+          <circle class="paket" r="4"><animateMotion dur="2.4s" begin="1.8s" repeatCount="indefinite" path="M344 130 H220"/></circle>
+          <text x="282" y="88" style="fill:#8FB7BB">ihtiyaç</text><text x="518" y="88" style="fill:#8FB7BB">eşleştirme</text><text x="518" y="150" style="fill:#8FB7BB">çözüm</text><text x="282" y="150" style="fill:#8FB7BB">pilot / sipariş</text>
+          <text x="400" y="225" style="fill:#8FB7BB">başvuru → eşleştirme → mentörlük → çalıştay ve sipariş</text>
+        </svg>
+      </div>
+      <div class="c-log">
+        <div class="etiket">Olay kaydı</div>
+        <ol>
+          <li class="gelecek"><time>yakında</time><span>Webinar 2. bölüm: tarih ve konuk FTZ'den</span></li>
+          <li><time>23.09.2026</time><span>Webinar 1. bölüm: Bayram Tuzcu, Ziraat Teknoloji</span></li>
+          <li><time>22.09.2026</time><span>Kurumsal Paydaşlar Çalıştayı, İFM</span></li>
+          <li><time>09-10.09.2026</time><span>GITEX AI Türkiye, CBYFO standı</span></li>
+          <li><time>08.2026</time><span>Nijerya finans ve akademi heyeti</span></li>
+          <li><time>2026 / 1</time><span>İlk mentörlük dönemi: 15 gün, 32 oturum</span></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="k-not"><div class="ic">
+  <h3>Bu yön nedir?</h3>
+  <ul>
+    <li><b>Zemin:</b> Sherpa Blue koyu, ince ızgara; Butterscotch rakamlar, açık turkuaz veri; IBM Plex Mono ağırlıklı, başlıklar DM Serif.</li>
+    <li><b>Şerit:</b> üstte akan gerçek veri şeridi (üzerine gelince durur).</li>
+    <li><b>Hero:</b> Three.js parçacık küre; İstanbul işaretli, Nijerya heyeti için Lagos'a rota; sürükleyerek döndürülür.</li>
+    <li><b>Konsol:</b> metrik paneli; sayaçlar, dolan halka, türetilmiş ortalamaların çubukları (kaynağı yazılı).</li>
+    <li><b>Başvuru:</b> kendini yazan terminal. <b>İç sayfa:</b> Fintech Gate konsolu: akış ve tarihli olay kaydı.</li>
+    <li>Hareket azaltma ayarında küre durur, terminal satırları hazır gelir; mobilde küre soluklaşır.</li>
+  </ul>
+</div></section>
+<footer class="k-alt"><span>Fintech Zone İstanbul · tasarım önerisi (demo) · TasarımMania</span><span>Konsept C · Terminal</span></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  'use strict';
+  var azHareket=matchMedia('(prefers-reduced-motion: reduce)').matches, dar=matchMedia('(max-width: 900px)').matches;
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* şerit içeriğini ikile */
+  var serit=document.getElementById('serit'); if(serit){ var k=serit.cloneNode(true); serit.parentNode.appendChild(k); if(azHareket){serit.style.animation='none';k.remove();} }
+
+  document.querySelectorAll('h1').forEach(function(h){ var i=0; (function sar(n){ Array.prototype.slice.call(n.childNodes).forEach(function(c){ if(c.nodeType===3){ var kap=document.createDocumentFragment(); c.textContent.split(/(\s+)/).forEach(function(p){ if(!p)return; if(/^\s+$/.test(p)){kap.appendChild(document.createTextNode(p));return;} var d=document.createElement('span');d.className='kelime';var s=document.createElement('span');s.textContent=p;s.style.setProperty('--i',i++);d.appendChild(s);kap.appendChild(d);}); c.parentNode.replaceChild(kap,c);} else if(c.nodeType===1) sar(c); }); })(h); });
+
+  function bicim(n,b){return b==='tr'?n.toLocaleString('tr-TR'):String(n);}
+  document.querySelectorAll('[data-sayac]').forEach(function(el){ var hedef=parseInt(el.getAttribute('data-sayac'),10), b=el.getAttribute('data-bicim'); if(azHareket){el.textContent=bicim(hedef,b);return;} ScrollTrigger.create({trigger:el,start:'top 88%',once:true,onEnter:function(){var o={v:0};gsap.to(o,{v:hedef,duration:1.5,ease:'power3.out',onUpdate:function(){el.textContent=bicim(Math.round(o.v),b);}});}}); });
+  document.querySelectorAll('[data-canli]').forEach(function(el){ if(azHareket){el.classList.add('canli');return;} ScrollTrigger.create({trigger:el,start:'top 88%',once:true,onEnter:function(){el.classList.add('canli');}}); });
+
+  /* terminal satırları kendini yazar */
+  var satirlar=gsap.utils.toArray('#terminal .satir');
+  if(azHareket){ satirlar.forEach(function(s){s.style.opacity=1;}); }
+  else {
+    var metinler=satirlar.map(function(s){return s.textContent;});
+    satirlar.forEach(function(s,i){ if(i<satirlar.length-1){ s.textContent=''; } });
+    ScrollTrigger.create({trigger:'#terminal',start:'top 75%',once:true,onEnter:function(){
+      var i=0;
+      function yaz(){ if(i>=satirlar.length-1){ satirlar[i].style.opacity=1; return; } var s=satirlar[i], m=metinler[i], j=0; s.style.opacity=1; var hiz=s.classList.contains('in')?38:12;
+        (function harf(){ if(j<=m.length){ s.textContent=m.slice(0,j++); setTimeout(harf,hiz);} else { i++; setTimeout(yaz, s.classList.contains('in')?250:420); } })(); }
+      yaz();
+    }});
+  }
+
+  /* ---------- Three.js parçacık küre ---------- */
+  var tuval=document.getElementById('kure');
+  if(window.THREE && tuval){
+    var ren=new THREE.WebGLRenderer({canvas:tuval,alpha:true,antialias:true}); ren.setPixelRatio(Math.min(devicePixelRatio,2));
+    var sahne=new THREE.Scene(); var kam=new THREE.PerspectiveCamera(36,1,.1,100); kam.position.set(0,0,7.6);
+    var grup=new THREE.Group(); sahne.add(grup); grup.position.x = dar?0:1.9;
+    var R=2.3, N=dar?1400:2600, poz=new Float32Array(N*3);
+    for(var i=0;i<N;i++){ var y=1-(i/(N-1))*2, r=Math.sqrt(1-y*y), th=i*2.399963; poz[i*3]=Math.cos(th)*r*R; poz[i*3+1]=y*R; poz[i*3+2]=Math.sin(th)*r*R; }
+    var g=new THREE.BufferGeometry(); g.setAttribute('position',new THREE.BufferAttribute(poz,3));
+    grup.add(new THREE.Points(g,new THREE.PointsMaterial({color:0x3FC1CC,size:.028,transparent:true,opacity:.75})));
+    /* enlem çizgileri */
+    for(var e=-60;e<=60;e+=30){ var rr=Math.cos(e*Math.PI/180)*R, yy=Math.sin(e*Math.PI/180)*R, pts=[]; for(var a=0;a<=96;a++){ var t=a/96*Math.PI*2; pts.push(new THREE.Vector3(Math.cos(t)*rr,yy,Math.sin(t)*rr)); } grup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),new THREE.LineBasicMaterial({color:0x2B6E75,transparent:true,opacity:.35}))); }
+    function konum(lat,lon,rad){ var p=(90-lat)*Math.PI/180, l=(lon+180)*Math.PI/180; return new THREE.Vector3(-rad*Math.sin(p)*Math.cos(l), rad*Math.cos(p), rad*Math.sin(p)*Math.sin(l)); }
+    var ist=konum(41.02,29.1,R), lag=konum(6.45,3.4,R);
+    var isaret=new THREE.Mesh(new THREE.SphereGeometry(.07,16,16),new THREE.MeshBasicMaterial({color:0xFFB548})); isaret.position.copy(ist); grup.add(isaret);
+    var halka=new THREE.Mesh(new THREE.RingGeometry(.1,.13,40),new THREE.MeshBasicMaterial({color:0xFFB548,transparent:true,opacity:.8,side:THREE.DoubleSide})); halka.position.copy(ist); halka.lookAt(new THREE.Vector3(0,0,0)); grup.add(halka);
+    var lagos=new THREE.Mesh(new THREE.SphereGeometry(.05,16,16),new THREE.MeshBasicMaterial({color:0x3FC1CC})); lagos.position.copy(lag); grup.add(lagos);
+    var orta=ist.clone().add(lag).multiplyScalar(.5).normalize().multiplyScalar(R*1.45);
+    var egri=new THREE.QuadraticBezierCurve3(ist,orta,lag), rota=new THREE.Line(new THREE.BufferGeometry().setFromPoints(egri.getPoints(80)),new THREE.LineBasicMaterial({color:0xFFB548,transparent:true,opacity:.9})); grup.add(rota);
+    var yolcu=new THREE.Mesh(new THREE.SphereGeometry(.045,12,12),new THREE.MeshBasicMaterial({color:0xffffff})); grup.add(yolcu);
+    /* küreyi İstanbul öne gelecek şekilde çevir */
+    grup.rotation.y = -Math.atan2(ist.z, ist.x) + Math.PI/2 - .6;
+
+    var hedef={x:0,y:grup.rotation.y}, suruk=false, son={x:0,y:0};
+    if(!azHareket){
+      tuval.addEventListener('pointerdown',function(e){suruk=true;son={x:e.clientX,y:e.clientY};tuval.setPointerCapture(e.pointerId);});
+      tuval.addEventListener('pointermove',function(e){ if(!suruk)return; hedef.y+=(e.clientX-son.x)*.006; hedef.x+=(e.clientY-son.y)*.004; hedef.x=Math.max(-1,Math.min(1,hedef.x)); son={x:e.clientX,y:e.clientY}; });
+      addEventListener('pointerup',function(){suruk=false;});
+    }
+    function boyut(){ var w=tuval.clientWidth,h=tuval.clientHeight; ren.setSize(w,h,false); kam.aspect=w/h; kam.updateProjectionMatrix(); }
+    boyut(); addEventListener('resize',boyut);
+    var t0=performance.now(), gorunur=true, calisiyor=false;
+    new IntersectionObserver(function(g){ gorunur=g[0].isIntersecting; if(gorunur && !calisiyor && !azHareket){ calisiyor=true; requestAnimationFrame(cerceve); } },{threshold:0}).observe(tuval);
+    function cerceve(ts){ if(!gorunur){ calisiyor=false; return; } var t=(ts-t0)/1000; if(!azHareket && !suruk) hedef.y+=.0018; grup.rotation.y+=(hedef.y-grup.rotation.y)*.08; grup.rotation.x+=(hedef.x-grup.rotation.x)*.08; halka.scale.setScalar(1+Math.sin(t*3)*.18); var u=(t*.18)%1; yolcu.position.copy(egri.getPoint(u)); ren.render(sahne,kam); if(!azHareket) requestAnimationFrame(cerceve); else calisiyor=false; }
+    calisiyor=true; requestAnimationFrame(cerceve);
+  }
+})();
+</script>
+</body>
+</html>

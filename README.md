@@ -24,6 +24,18 @@ WordPress'e geçişte: `ust.html` → `header.php`, `alt.html` → `footer.php`,
 - **Sürüm 2 (hareketli, 29 Eylül, kök dizin):** hareket katmanı eklendi. Hero: kelime kelime maskeli başlık, videonun çevresinde gerçek rakamlı dört "uydu" çipi (7 ortak, 30 girişim, 20 mentör, 1.935 dk), yavaş dönen kesikli halkalar, fare takibi; yaylar sürekli döner, dairesel fotoğraf nefes alır; koyu **vurgu bandı** (sayfadaki tek koyu blok, dört sayaç); ortak logoları akan şerit; listeler kademeli belirir, adım çizgileri çizilir; hover'da görsel yakınlaşma, düğme yükselme; üst bar kaydırınca incelir; porselen bölümlerde dönen yay filigranı. İnfografikler: Gate akışında bağlantı üzerinde hareket eden paketler, kuluçka yolunda ilerleyen nokta, yörüngede merkezden düğümlere akan bağlar, halkada legend hover'ı. Hepsi `prefers-reduced-motion`'da kapanır; 375 px'te uydular ve arka plan halkaları gizlenir.
 - Kaynak: Figma C yönü şablonlarındaki "yörüngede büyük rakam", tarih çipi ve el yazısı not dili hero ve vurgu bandına taşındı.
 
+## Konsept demoları (30 Eylül 2026): eski siteden kopan üç yön
+
+Kullanıcı: "site eski siteye hâlâ çok benziyor; scrolltide.co gibi çok boyutlu, olağanüstü fikir ve demolar". Sürüm 1 ve 2 eski iskeleti (hero + bölümler) koruyordu; `konsept/` altındaki üç sayfa iskeleti kırar. Karşılaştırma: `konsept/index.html`.
+
+| Dosya | Yön | Mekanikler |
+|---|---|---|
+| `konsept/a-yorunge-3d.html` | **A · Yörünge 3D** (gece charcoal, sinematik) | Three.js sahne: kampüs videosu dokulu daire, logonun iki yayı torus olarak, iki nokta halkası ve paydaş küreleri; fare kamerayı, kaydırma sahneyi çeker. GSAP: sabitlenen "beş başlık" (madde + fotoğraf değişir), yatay Fintech Gate turu, paralakslı haber. CSS 3D halka carousel. |
+| `konsept/b-sinematik.html` | **B · Finans Kenti Sinematik** (porselen, dergi) | Tam ekran fotoğraf + canvas "yaşayan ışık" (screen) + gren; "İFM'nin içinde" harflerinde kayan siluet (background-clip:text, scrub); yatay kampüs turu; sticky yığılan beş kart; dev sayaçlar; dergi düzeni iç sayfa (süslü ilk harf, alıntı). |
+| `konsept/c-terminal.html` | **C · Terminal** (Sherpa koyu, ızgara) | Akan veri şeridi; Three.js parçacık küre, İstanbul işareti, Lagos'a rota ve gezen nokta (Nijerya heyeti), sürükleyerek döndürme; metrik konsolu (sayaç, halka, çubuk); kendini yazan başvuru terminali; Fintech Gate konsolu + olay kaydı. |
+
+Ortak: `konsept/konsept.css`. Kütüphaneler cdnjs'ten (three r128, gsap 3.12.5 + ScrollTrigger). Yalnız gerçek rakam ve görsel; WebGL döngüleri hero ekran dışındayken durur; `prefers-reduced-motion`'da sahneler sabit, içerik tam. Mobilde 3D soluklaşır, yatay turlar dikeye döner. Seçilen yön 13 sayfanın tamamına uygulanacak.
+
 ## Yayın adresleri (29 Eylül 2026)
 
 - **GitHub Pages:** https://tasarimmaniayapayzeka.github.io/fintech-zone-demo/ (depo `tasarimmaniayapayzeka/fintech-zone-demo`, herkese açık, sayfalar `noindex`). Güncellemek için: `node kur.js`, sonra `git add -A; git commit -m "..."; git push`. Pages 1-2 dakikada yeniler.

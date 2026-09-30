@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Konsept B · Finans Kenti Sinematik | Fintech Zone İstanbul demo</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../logo/o-ikon-renkli.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="konsept.css">
+<style>
+body{background:var(--porcelain);color:var(--charcoal)}
+.k-ust{color:#fff}
+/* ---------- hero: tam ekran fotoğraf + yaşayan ışık ---------- */
+.b-hero{position:relative;min-height:100dvh;overflow:hidden;background:#0F1417;display:flex;align-items:flex-end}
+.b-hero > img{position:absolute;inset:-6% 0;width:100%;height:112%;object-fit:cover;animation:kenBurns 22s ease-in-out infinite alternate}
+@keyframes kenBurns{from{transform:scale(1) translateY(0)}to{transform:scale(1.08) translateY(-2%)}}
+#isik{position:absolute;inset:0;width:100%;height:100%;mix-blend-mode:screen;opacity:.85}
+.b-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,20,23,.15) 0%,rgba(15,20,23,0) 35%,rgba(15,20,23,.82) 100%)}
+.b-hero-ic{position:relative;z-index:2;width:100%;max-width:var(--ic);margin:0 auto;padding:0 var(--kenar) 72px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:40px;align-items:end}
+.b-hero h1{font-size:clamp(46px,7.2vw,112px);line-height:.94;color:#fff;max-width:10ch}
+.b-hero h1 em{font-style:italic;color:var(--butter)}
+.b-hero .kunye{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:22px;display:flex;gap:28px}
+.b-hero .sag{color:#fff;border-left:1px solid rgba(255,255,255,.3);padding-left:26px}
+.b-hero .sag p{font-size:17px;color:rgba(255,255,255,.85);max-width:34ch}
+.b-hero .sag .dugmeler{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.b-hero .dugme-cizgi{color:#fff}
+.b-ilerleme{position:absolute;right:var(--kenar);top:50%;translate:0 -50%;width:2px;height:120px;background:rgba(255,255,255,.2);z-index:3}
+.b-ilerleme i{position:absolute;left:0;top:0;width:100%;height:30%;background:var(--butter);animation:ilerle 2.4s ease-in-out infinite}
+@keyframes ilerle{0%{top:0}100%{top:70%}}
+@media (max-width:900px){.b-hero-ic{grid-template-columns:1fr;padding-bottom:48px}.b-hero .sag{border:0;padding:0}.b-ilerleme{display:none}}
+
+/* ---------- harflerin içinde fotoğraf ---------- */
+.b-maske{padding:120px 0 80px;background:var(--porcelain)}
+.b-maske .giris{max-width:60ch;color:#66727F;font-size:18px;margin-top:20px}
+.b-maske-yazi{font-family:var(--serif);font-size:clamp(64px,13vw,220px);line-height:.9;letter-spacing:-.02em;margin-top:24px;background-image:url("../gorsel/ifm-siluet-1600.webp");background-size:cover;background-position:50% 30%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;display:inline-block}
+.b-maske small{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#66727F;margin-top:16px}
+
+/* ---------- kampüs turu: yatay ---------- */
+.b-tur{position:relative;overflow:hidden;background:#fff}
+.b-tur-bas{padding:96px var(--kenar) 8px;max-width:var(--ic);margin:0 auto}
+.b-tur-bas h2{font-size:clamp(34px,4.4vw,60px)}
+.b-tur-bas h2 em{color:var(--lava);font-style:italic}
+.b-ray{display:flex;align-items:center;gap:40px;height:calc(100dvh - 40px);padding:0 var(--kenar);will-change:transform}
+.b-kare{flex:none;width:min(880px,86vw);display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:24px;align-items:end}
+.b-kare img{width:100%;height:60vh;object-fit:cover;border-radius:4px}
+.b-kare .alt{font-size:15px;color:#66727F}
+.b-kare .alt b{display:block;font-family:var(--serif);font-weight:400;font-size:30px;color:var(--charcoal);margin-bottom:8px}
+.b-kare .alt .mono{color:var(--lava);display:block;margin-bottom:12px}
+@media (max-width:900px){.b-ray{height:auto;flex-direction:column;align-items:stretch;padding:24px var(--kenar) 56px}.b-kare{width:100%;grid-template-columns:1fr}.b-kare img{height:46vh}}
+
+/* ---------- beş başlık: yığılan kartlar ---------- */
+.b-yigin{background:var(--porcelain);padding:96px 0 0}
+.b-yigin-bas{max-width:var(--ic);margin:0 auto;padding:0 var(--kenar) 40px}
+.b-yigin-bas h2{font-size:clamp(34px,4.4vw,60px)}
+.b-yigin-bas h2 em{color:var(--lava);font-style:italic}
+.b-kart{position:sticky;top:0;min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:40px var(--kenar)}
+.b-kart-ic{width:min(1100px,100%);min-height:64vh;border-radius:28px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);overflow:hidden;box-shadow:0 30px 80px rgba(59,74,89,.18);background:#fff}
+.b-kart-ic .metin{padding:56px}
+.b-kart-ic .mono{color:var(--lava)}
+.b-kart-ic h3{font-size:clamp(34px,4vw,58px);margin:14px 0 16px;line-height:1.02}
+.b-kart-ic p{color:#66727F;font-size:17px;max-width:44ch}
+.b-kart-ic img{width:100%;height:100%;min-height:320px;object-fit:cover}
+.b-kart:nth-child(odd) .b-kart-ic{background:var(--charcoal);color:#fff}
+.b-kart:nth-child(odd) .b-kart-ic h3{color:#fff}.b-kart:nth-child(odd) .b-kart-ic p{color:var(--sis)}.b-kart:nth-child(odd) .b-kart-ic .mono{color:var(--butter)}
+.b-kart:nth-child(3) .b-kart-ic{background:var(--lava);color:#fff}.b-kart:nth-child(3) .b-kart-ic h3{color:#fff}.b-kart:nth-child(3) .b-kart-ic p{color:#FBD9D6}.b-kart:nth-child(3) .b-kart-ic .mono{color:#fff}
+@media (max-width:900px){.b-kart-ic{grid-template-columns:1fr;min-height:auto}.b-kart-ic .metin{padding:30px}.b-kart-ic img{min-height:200px;max-height:260px;order:-1}}
+
+/* ---------- dev rakamlar ---------- */
+.b-rakam{background:#fff;padding:120px 0}
+.b-rakam-ic{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.b-rakam div{border-top:2px solid var(--charcoal);padding-top:18px;overflow:hidden}
+.b-rakam b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(56px,7vw,120px);line-height:.95;color:var(--charcoal);letter-spacing:-.02em}
+.b-rakam b.kirmizi{color:var(--lava)}
+.b-rakam span{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#66727F;display:block;margin-top:10px}
+@media (max-width:900px){.b-rakam-ic{grid-template-columns:1fr 1fr}}
+
+/* ---------- iç sayfa: dergi düzeni (fintech gate) ---------- */
+.b-dergi{background:var(--porcelain);padding:120px 0}
+.b-dergi-bas{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:end;margin-bottom:56px}
+.b-dergi h2{font-size:clamp(40px,6vw,88px);line-height:.96}
+.b-dergi h2 em{color:var(--lava);font-style:italic}
+.b-dergi .ozet{font-size:19px;color:#66727F;max-width:40ch;border-left:2px solid var(--lava);padding-left:22px}
+.b-dergi-govde{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:start}
+.b-dergi-govde .sutun p{font-size:17.5px;line-height:1.75;margin-bottom:18px}
+.b-dergi-govde .sutun p:first-child::first-letter{font-family:var(--serif);font-size:4.6em;float:left;line-height:.8;padding:.06em .12em 0 0;color:var(--lava)}
+.b-dergi-govde blockquote{margin:32px 0;font-family:var(--serif);font-size:clamp(26px,2.6vw,36px);line-height:1.2;color:var(--charcoal)}
+.b-dergi-govde blockquote small{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#66727F;margin-top:12px}
+.b-dergi-yan img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:4px}
+.b-dergi-yan .altyazi{font-family:var(--mono);font-size:12px;color:#66727F;margin:10px 0 28px}
+.b-dergi-yan .kutu{background:#fff;padding:28px;border-radius:4px}
+.b-dergi-yan .kutu b{font-family:var(--serif);font-weight:400;font-size:44px;display:block;color:var(--lava);line-height:1}
+.b-dergi-yan .kutu span{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#66727F}
+@media (max-width:900px){.b-dergi-bas,.b-dergi-govde{grid-template-columns:1fr;gap:28px}}
+.k-not{color:#66727F}.k-not h3{color:var(--charcoal)}
+</style>
+</head>
+<body>
+<div class="k-serit"><b>KONSEPT B · FİNANS KENTİ SİNEMATİK</b><span>Fintech Zone İstanbul için yön demosu · yalnız gerçek rakam ve görsel</span><nav><a href="a-yorunge-3d.html">A</a><a class="aktif" href="b-sinematik.html">B</a><a href="c-terminal.html">C</a><a href="index.html">Karşılaştır</a><a href="../index.html">Sürüm 2</a></nav></div>
+<div class="gren" aria-hidden="true"></div>
+
+<header class="k-ust">
+  <a href="b-sinematik.html"><img src="../logo/ftz-logo-beyaz.svg" alt="Fintech Zone İstanbul"></a>
+  <nav class="k-menu"><a href="#ifm">Kampüs</a><a href="#bes">Neden</a><a href="#rakam">Rakamlar</a><a href="#gate">Fintech Gate</a></nav>
+  <a class="dugme dugme-lava" href="https://portal.fintech.zone/" target="_blank" rel="noopener">Ön Başvuru</a>
+</header>
+
+<!-- HERO -->
+<section class="b-hero">
+  <img src="../gorsel/bina-meydan-1600.webp" alt="Fintech Zone kampüs meydanı, akşam">
+  <canvas id="isik" aria-hidden="true"></canvas>
+  <div class="b-ilerleme" aria-hidden="true"><i></i></div>
+  <div class="b-hero-ic">
+    <div>
+      <div class="kunye"><span>İstanbul Finans Merkezi</span><span>Ümraniye</span><span>Teknopark</span></div>
+      <h1>Finansın kentinde, fintekin <em>üssü.</em></h1>
+    </div>
+    <div class="sag">
+      <p>Girişimler, bankalar, düzenleyiciler ve yatırımcılar için tek kampüs. Türkiye'nin fintek teknoparkında yerinizi alın.</p>
+      <div class="dugmeler"><a class="dugme dugme-butter" href="https://portal.fintech.zone/" target="_blank" rel="noopener">Ön Başvuru</a><a class="dugme dugme-cizgi" href="#ifm">Kampüsü gezin</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- HARFLERİN İÇİNDE FOTOĞRAF -->
+<section class="b-maske" id="ifm">
+  <div class="ic">
+    <span class="cip">Konum</span>
+    <p class="giris">Fintech Zone, İstanbul Finans Merkezi'nin içinde. Bankalar, düzenleyiciler ve finans dünyası yürüme mesafesinde; kaydırdıkça harflerin içindeki siluet kayar.</p>
+    <div class="b-maske-yazi" id="maske">İFM'nin<br>içinde.</div>
+    <small>Finanskent Mah. Finans Cad. No: 13/1 Ümraniye, İstanbul</small>
+  </div>
+</section>
+
+<!-- KAMPÜS TURU: YATAY -->
+<section class="b-tur">
+  <div class="b-tur-bas"><h2>Kampüs <em>turu.</em></h2></div>
+  <div class="b-ray" id="bray">
+    <div class="b-kare"><img src="../gorsel/bina-meydan-1600.webp" alt="Kubbeli meydan"><div class="alt"><span class="mono">01 · Meydan</span><b>Kubbeli meydan</b>Etkinliklerin ve karşılaşmaların açık hava sahnesi.</div></div>
+    <div class="b-kare"><img src="../gorsel/bina-cephe-1600.webp" alt="Bina cephesi"><div class="alt"><span class="mono">02 · Bina</span><b>Fintech Zone binası</b>Ofisler, kuluçka merkezi ve ortak alanlar tek çatıda.</div></div>
+    <div class="b-kare"><img src="../gorsel/ifm-siluet-1600.webp" alt="İFM silueti"><div class="alt"><span class="mono">03 · İFM</span><b>İstanbul Finans Merkezi</b>Finans kurumları ve düzenleyicilerle aynı yerleşke.</div></div>
+    <div class="b-kare"><img src="../gorsel/calistay-grup-1600.webp" alt="Çalıştay katılımcıları"><div class="alt"><span class="mono">04 · Kampüs hayatı</span><b>Fintech Gate çalıştayı</b>22 Eylül 2026: kurumlar ve girişimler aynı masada.</div></div>
+  </div>
+</section>
+
+<!-- BEŞ BAŞLIK: YIĞILAN KARTLAR -->
+<section class="b-yigin" id="bes">
+  <div class="b-yigin-bas"><h2>Neden Fintech <em>Zone?</em></h2><p style="color:#66727F;margin-top:12px;max-width:56ch">Kaydırdıkça kartlar üst üste yığılır; her başlık kendi sahnesini alır.</p></div>
+  <div class="b-kart"><div class="b-kart-ic"><div class="metin"><span class="mono">01 / 05</span><h3>Kümelenme</h3><p>Girişimler, bankalar, düzenleyiciler, hizmet sağlayıcılar ve yatırımcılar aynı kampüste çalışır; iş birliği koridorda başlar.</p></div><img src="../gorsel/calistay-toplanti-1600.webp" alt=""></div></div>
+  <div class="b-kart"><div class="b-kart-ic"><div class="metin"><span class="mono">02 / 05</span><h3>Globalleşme</h3><p>Yerelden globale: uluslararası yatırıma erişim, yurt dışı heyetler ve fuarlarda ortak temsil.</p></div><img src="../gorsel/nijerya-heyet-1600.webp" alt=""></div></div>
+  <div class="b-kart"><div class="b-kart-ic"><div class="metin"><span class="mono">03 / 05</span><h3>Yeni nesil teknopark</h3><p>Kuluçka merkezi, Ar-Ge desteği ve teknopark muafiyetleriyle fikirden ürüne giden yolu kısaltan yapı.</p></div><img src="../gorsel/bina-cephe-1600.webp" alt=""></div></div>
+  <div class="b-kart"><div class="b-kart-ic"><div class="metin"><span class="mono">04 / 05</span><h3>Temsiliyet</h3><p>GITEX AI Türkiye 2026'da Cumhurbaşkanlığı Yatırım ve Finans Ofisi standında ekosistemin sesi.</p></div><img src="../gorsel/gitex-stand-1600.webp" alt=""></div></div>
+  <div class="b-kart"><div class="b-kart-ic"><div class="metin"><span class="mono">05 / 05</span><h3>İFM ile bütünlük</h3><p>İstanbul Finans Merkezi'nin stratejik parçası: finans dünyası yürüme mesafesinde.</p></div><img src="../gorsel/ifm-siluet-1600.webp" alt=""></div></div>
+</section>
+
+<!-- DEV RAKAMLAR -->
+<section class="b-rakam" id="rakam">
+  <div class="ic">
+    <span class="cip">İlk Fintech Gate dönemi</span>
+    <div class="b-rakam-ic" style="margin-top:36px">
+      <div><b data-sayac="30" class="kirmizi">0</b><span>girişim</span></div>
+      <div><b data-sayac="20">0</b><span>mentör</span></div>
+      <div><b data-sayac="32">0</b><span>birebir oturum</span></div>
+      <div><b data-sayac="1935" data-bicim="tr">0</b><span>dakika görüşme</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- İÇ SAYFA: DERGİ DÜZENİ -->
+<section class="b-dergi" id="gate">
+  <div class="ic">
+    <div class="b-dergi-bas">
+      <h2>Fintekleri kurumlarla buluşturan <em>köprü.</em></h2>
+      <p class="ozet">Fintech Gate, kurumların gerçek ihtiyaçlarını girişimlerin çözümleriyle eşleştirir ve iş birliğini siparişe dönüştürür. İSTKA destekli.</p>
+    </div>
+    <div class="b-dergi-govde">
+      <div class="sutun">
+        <p>Fintech Gate, kurum ile girişim arasındaki mesafeyi kısaltmak için kuruldu. Kurumlar çözmek istedikleri ihtiyacı tanımlar; girişimler ürünleriyle başvurur; program iki tarafı eşleştirir ve iş birliğini mentörlük ve çalıştaylarla olgunlaştırır.</p>
+        <p>İlk mentörlük döneminde 15 gün boyunca 30 girişim 20 mentörle 32 oturumda birebir görüştü. Bu oturumlarda 288 soru cevaplandı ve toplam 1.935 dakika görüşme yapıldı.</p>
+        <blockquote>"Bir oturum yaklaşık altmış dakika: dokuz soru, bir mentör, bir girişim."<small>İlk dönem ortalamaları, FTZ özetinden türetildi</small></blockquote>
+        <p>22 Eylül 2026'da İstanbul Finans Merkezi'nde düzenlenen Kurumsal Paydaşlar Çalıştayı'nda bankalar, ödeme kuruluşları ve finansal hizmet şirketlerinin temsilcileri programa katılan girişimlerle aynı masada oturdu; kurumlar önceliklerini, girişimler pilot proje önerilerini paylaştı.</p>
+      </div>
+      <aside class="b-dergi-yan">
+        <img src="../gorsel/calistay-sunum-1600.webp" alt="Çalıştayda sunum">
+        <p class="altyazi">Fintech Gate Kurumsal Paydaşlar Çalıştayı, İFM, 22 Eylül 2026.</p>
+        <div class="kutu"><b data-sayac="288">0</b><span>soru ve cevap, 32 oturumda</span></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="k-not"><div class="ic">
+  <h3>Bu yön nedir?</h3>
+  <ul>
+    <li><b>Zemin:</b> porselen ve beyaz, dergi tadı; hero tam ekran gerçek fotoğraf ve üstünde yaşayan ışık (canvas), gren dokusu.</li>
+    <li><b>"İFM'nin içinde":</b> dev harflerin içinde İFM silueti; kaydırdıkça fotoğraf harflerin içinde kayar.</li>
+    <li><b>Kampüs turu:</b> dikey kaydırma yatay tura dönüşür, dört büyük kare.</li>
+    <li><b>Neden:</b> beş kart üst üste yığılır (sticky stack); koyu, beyaz ve kırmızı kartlar ritim kurar.</li>
+    <li><b>Rakamlar:</b> dev DM Serif sayaçlar. <b>İç sayfa:</b> dergi düzeni: süslü ilk harf, çekme alıntı, kenar çubuğunda rakam.</li>
+    <li>Hareket azaltma ayarında sahneler durur; mobilde yatay tur dikeye döner, kartlar sade akar.</li>
+  </ul>
+</div></section>
+<footer class="k-alt"><span>Fintech Zone İstanbul · tasarım önerisi (demo) · TasarımMania</span><span>Konsept B · Finans Kenti Sinematik</span></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  'use strict';
+  var azHareket=matchMedia('(prefers-reduced-motion: reduce)').matches, dar=matchMedia('(max-width: 900px)').matches;
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.querySelectorAll('h1').forEach(function(h){ var i=0; (function sar(n){ Array.prototype.slice.call(n.childNodes).forEach(function(c){ if(c.nodeType===3){ var kap=document.createDocumentFragment(); c.textContent.split(/(\s+)/).forEach(function(p){ if(!p)return; if(/^\s+$/.test(p)){kap.appendChild(document.createTextNode(p));return;} var d=document.createElement('span');d.className='kelime';var s=document.createElement('span');s.textContent=p;s.style.setProperty('--i',i++);d.appendChild(s);kap.appendChild(d);}); c.parentNode.replaceChild(kap,c);} else if(c.nodeType===1) sar(c); }); })(h); });
+
+  function bicim(n,b){return b==='tr'?n.toLocaleString('tr-TR'):String(n);}
+  document.querySelectorAll('[data-sayac]').forEach(function(el){ var hedef=parseInt(el.getAttribute('data-sayac'),10), b=el.getAttribute('data-bicim'); if(azHareket){el.textContent=bicim(hedef,b);return;} ScrollTrigger.create({trigger:el,start:'top 88%',once:true,onEnter:function(){var o={v:0};gsap.to(o,{v:hedef,duration:1.6,ease:'power3.out',onUpdate:function(){el.textContent=bicim(Math.round(o.v),b);}});}}); });
+
+  /* yaşayan ışık: canvas mesh gradyan (screen karışımı) */
+  var tuval=document.getElementById('isik');
+  if(tuval && !azHareket){
+    var ctx=tuval.getContext('2d'), W,H;
+    function boyut(){W=tuval.width=tuval.clientWidth*.5;H=tuval.height=tuval.clientHeight*.5;}
+    boyut(); addEventListener('resize',boyut);
+    var toplar=[{r:[0,136,149],x:.2,y:.3,s:.32,hx:.00021,hy:.00017},{r:[225,37,27],x:.75,y:.55,s:.28,hx:-.00017,hy:.00023},{r:[255,181,72],x:.55,y:.85,s:.22,hx:.00013,hy:-.00019},{r:[63,193,204],x:.85,y:.15,s:.2,hx:-.00011,hy:.00015}];
+    function ciz(ts){
+      ctx.clearRect(0,0,W,H);
+      toplar.forEach(function(t,i){
+        var x=(t.x+Math.sin(ts*t.hx+i)*.14)*W, y=(t.y+Math.cos(ts*t.hy+i*1.7)*.12)*H, r=t.s*Math.max(W,H);
+        var g=ctx.createRadialGradient(x,y,0,x,y,r); g.addColorStop(0,'rgba('+t.r.join(',')+',.55)'); g.addColorStop(1,'rgba('+t.r.join(',')+',0)');
+        ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+      });
+      requestAnimationFrame(ciz);
+    }
+    requestAnimationFrame(ciz);
+  }
+
+  /* harflerin içindeki fotoğraf kayar */
+  if(!azHareket){ gsap.fromTo('#maske',{backgroundPosition:'50% 20%'},{backgroundPosition:'50% 70%',ease:'none',scrollTrigger:{trigger:'.b-maske',start:'top bottom',end:'bottom top',scrub:true}}); }
+
+  /* kampüs turu: yatay */
+  var ray=document.getElementById('bray');
+  if(!azHareket && !dar){ var mes=function(){return ray.scrollWidth-innerWidth;}; gsap.to(ray,{x:function(){return -mes();},ease:'none',scrollTrigger:{trigger:'.b-tur',start:'top top',end:function(){return '+='+mes();},pin:true,scrub:1,invalidateOnRefresh:true}}); }
+
+  /* yığılan kartlar: sonraki kart gelirken önceki küçülür */
+  var kartlar=gsap.utils.toArray('.b-kart');
+  if(!azHareket && !dar){ kartlar.forEach(function(k,i){ if(i===kartlar.length-1) return; gsap.to(k.querySelector('.b-kart-ic'),{scale:.92,opacity:.55,ease:'none',scrollTrigger:{trigger:kartlar[i+1],start:'top bottom',end:'top top',scrub:true}}); }); }
+  else { kartlar.forEach(function(k){k.style.position='static';k.style.minHeight='auto';k.style.padding='16px var(--kenar)';}); }
+})();
+</script>
+</body>
+</html>

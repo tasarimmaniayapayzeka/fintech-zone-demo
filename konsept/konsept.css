@@ -1,0 +1,62 @@
+/* Fintech Zone · konsept demoları ortak stil (A, B, C)
+   Resmi palet ve fontlar korunur; her yönün kendi zemini ve ritmi vardır. */
+:root{
+  --charcoal:#3B4A59;--charcoal-koyu:#2B3743;--gece:#1C242C;--lava:#E1251B;--lava-koyu:#C21F16;
+  --sherpa:#004750;--sherpa-koyu:#00363D;--teal:#008895;--teal-acik:#3FC1CC;--porcelain:#F2F2F2;--butter:#FFB548;
+  --beyaz:#FFFFFF;--sis:#C9D1D9;--soluk:#8FA0AF;
+  --serif:"DM Serif Display",Georgia,serif;--sans:"IBM Plex Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;--el:"Caveat",cursive;
+  --gecis:cubic-bezier(.16,1,.3,1);--ic:1320px;--kenar:28px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:auto}
+body{margin:0;font-family:var(--sans);font-size:17px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,svg,video,canvas{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.01em}
+p{margin:0}
+.ic{max-width:var(--ic);margin:0 auto;padding:0 var(--kenar)}
+.mono{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase}
+.el{font-family:var(--el);font-weight:700;font-size:clamp(22px,2vw,30px);transform:rotate(-4deg);display:inline-block;line-height:1}
+
+/* konsept şeridi ve üst bar */
+.k-serit{position:fixed;left:0;right:0;top:0;z-index:100;display:flex;align-items:center;gap:14px;padding:8px 16px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:#fff;background:rgba(20,26,32,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.k-serit b{font-weight:500;color:var(--butter)}
+.k-serit nav{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.k-serit nav a{padding:5px 10px;border:1px solid rgba(255,255,255,.22);border-radius:999px;color:#fff;transition:background .2s,border-color .2s}
+.k-serit nav a:hover,.k-serit nav a.aktif{background:var(--lava);border-color:var(--lava)}
+.k-ust{position:absolute;left:0;right:0;top:38px;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:22px var(--kenar)}
+.k-ust img{height:32px;width:auto}
+.k-ust .k-menu{display:flex;gap:26px;font-size:14.5px;font-weight:500;opacity:.9}
+.k-ust .dugme{padding:11px 20px}
+.dugme{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:999px;font-weight:500;font-size:15.5px;line-height:1;white-space:nowrap;transition:transform .25s var(--gecis),box-shadow .25s,background .2s,color .2s}
+.dugme:hover{transform:translateY(-2px)}
+.dugme-lava{background:var(--lava);color:#fff}
+.dugme-lava:hover{box-shadow:0 12px 30px rgba(225,37,27,.35)}
+.dugme-cizgi{border:1.5px solid currentColor}
+.dugme-butter{background:var(--butter);color:var(--gece)}
+.cip{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px;background:var(--butter);color:var(--gece)}
+
+/* ortak: kelime maskeli başlık */
+.kelime{display:inline-block;overflow:hidden;vertical-align:bottom;padding:0 .04em .14em 0;margin-bottom:-.14em}
+.kelime>span{display:inline-block;transform:translateY(112%);animation:kelimeGel .9s var(--gecis) forwards;animation-delay:calc(var(--i)*70ms + .2s)}
+@keyframes kelimeGel{to{transform:none}}
+
+/* gren dokusu (sabit, tıklanamaz) */
+.gren{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* konsept notu (demo açıklaması) */
+.k-not{border-top:1px solid rgba(127,127,127,.25);padding:56px 0;font-size:15px;line-height:1.7}
+.k-not h3{font-size:24px;margin-bottom:14px}
+.k-not ul{margin:0;padding-left:20px}
+.k-not li{margin-bottom:6px}
+.k-alt{padding:28px var(--kenar);font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;opacity:.7;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+@media (max-width:900px){
+  :root{--kenar:18px}
+  .k-ust .k-menu{display:none}
+  .k-ust{top:34px;padding:16px var(--kenar)}
+}
+@media (prefers-reduced-motion:reduce){
+  .kelime>span{transform:none;animation:none}
+}
