@@ -100,7 +100,7 @@ p{margin:0}
 .ortaklar-ic{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center}
 .ortaklar-ic > p{font-size:14.5px;color:var(--metin-soluk);max-width:20ch;line-height:1.4}
 .logo-duvari{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:26px 32px}
-.logo-duvari img{height:38px;width:auto;max-width:150px;object-fit:contain;filter:grayscale(1) contrast(.9);opacity:.72;transition:filter .3s,opacity .3s}
+.logo-duvari img{height:38px;width:auto;max-width:150px;object-fit:contain;filter:grayscale(1) contrast(.9);opacity:.85;transition:filter .3s,opacity .3s}
 .logo-duvari a:hover img{filter:none;opacity:1}
 
 /* neden */
@@ -664,3 +664,8 @@ main{animation:sayfaGir .6s var(--gecis) both}
   .info-oturum dl{grid-template-columns:1fr 1fr;gap:16px}
   .info-oturum dt{font-size:30px}
 }
+
+/* ortak logoları: dosyalar 300x150 ve kenar boşluklu; okunur boyut (30.09.2026) */
+.logo-duvari img{height:72px;max-width:200px}
+.logo-duvari.kayan .kayan-ic{gap:44px;padding-right:44px}
+@media (max-width:600px){.logo-duvari img{height:52px;max-width:150px}.logo-duvari{gap:14px 20px}.logo-duvari.kayan .kayan-ic{gap:28px;padding-right:28px}}
