@@ -77,7 +77,8 @@ body{background:var(--porcelain);color:var(--charcoal)}
 
 /* ---------- dev rakamlar ---------- */
 .b-rakam{background:#fff;padding:120px 0}
-.b-rakam-ic{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.b-rakam-ic{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.b-kaynak{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:#66727F;margin-top:28px}
 .b-rakam div{border-top:2px solid var(--charcoal);padding-top:18px;overflow:hidden}
 .b-rakam b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(56px,7vw,120px);line-height:.95;color:var(--charcoal);letter-spacing:-.02em}
 .b-rakam b.kirmizi{color:var(--lava)}
@@ -100,12 +101,17 @@ body{background:var(--porcelain);color:var(--charcoal)}
 .b-dergi-yan .kutu{background:#fff;padding:28px;border-radius:4px}
 .b-dergi-yan .kutu b{font-family:var(--serif);font-weight:400;font-size:44px;display:block;color:var(--lava);line-height:1}
 .b-dergi-yan .kutu span{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#66727F}
+.b-dergi-yan .takvim{list-style:none;margin:20px 0 0;padding:0}
+.b-dergi-yan .takvim li{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 14px;padding:9px 0;border-top:1px solid #E3E7EA}
+.b-dergi-yan .takvim li span{text-transform:none;letter-spacing:.02em}
+.b-dergi-yan .takvim li span:first-child{color:var(--charcoal)}
+.b-istka{margin-top:56px;font-family:var(--mono);font-size:11px;line-height:1.6;color:#66727F;max-width:110ch}
 @media (max-width:900px){.b-dergi-bas,.b-dergi-govde{grid-template-columns:1fr;gap:28px}}
 .k-not{color:#66727F}.k-not h3{color:var(--charcoal)}
 </style>
 </head>
 <body>
-<div class="k-serit"><b>KONSEPT B · FİNANS KENTİ SİNEMATİK</b><span>Fintech Zone İstanbul için yön demosu · yalnız gerçek rakam ve görsel</span><nav><a href="a-yorunge-3d.html">A</a><a class="aktif" href="b-sinematik.html">B</a><a href="c-terminal.html">C</a><a href="index.html">Karşılaştır</a><a href="../index.html">Sürüm 2</a></nav></div>
+<div class="k-serit"><b>KONSEPT B · FİNANS KENTİ SİNEMATİK</b><span>Fintech Zone İstanbul için yön demosu · bilgiler fintech.zone resmi metinlerinden</span><nav><a href="a-yorunge-3d.html">A</a><a class="aktif" href="b-sinematik.html">B</a><a href="c-terminal.html">C</a><a href="index.html">Karşılaştır</a><a href="../index.html">Sürüm 2</a></nav></div>
 <div class="gren" aria-hidden="true"></div>
 
 <header class="k-ust">
@@ -116,7 +122,7 @@ body{background:var(--porcelain);color:var(--charcoal)}
 
 <!-- HERO -->
 <section class="b-hero">
-  <img src="../gorsel/bina-meydan-1600.webp" alt="Fintech Zone kampüs meydanı, akşam">
+  <img src="../gorsel/bina-meydan-1600.webp" alt="Fintech Zone kampüs meydanı (render)">
   <canvas id="isik" aria-hidden="true"></canvas>
   <div class="b-ilerleme" aria-hidden="true"><i></i></div>
   <div class="b-hero-ic">
@@ -125,7 +131,7 @@ body{background:var(--porcelain);color:var(--charcoal)}
       <h1>Finansın kentinde, fintekin <em>üssü.</em></h1>
     </div>
     <div class="sag">
-      <p>Girişimler, bankalar, düzenleyiciler ve yatırımcılar için tek kampüs. Türkiye'nin fintek teknoparkında yerinizi alın.</p>
+      <p>Fintek ekosisteminin tüm paydaşları için yeni nesil bir teknopark. Türkiye'nin Fintek Teknoparkında siz de yerinizi alın!</p>
       <div class="dugmeler"><a class="dugme dugme-butter" href="https://portal.fintech.zone/" target="_blank" rel="noopener">Ön Başvuru</a><a class="dugme dugme-cizgi" href="#ifm">Kampüsü gezin</a></div>
     </div>
   </div>
@@ -135,9 +141,9 @@ body{background:var(--porcelain);color:var(--charcoal)}
 <section class="b-maske" id="ifm">
   <div class="ic">
     <span class="cip">Konum</span>
-    <p class="giris">Fintech Zone, İstanbul Finans Merkezi'nin içinde. Bankalar, düzenleyiciler ve finans dünyası yürüme mesafesinde; kaydırdıkça harflerin içindeki siluet kayar.</p>
+    <p class="giris">Fintech Zone İstanbul, İstanbul Finans Merkezi'nde faaliyet gösterir ve İstanbul Finans Merkezi'nin stratejik bir parçası olarak fintek ekosistemini güçlendirir. Kaydırdıkça harflerin içindeki siluet kayar.</p>
     <div class="b-maske-yazi" id="maske">İFM'nin<br>içinde.</div>
-    <small>Finanskent Mah. Finans Cad. No: 13/1 Ümraniye, İstanbul</small>
+    <small>Yönetim Ofisi: Finanskent mah. Finans cd. No: 13/1 Ümraniye - İstanbul<br>Teknopark Binası: Finanskent mah. Finans cd. F Blok. No: 34 Ümraniye - İstanbul</small>
   </div>
 </section>
 
@@ -145,33 +151,36 @@ body{background:var(--porcelain);color:var(--charcoal)}
 <section class="b-tur">
   <div class="b-tur-bas"><h2>Kampüs <em>turu.</em></h2><div class="tur-nav" data-tur="bray"><button class="ok" data-yon="-1" aria-label="Önceki kare"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button><div class="nokta"><button class="aktif" aria-label="Kare 1"></button><button aria-label="Kare 2"></button><button aria-label="Kare 3"></button><button aria-label="Kare 4"></button></div><button class="ok" data-yon="1" aria-label="Sonraki kare"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button><span class="sayi">01 / 04</span></div></div>
   <div class="b-ray" id="bray">
-    <div class="b-kare"><img src="../gorsel/bina-meydan-1600.webp" alt="Kubbeli meydan"><div class="alt"><span class="mono">01 · Meydan</span><b>Kubbeli meydan</b>Etkinliklerin ve karşılaşmaların açık hava sahnesi.</div></div>
-    <div class="b-kare"><img src="../gorsel/bina-cephe-1600.webp" alt="Bina cephesi"><div class="alt"><span class="mono">02 · Bina</span><b>Fintech Zone binası</b>Ofisler, kuluçka merkezi ve ortak alanlar tek çatıda.</div></div>
-    <div class="b-kare"><img src="../gorsel/ifm-siluet-1600.webp" alt="İFM silueti"><div class="alt"><span class="mono">03 · İFM</span><b>İstanbul Finans Merkezi</b>Finans kurumları ve düzenleyicilerle aynı yerleşke.</div></div>
-    <div class="b-kare"><img src="../gorsel/calistay-grup-1600.webp" alt="Çalıştay katılımcıları"><div class="alt"><span class="mono">04 · Kampüs hayatı</span><b>Fintech Gate çalıştayı</b>22 Eylül 2026: kurumlar ve girişimler aynı masada.</div></div>
+    <div class="b-kare"><img src="../gorsel/bina-meydan-1600.webp" alt="Fintech Zone kampüs meydanı (render)"><div class="alt"><span class="mono">01 · Meydan · render</span><b>Kampüs meydanı</b>Ekosistemin merkezinde bulunmanın ve stratejik konumun avantajıyla projenizi geleceğe ve globale taşıyın.</div></div>
+    <div class="b-kare"><img src="../gorsel/bina-cephe-1600.webp" alt="Fintech Zone kampüs binası (render)"><div class="alt"><span class="mono">02 · Bina · render</span><b>Çalışma alanları</b>Farklı büyüklüklerde çalışma alanları; 7/24 kullanıma açık nitelikli ofisler, teknik ve teknolojik altyapı desteği, sosyal etkileşim alanları.</div></div>
+    <div class="b-kare"><img src="../gorsel/ifm-siluet-1600.webp" alt="İstanbul Finans Merkezi silueti (render)"><div class="alt"><span class="mono">03 · İFM · render</span><b>İstanbul Finans Merkezi</b>Fintech Zone, İstanbul Finans Merkezi'nin geniş perspektifi ile uyumlu bir şekilde, finansal teknolojiler alanında yenilikçiliğin ve iş birliğinin merkezi olarak hizmet vermektedir.</div></div>
+    <div class="b-kare"><img src="../gorsel/calistay-grup-1600.webp" alt="Fintech Gate Kurumsal Paydaşlar Çalıştayı, 22 Eylül 2026, İstanbul Finans Merkezi"><div class="alt"><span class="mono">04 · Faaliyet · 22.09.2026</span><b>Kurumsal Paydaşlar Çalıştayı</b>Fintech Gate kapsamında, İstanbul Finans Merkezi'nde: kurum içi inovasyon ile girişim çevikliğinin doğru zeminde nasıl buluşturulabileceği ele alındı.</div></div>
   </div>
 </section>
 
 <!-- BEŞ BAŞLIK: YIĞILAN KARTLAR -->
 <section class="b-yigin" id="bes">
   <div class="b-yigin-bas"><h2>Neden Fintech <em>Zone?</em></h2><p style="color:#66727F;margin-top:12px;max-width:56ch">Kaydırdıkça kartlar üst üste yığılır; her başlık kendi sahnesini alır.</p></div>
-  <div class="b-kart"><div class="b-kart-ic"><div class="metin"><span class="mono">01 / 05</span><h3>Kümelenme</h3><p>Girişimler, bankalar, düzenleyiciler, hizmet sağlayıcılar ve yatırımcılar aynı kampüste çalışır; iş birliği koridorda başlar.</p></div><img src="../gorsel/calistay-toplanti-1600.webp" alt=""></div></div>
-  <div class="b-kart"><div class="b-kart-ic"><div class="metin"><span class="mono">02 / 05</span><h3>Globalleşme</h3><p>Yerelden globale: uluslararası yatırıma erişim, yurt dışı heyetler ve fuarlarda ortak temsil.</p></div><img src="../gorsel/nijerya-heyet-1600.webp" alt=""></div></div>
-  <div class="b-kart"><div class="b-kart-ic"><div class="metin"><span class="mono">03 / 05</span><h3>Yeni nesil teknopark</h3><p>Kuluçka merkezi, Ar-Ge desteği ve teknopark muafiyetleriyle fikirden ürüne giden yolu kısaltan yapı.</p></div><img src="../gorsel/bina-cephe-1600.webp" alt=""></div></div>
-  <div class="b-kart"><div class="b-kart-ic"><div class="metin"><span class="mono">04 / 05</span><h3>Temsiliyet</h3><p>GITEX AI Türkiye 2026'da Cumhurbaşkanlığı Yatırım ve Finans Ofisi standında ekosistemin sesi.</p></div><img src="../gorsel/gitex-stand-1600.webp" alt=""></div></div>
-  <div class="b-kart"><div class="b-kart-ic"><div class="metin"><span class="mono">05 / 05</span><h3>İFM ile bütünlük</h3><p>İstanbul Finans Merkezi'nin stratejik parçası: finans dünyası yürüme mesafesinde.</p></div><img src="../gorsel/ifm-siluet-1600.webp" alt=""></div></div>
+  <div class="b-kart"><div class="b-kart-ic"><div class="metin"><span class="mono">01 / 05</span><h3>Kümelenme</h3><p>Ülkemizin tüm fintek ekosistemine ulaşacak çeşitli programlarla bir fintek kümelenmesi inşa ediyoruz.</p></div><img src="../gorsel/calistay-toplanti-1600.webp" alt=""></div></div>
+  <div class="b-kart"><div class="b-kart-ic"><div class="metin"><span class="mono">02 / 05</span><h3>Globalleşme</h3><p>Ülkemizden global pazarlara, hinterlandımızda yer alan ülkelerden Türkiye'ye girişim transfer etmeyi hedefleyen bir stratejiye sahibiz.</p></div><img src="../gorsel/nijerya-heyet-1600.webp" alt=""></div></div>
+  <div class="b-kart"><div class="b-kart-ic"><div class="metin"><span class="mono">03 / 05</span><h3>Yeni Nesil Teknopark</h3><p>Yeni nesil bir teknopark olarak fintek odaklı, dijital programlarla büyümeyi destekleyen modern bir ekosistem sunuyoruz.</p></div><img src="../gorsel/bina-cephe-1600.webp" alt=""></div></div>
+  <div class="b-kart"><div class="b-kart-ic"><div class="metin"><span class="mono">04 / 05</span><h3>Temsiliyet</h3><p>Regülasyon konusunda kamu ile, rekabetçilik anlayışının inşasında ise bankacılık sektörü ile fintekleri buluşturmayı planlıyoruz.</p></div><img src="../gorsel/fuar-stand-1600.webp" alt="Fintech Zone fuar standı"></div></div>
+  <div class="b-kart"><div class="b-kart-ic"><div class="metin"><span class="mono">05 / 05</span><h3>İFM ile Bütünlük</h3><p>İFM ve TGB kanun ve mevzuatlarının sunduğu fırsatlarla finteklerin entegrasyonuna katkı sağlıyoruz.</p></div><img src="../gorsel/ifm-siluet-1600.webp" alt=""></div></div>
 </section>
 
 <!-- DEV RAKAMLAR -->
 <section class="b-rakam" id="rakam">
   <div class="ic">
-    <span class="cip">İlk Fintech Gate dönemi</span>
+    <span class="cip">Fintech Gate Mentörlük Oturumları</span>
     <div class="b-rakam-ic" style="margin-top:36px">
-      <div><b data-sayac="30" class="kirmizi">0</b><span>girişim</span></div>
+      <div><b data-sayac="15">0</b><span>gün</span></div>
       <div><b data-sayac="20">0</b><span>mentör</span></div>
-      <div><b data-sayac="32">0</b><span>birebir oturum</span></div>
+      <div><b data-sayac="30" class="kirmizi">0</b><span>girişim</span></div>
+      <div><b data-sayac="32">0</b><span>oturum</span></div>
+      <div><b data-sayac="288">0</b><span>soru-cevap</span></div>
       <div><b data-sayac="1935" data-bicim="tr">0</b><span>dakika görüşme</span></div>
     </div>
+    <p class="b-kaynak">Kaynak: Fintech Zone Instagram paylaşımı, “Rakamlarla Fintech Gate Mentörlük Oturumları”.</p>
   </div>
 </section>
 
@@ -179,22 +188,32 @@ body{background:var(--porcelain);color:var(--charcoal)}
 <section class="b-dergi" id="gate">
   <div class="ic">
     <div class="b-dergi-bas">
-      <h2>Fintekleri kurumlarla buluşturan <em>köprü.</em></h2>
-      <p class="ozet">Fintech Gate, kurumların gerçek ihtiyaçlarını girişimlerin çözümleriyle eşleştirir ve iş birliğini siparişe dönüştürür. İSTKA destekli.</p>
+      <h2>Fintekleri buluşturan <em>dijital köprü.</em></h2>
+      <p class="ozet">İstanbul Kalkınma Ajansı (İSTKA) desteğiyle hayata geçirilen Fintech Gate İstanbul Destek Programı, kurumsal şirketlerin ihtiyaçlarını startup'ların yenilikçi çözümleriyle buluşturmayı ve ticarileşme süreçlerini hızlandırmayı hedefler.</p>
     </div>
     <div class="b-dergi-govde">
       <div class="sutun">
-        <p>Fintech Gate, kurum ile girişim arasındaki mesafeyi kısaltmak için kuruldu. Kurumlar çözmek istedikleri ihtiyacı tanımlar; girişimler ürünleriyle başvurur; program iki tarafı eşleştirir ve iş birliğini mentörlük ve çalıştaylarla olgunlaştırır.</p>
-        <p>İlk mentörlük döneminde 15 gün boyunca 30 girişim 20 mentörle 32 oturumda birebir görüştü. Bu oturumlarda 288 soru cevaplandı ve toplam 1.935 dakika görüşme yapıldı.</p>
-        <blockquote>"Bir oturum yaklaşık altmış dakika: dokuz soru, bir mentör, bir girişim."<small>İlk dönem ortalamaları, FTZ özetinden türetildi</small></blockquote>
-        <p>22 Eylül 2026'da İstanbul Finans Merkezi'nde düzenlenen Kurumsal Paydaşlar Çalıştayı'nda bankalar, ödeme kuruluşları ve finansal hizmet şirketlerinin temsilcileri programa katılan girişimlerle aynı masada oturdu; kurumlar önceliklerini, girişimler pilot proje önerilerini paylaştı.</p>
+        <p>Program, kurumsal sistemlere doğrudan entegrasyon hedefleyen yenilikçi fintek girişimleri ile dijital dönüşümünü açık inovasyonla güçlendirmek isteyen fintek dünyasının öncü kurumlarına yöneliktir. Hızlandırma Programı boyunca startup'lar; teknik eğitimler, mentor desteği, kurumsal şirketlerle eşleşme ve birlikte çalışma fırsatı yakalayarak büyümelerini hızlandırma fırsatı yakalar.</p>
+        <p>Proje yol haritası sekiz adımdan oluşur: Kurumsal Başvuru, Kurumsal İhtiyaç Analizi, Kurumsal İnovasyon Hazırlık, Girişimci Çağrısı, Stratejik Eşleştirme, Hızlandırma Programı, Kurumsal Paydaşların Sandbox Altyapısına Erişim ve Pilot Uygulama, Demo Day ve Ticarileşme. Proje 2026 sonuna kadar devam edecek.</p>
+        <blockquote>“Doğru startup ile doğru kurumu Üçlü Protokol ile bir araya getirerek iş birliği ortamı oluşturulur.”<small>Proje Yol Haritası · 5. adım: Stratejik Eşleştirme</small></blockquote>
+        <p>22 Eylül 2026'da İstanbul Finans Merkezi'nde gerçekleştirilen Fintech Gate Kurumsal Paydaşlar Çalıştayı'nda kurum içi inovasyon ile girişim çevikliğinin doğru zeminde nasıl buluşturulabileceği, PoC (Kavram Kanıtlama) süreçlerinden ticarileşmeye uzanan yolun nasıl hızlandırılabileceği ve kazan-kazan yaklaşımı sunan katma değerli iş birliği modelleri ele alındı. Katılımcılar: Visa Türkiye, Craftgate, Vakıf Katılım, Ziraat Teknoloji, Architecht, Paynion Bilişim A.Ş., Zanha Grup, Kuveyt Türk Katılım Bankası, Matriks Finansal Teknolojiler ve İstanbul Kalkınma Ajansı (İSTKA).</p>
       </div>
       <aside class="b-dergi-yan">
-        <img src="../gorsel/calistay-sunum-1600.webp" alt="Çalıştayda sunum">
-        <p class="altyazi">Fintech Gate Kurumsal Paydaşlar Çalıştayı, İFM, 22 Eylül 2026.</p>
-        <div class="kutu"><b data-sayac="288">0</b><span>soru ve cevap, 32 oturumda</span></div>
+        <img src="../gorsel/calistay-sunum-1600.webp" alt="Fintech Gate Kurumsal Paydaşlar Çalıştayı, 22 Eylül 2026, İstanbul Finans Merkezi">
+        <p class="altyazi">Fintech Gate Kurumsal Paydaşlar Çalıştayı, 22 Eylül 2026, İstanbul Finans Merkezi.</p>
+        <div class="kutu"><b>Aralık 2026</b><span>Demo Day · program takvimi</span>
+          <ul class="takvim">
+            <li><span>15 Haziran (Son Başvuru)</span><span>Girişimci Başvuru</span></li>
+            <li><span>15 Haziran – 30 Haziran</span><span>Başvuru Değerlendirme</span></li>
+            <li><span>1 Temmuz – 30 Ekim</span><span>Eğitim ve Mentorluk</span></li>
+            <li><span>30 Temmuz (Son Tarih)</span><span>Kurumsal-Startup Eşleştirme</span></li>
+            <li><span>1 Temmuz – 28 Şubat</span><span>Pilot Uygulama ve Ticarileşme</span></li>
+            <li><span>Aralık 2026</span><span>Demo Day</span></li>
+          </ul>
+        </div>
       </aside>
     </div>
+    <p class="b-istka">Bu yayın, İstanbul Kalkınma Ajansının desteklediği “İş Birliği İstanbul – Kurumsal Şirketler ile Startuplar Arası İş Birliklerini Güçlendirme Mali Destek Programı” kapsamında hazırlanmıştır. İçerik ile ilgili tek sorumluluk Fintech Zone İstanbul'a aittir ve İstanbul Kalkınma Ajansı ile Kalkınma Ajansları Genel Müdürlüğü'nün görüşlerini yansıtmaz.</p>
   </div>
 </section>
 
@@ -202,21 +221,21 @@ body{background:var(--porcelain);color:var(--charcoal)}
 <section class="k-final k-final-acik">
   <svg class="k-final-yay" viewBox="0 0 150 159.88" aria-hidden="true"><g transform="translate(-470 0)"><path fill="#E1251B" d="M485.36,28.91c6.74-8.67,15.17-15.62,25.06-20.66,30.68-15.63,67.3-8.58,89.06,17.15,2.28,2.69-7.77,11.04-10.05,8.34-17.87-21.14-47.97-26.93-73.19-14.08-8.13,4.15-15.06,9.86-20.59,16.97-2.21,2.84-11.86-5.67-10.27-7.71Z"/><path fill="#E1251B" d="M515.25,154.1c.68.62,1.5,1.1,2.43,1.39,31.51,9.77,66.26.38,88.54-23.93,2.4-2.61-7.07-11.29-9.47-8.68-18.93,20.66-48.48,28.65-75.26,20.34-3.39-1.05-8.02,9.25-6.24,10.87Z"/></g></svg>
   <div class="ic k-final-ic">
-    <span class="cip">Ön başvuru açık</span>
+    <span class="cip">Ön başvuru ücretsiz</span>
     <h2>Finans kentinde <em>yerinizi alın.</em></h2>
-    <p>Ön başvuru birkaç dakika sürer; değerlendirme ve sözleşmeyle İFM'deki kampüse yerleşirsiniz.</p>
+    <p>Fintech Zone bünyesinde yer almak isteyen Ar-Ge proje sahipleri; Ön Başvuru, Başvuru ve Değerlendirme, Kabul ve Sözleşme aşamalarını tamamlayarak teknoparka dahil olur.</p>
     <div class="dugmeler"><a class="dugme dugme-lava" href="https://portal.fintech.zone/" target="_blank" rel="noopener">Ön Başvuru</a><a class="dugme dugme-cizgi" href="../basvuru-sureci.html">Başvuru süreci</a></div>
-    <dl class="k-final-olgu"><div><dt>7</dt><dd>kurucu ortak</dd></div><div><dt>3</dt><dd>adımda üyelik</dd></div><div><dt>İFM</dt><dd>Ümraniye, İstanbul</dd></div></dl>
+    <dl class="k-final-olgu"><div><dt>7</dt><dd>ortak</dd></div><div><dt>8</dt><dd>kümelenme programı</dd></div><div><dt>İFM</dt><dd>Ümraniye - İstanbul</dd></div></dl>
   </div>
 </section>
 
 <section class="k-not"><div class="ic">
   <div class="k-not-bas"><span class="cip cip-cizgi">Konsept notu</span><h3>Bu yön nedir?</h3></div>
-  <div class="k-not-izgara"><div><b>Zemin</b><p>porselen ve beyaz, dergi tadı; hero tam ekran gerçek fotoğraf ve üstünde yaşayan ışık (canvas), gren dokusu.</p></div><div><b>"İFM'nin içinde"</b><p>dev harflerin içinde İFM silueti; kaydırdıkça fotoğraf harflerin içinde kayar.</p></div><div><b>Kampüs turu</b><p>dikey kaydırma yatay tura dönüşür, dört büyük kare.</p></div><div><b>Neden</b><p>beş kart üst üste yığılır (sticky stack); koyu, beyaz ve kırmızı kartlar ritim kurar.</p></div><div><b>Rakamlar</b><p>dev DM Serif sayaçlar. <b>İç sayfa:</b> dergi düzeni: süslü ilk harf, çekme alıntı, kenar çubuğunda rakam.</p></div><div><b>Erişilebilirlik</b><p>Hareket azaltma ayarında sahneler durur; mobilde yatay tur dikeye döner, kartlar sade akar.</p></div></div>
+  <div class="k-not-izgara"><div><b>Zemin</b><p>porselen ve beyaz, dergi tadı; hero tam ekran kampüs renderı ve üstünde yaşayan ışık (canvas), gren dokusu.</p></div><div><b>"İFM'nin içinde"</b><p>dev harflerin içinde İFM silueti; kaydırdıkça fotoğraf harflerin içinde kayar.</p></div><div><b>Kampüs turu</b><p>dikey kaydırma yatay tura dönüşür, dört büyük kare.</p></div><div><b>Neden</b><p>beş kart üst üste yığılır (sticky stack); koyu, beyaz ve kırmızı kartlar ritim kurar.</p></div><div><b>Rakamlar</b><p>dev DM Serif sayaçlar, kaynağıyla. <b>İç sayfa:</b> dergi düzeni: süslü ilk harf, çekme alıntı, kenar çubuğunda program takvimi.</p></div><div><b>Erişilebilirlik</b><p>Hareket azaltma ayarında sahneler durur; mobilde yatay tur dikeye döner, kartlar sade akar.</p></div></div>
 </div></section>
 <footer class="k-footer">
   <div class="ic k-footer-ic">
-    <div><img src="../logo/ftz-logo-renkli.svg" alt="Fintech Zone İstanbul"><p>İstanbul Finans ve Teknoloji Üssü A.Ş.<br>Finanskent Mah. Finans Cad. No: 13/1<br>Ümraniye, İstanbul</p><div class="k-sosyal">
+    <div><img src="../logo/ftz-logo-renkli.svg" alt="Fintech Zone İstanbul"><p>İstanbul Finans ve Teknoloji Üssü A.Ş.<br>Finanskent mah. Finans cd. No: 13/1<br>Ümraniye - İstanbul<br><a href="mailto:info@fintech.zone">info@fintech.zone</a> · <a href="tel:+902162222963">0216 222 2963</a></p><div class="k-sosyal">
           <a href="https://www.instagram.com/fintechzoneist" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM21.9 8.1c-.1-1.6-.4-3-1.6-4.2S17.5 2.3 15.9 2.2C14.3 2 9.7 2 8.1 2.2 6.5 2.3 5.1 2.6 3.9 3.8S2.3 6.5 2.2 8.1C2 9.7 2 14.3 2.2 15.9c.1 1.6.4 3 1.6 4.2s2.6 1.5 4.2 1.6c1.6.2 6.2.2 7.8 0 1.6-.1 3-.4 4.2-1.6s1.5-2.6 1.6-4.2c.2-1.6.2-6.2 0-7.8zm-2.2 9.5a3.3 3.3 0 0 1-1.9 1.9c-1.3.5-4.4.4-5.8.4s-4.5.1-5.8-.4a3.3 3.3 0 0 1-1.9-1.9c-.5-1.3-.4-4.4-.4-5.8s-.1-4.5.4-5.8A3.3 3.3 0 0 1 6.2 4.4c1.3-.5 4.4-.4 5.8-.4s4.5-.1 5.8.4a3.3 3.3 0 0 1 1.9 1.9c.5 1.3.4 4.4.4 5.8s.1 4.5-.4 5.8z"/></svg></a>
           <a href="https://www.linkedin.com/company/fintechzoneist" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.4 2H3.6A1.6 1.6 0 0 0 2 3.6v16.8A1.6 1.6 0 0 0 3.6 22h16.8a1.6 1.6 0 0 0 1.6-1.6V3.6A1.6 1.6 0 0 0 20.4 2zM8 19H5V9.5h3V19zM6.5 8.2a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4zM19 19h-3v-4.6c0-1.1 0-2.5-1.5-2.5s-1.8 1.2-1.8 2.4V19h-3V9.5h2.9v1.3h.1a3.2 3.2 0 0 1 2.8-1.6c3 0 3.6 2 3.6 4.6V19z"/></svg></a>
           <a href="https://x.com/fintechzoneist" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24"><path d="M17.5 3h3.1l-6.8 7.7L21.8 21h-6.2l-4.9-6.4L5.1 21H2l7.3-8.3L1.6 3h6.4l4.4 5.8L17.5 3zm-1.1 16.2h1.7L6.7 4.7H4.9l11.5 14.5z"/></svg></a>
@@ -226,7 +245,7 @@ body{background:var(--porcelain);color:var(--charcoal)}
     <div><h4>Güncel</h4><nav><a href="../haberler.html">Haberler</a><a href="../etkinlikler.html">Etkinlikler</a><a href="../sss.html">Sık Sorulan Sorular</a><a href="../iletisim.html">İletişim</a></nav></div>
   </div>
   <div class="k-footer-marka" aria-hidden="true">FINTECHZONE</div>
-  <div class="k-footer-alt"><span>© 2026 İstanbul Finans ve Teknoloji Üssü A.Ş. · Tasarım önerisi (demo) · TasarımMania</span><span>Konsept B · Finans Kenti Sinematik</span></div>
+  <div class="k-footer-alt"><span>© 2026 İstanbul Finans ve Teknoloji Üssü A.Ş. · Tasarım önerisi (demo) · TasarımMania</span><span><a href="https://fintech.zone/kvkk-ziyaretci-aydinlatma-metni/" target="_blank" rel="noopener">KVKK</a> · <a href="https://fintech.zone/cerez-politikasi/" target="_blank" rel="noopener">Çerez Politikası</a> · <a href="https://fintech.zone/aydinlatma-bildirimi/" target="_blank" rel="noopener">Aydınlatma Bildirimi</a></span><span>Konsept B · Finans Kenti Sinematik</span></div>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>

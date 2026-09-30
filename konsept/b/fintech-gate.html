@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fintech Gate | Fintech Zone İstanbul · Yön B</title>
-<meta name="description" content="Fintech Gate: kurumlar ile fintek girişimlerini sipariş odaklı iş birlikleri için eşleştiren, İSTKA destekli program.">
+<meta name="description" content="Fintech Gate İstanbul Destek Programı: kurumsal şirketlerin ihtiyaçlarını startup'ların yenilikçi çözümleriyle buluşturan, İSTKA desteğiyle hayata geçirilen program. Yol haritası, takvim ve katılım kriterleri.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="../../logo/o-ikon-renkli.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,10 +14,14 @@
 <style>
 .kare.yazi .dugme{justify-self:start}
 .kare.yazi p a{color:var(--beyaz);text-decoration:underline}
-.kare .alt .cip{display:table;margin-top:16px}
-.kare .alt small{display:block;font-size:13px;line-height:1.5;margin-top:8px}
+.kare.lava .rakam,.kare.lava .rakam small{color:var(--beyaz)}
 @media (min-width:901px){.koyu .rakamlar{grid-template-columns:repeat(3,1fr);row-gap:48px}}
-.kutu .cip-cizgi{margin:2px 0 14px}
+.koyu .kaynak{font-family:var(--mono);font-size:12px;color:var(--sis);margin-top:36px}
+.panel ul{list-style:none;padding-left:0}
+.panel li{padding:12px 0;border-top:1px solid var(--cizgi)}
+.panel li b{display:block;color:var(--charcoal);font-weight:500;margin-bottom:2px}
+.kartlar .mono{text-transform:none;letter-spacing:.02em}
+#istka .info-not{max-width:110ch;margin:0}
 </style>
 </head>
 <body>
@@ -34,7 +38,7 @@
       <div class="ust-grup"><a href="haberler.html" aria-haspopup="true">Güncel</a><div class="ust-alt"><div class="ust-alt-ic"><a href="haberler.html">Haberler</a><a href="etkinlikler.html">Etkinlikler</a><a href="webinar.html">Webinar Serisi</a></div></div></div>
       <a href="sss.html">SSS</a>
       <a href="iletisim.html">İletişim</a>
-      <a class="ust-dil" href="#" title="İngilizce sürüm (demo: yer tutucu)" lang="en">EN</a>
+      <a class="ust-dil" href="https://fintech.zone/en/fintech-zone-istanbul/" target="_blank" rel="noopener" title="English (resmi site)" lang="en">EN</a>
       <a class="dugme dugme-lava" href="https://portal.fintech.zone/" target="_blank" rel="noopener">Ön Başvuru</a>
     </nav>
   </div>
@@ -43,136 +47,219 @@
 <main>
 <!-- BAŞLIK: SİNEMA KISA -->
 <section class="sinema sinema-kisa">
-  <img src="../../gorsel/calistay-grup-1600.webp" alt="Fintech Gate Kurumsal Paydaşlar Çalıştayı katılımcıları İFM lobisinde">
+  <img src="../../gorsel/calistay-grup-1600.webp" alt="Fintech Gate Kurumsal Paydaşlar Çalıştayı katılımcıları, 22 Eylül 2026, İstanbul Finans Merkezi">
   <canvas class="isik" aria-hidden="true"></canvas>
   <div class="sinema-ic">
     <div>
-      <div class="kunye"><a href="index.html">Ana sayfa</a><span>Programlar</span><span>İSTKA destekli</span></div>
-      <h1>Fintekleri kurumlarla buluşturan <em>dijital köprü.</em></h1>
+      <div class="kunye"><a href="index.html">Ana sayfa</a><span>Programlar</span><span>İSTKA desteğiyle</span></div>
+      <h1>Fintekleri buluşturan <em>dijital köprü.</em></h1>
     </div>
     <div class="sag">
-      <p>Fintech Gate, kurumların gerçek ihtiyaçlarını girişimlerin çözümleriyle eşleştirir ve iş birliğini siparişe dönüştürür.</p>
-      <div class="dugmeler"><a class="dugme dugme-butter" href="https://portal.fintech.zone/" target="_blank" rel="noopener">Ön Başvuru</a><a class="dugme dugme-beyaz-cizgi" href="#akis">Program nasıl işler?</a></div>
+      <p>Finteklerin kapısı startup entegrasyonu için açılıyor. Kurumsal şirketlerin ihtiyaçlarını startup'ların yenilikçi çözümleriyle buluşturmayı ve ticarileşme süreçlerini hızlandırmayı hedefleyen Fintech Gate İstanbul Destek Programı, İstanbul Kalkınma Ajansı (İSTKA) desteğiyle hayata geçirildi.</p>
+      <div class="dugmeler"><a class="dugme dugme-butter" href="#yol-haritasi">Proje yol haritası</a><a class="dugme dugme-beyaz-cizgi" href="#kriterler">Kimler katılabilir?</a></div>
     </div>
   </div>
 </section>
 
-<!-- AKIŞ: İNFOGRAFİK -->
+<!-- HEDEF KİTLE: İNFOGRAFİK -->
 <section class="bolum" id="akis">
   <div class="ic">
     <div class="dergi-bas gorun">
-      <div><img src="../../logo/fintech-gate-renkli.svg" alt="Fintech Gate" loading="lazy" style="height:52px;width:auto;margin-bottom:24px"><h2>Program nasıl <em class="v">işler?</em></h2></div>
-      <p class="ozet">Fintech Gate, kurum ile girişim arasındaki mesafeyi kısaltmak için kuruldu. Kurumlar çözmek istedikleri ihtiyacı tanımlar; girişimler ürünleriyle başvurur; program iki tarafı eşleştirir ve iş birliğini mentörlük ve çalıştaylarla olgunlaştırır.</p>
+      <div><img src="../../logo/fintech-gate-renkli.svg" alt="Fintech Gate" loading="lazy" style="height:52px;width:auto;margin-bottom:24px"><h2>Programın <em class="v">hedef kitlesi.</em></h2></div>
+      <p class="ozet">Kurumsal sistemlere doğrudan entegrasyon hedefleyen yenilikçi fintek girişimleri ile dijital dönüşümünü açık inovasyonla güçlendirmek isteyen fintek dünyasının öncü kurumlarına yöneliktir.</p>
     </div>
     <div class="info info-akis gorun" data-canli>
-      <svg viewBox="0 0 900 300" role="img" aria-label="Fintech Gate akışı: kurum ihtiyacı Fintech Gate üzerinden girişimin çözümüyle eşleşir; başvuru, eşleştirme, mentörlük, çalıştay ve sipariş adımları">
+      <svg viewBox="0 0 900 230" role="img" aria-label="Fintech Gate: kurumsal şirketlerin ihtiyaçları stratejik eşleştirme ile fintek girişimlerinin çözümleriyle buluşur; pilot uygulama ve ticarileşme">
         <rect class="kutu-c" x="40" y="70" width="210" height="100" rx="4"/>
-        <text class="b" x="145" y="115">Kurum</text><text class="k" x="145" y="140">banka, ödeme, sigorta</text>
+        <text class="b" x="145" y="115">Kurumsal şirketler</text><text class="k" x="145" y="140">banka, sigorta vb.</text>
         <rect class="kutu-c" x="650" y="70" width="210" height="100" rx="4"/>
-        <text class="b" x="755" y="115">Girişim</text><text class="k" x="755" y="140">fintek ürünü olan ekip</text>
+        <text class="b" x="755" y="115">Fintek girişimleri</text><text class="k" x="755" y="140">startuplar</text>
         <circle class="merkez" cx="450" cy="120" r="64"/>
         <text class="merkez-t" x="450" y="114">Fintech</text><text class="merkez-t" x="450" y="140">Gate</text>
         <path class="baglanti" d="M250 100 H386"/><text class="k" x="318" y="90">ihtiyaç</text>
         <path class="baglanti" d="M514 100 H650"/><text class="k" x="582" y="90">eşleştirme</text>
         <path class="baglanti ters" d="M650 142 H514"/><text class="k" x="582" y="166">çözüm</text>
-        <path class="baglanti ters" d="M386 142 H250"/><text class="k" x="318" y="166">pilot ve sipariş</text>
+        <path class="baglanti ters" d="M386 142 H250"/><text class="k" x="318" y="166">pilot uygulama</text>
         <circle class="paket" r="5"><animateMotion dur="2.8s" repeatCount="indefinite" path="M250 100 H386"/></circle>
         <circle class="paket" r="5"><animateMotion dur="2.8s" begin="1.4s" repeatCount="indefinite" path="M514 100 H650"/></circle>
         <circle class="paket" r="5"><animateMotion dur="2.8s" begin="0.7s" repeatCount="indefinite" path="M650 142 H514"/></circle>
         <circle class="paket" r="5"><animateMotion dur="2.8s" begin="2.1s" repeatCount="indefinite" path="M386 142 H250"/></circle>
-        <line x1="130" y1="250" x2="770" y2="250" stroke="#DDE1E5" stroke-width="1.5"/>
-        <g class="adim"><circle cx="130" cy="250" r="9"/><text class="k" x="130" y="282">Başvuru</text></g>
-        <g class="adim"><circle cx="343" cy="250" r="9"/><text class="k" x="343" y="282">Eşleştirme</text></g>
-        <g class="adim"><circle cx="557" cy="250" r="9"/><text class="k" x="557" y="282">Mentörlük</text></g>
-        <g class="adim"><circle cx="770" cy="250" r="9"/><text class="k" x="770" y="282">Çalıştay ve sipariş</text></g>
       </svg>
     </div>
   </div>
 </section>
 
-<!-- PROGRAM DURAKLARI: YATAY TUR -->
-<section class="tur" id="duraklar">
+<!-- PROJE YOL HARİTASI: YATAY TUR -->
+<section class="tur" id="yol-haritasi">
   <div class="tur-bas">
-    <div><span class="mono">Program durakları</span><h2 style="margin-top:10px">Başvurudan <em class="v">siparişe.</em></h2><p>Başvuru, eşleştirme, mentörlük ve kurumsal paydaş çalıştayı: iş birliği bu dört durakta olgunlaşır.</p></div>
-    <div class="tur-nav"><button class="ok" data-yon="-1" aria-label="Önceki durak"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button><div class="nokta"></div><button class="ok" data-yon="1" aria-label="Sonraki durak"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button><span class="sayi">01 / 05</span></div>
+    <div><span class="mono">Proje yol haritası</span><h2 style="margin-top:10px">Kurumsal başvurudan <em class="v">Demo Day'e.</em></h2><p>Fintech Gate Proje Yol Haritası sekiz adımdan oluşur.</p></div>
+    <div class="tur-nav"><button class="ok" data-yon="-1" aria-label="Önceki adım"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button><div class="nokta"></div><button class="ok" data-yon="1" aria-label="Sonraki adım"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button><span class="sayi">01 / 08</span></div>
   </div>
   <div class="ray">
-    <div class="kare yazi"><div><span class="mono">01 · Başvuru</span><h3>Dönem çağrısına başvuru</h3><p>Girişimler ve kurumlar dönem çağrısına başvurur.</p></div><div class="rakam" data-sayac="30">0<small>girişim, ilk dönem</small></div></div>
-    <div class="kare yazi"><div><span class="mono">02 · Eşleştirme</span><h3>İhtiyaç ile çözüm</h3><p>İhtiyaç ile çözüm bir araya getirilir: kurumun tanımladığı ihtiyaç, girişimin ürünüyle eşleşir.</p></div></div>
-    <div class="kare"><img src="../../gorsel/temsili-mentorluk-1600.webp" alt="Temsilî görsel: birebir mentörlük görüşmesi" loading="lazy"><div class="alt"><span class="mono">03 · Mentörlük</span><b>Birebir oturumlar</b>Girişimler kurum mentörleriyle birebir oturumlar yapar.<span class="cip cip-cizgi">Temsilî görsel</span><small>Canlı sitede mentörlük oturumundan gerçek fotoğrafla değişecek.</small></div></div>
-    <div class="kare"><img src="../../gorsel/calistay-toplanti-1600.webp" alt="Çalıştayda toplantı masası ve konuşmacı" loading="lazy"><div class="alt"><span class="mono">04 · Kurumsal paydaş çalıştayı</span><b>Çıktılar masada</b>Çıktılar kurumlarla masaya yatırılır, iş birliği siparişe dönüşür.<small>İFM, 22 Eylül 2026.</small></div></div>
-    <div class="kare yazi lava"><div><span class="mono">05 · Sonraki dönem</span><h3>Dönem çağrısı</h3><p>Fintech Gate dönem çağrıları <a href="haberler.html">haberler sayfasında</a> ve sosyal medyada duyurulur.</p><p>Dönem takvimi ve başvuru koşulları: (FTZ'den alınacak)</p></div><a class="dugme dugme-butter" href="https://portal.fintech.zone/" target="_blank" rel="noopener">Ön Başvuru</a></div>
+    <div class="kare yazi"><div><span class="mono">Adım 01</span><h3>Kurumsal Başvuru</h3><p>Kurumsal paydaşların, program başvuruları alınır ve seçim yapılır.</p></div><div class="rakam">01<small>/ 08</small></div></div>
+    <div class="kare yazi"><div><span class="mono">Adım 02</span><h3>Kurumsal İhtiyaç Analizi</h3><p>Kurumsal paydaşların teknoloji ve inovasyon alanındaki ihtiyaçları belirlenir.</p></div><div class="rakam">02<small>/ 08</small></div></div>
+    <div class="kare yazi"><div><span class="mono">Adım 03</span><h3>Kurumsal İnovasyon Hazırlık</h3><p>Kurumsal paydaşları, startup iş birliğine ve inovasyon yeteneklerini geliştirmeye hazırlamak için eğitim ve toplantılar gerçekleştirilir.</p></div><div class="rakam">03<small>/ 08</small></div></div>
+    <div class="kare yazi lava"><div><span class="mono">Adım 04</span><h3>Girişimci Çağrısı</h3><p>Hızlandırma programına ve iş birliğine hazır, kurumsal ihtiyaçlara yönelik çözüm geliştiren fintekler programa başvuruda bulunur.</p></div><div class="rakam">04<small>/ 08</small></div></div>
+    <div class="kare yazi"><div><span class="mono">Adım 05</span><h3>Stratejik Eşleştirme</h3><p>Doğru startup ile doğru kurumu "Üçlü Protokol" ile bir araya getirerek iş birliği ortamı oluşturulur.</p></div><div class="rakam">05<small>/ 08</small></div></div>
+    <div class="kare yazi"><div><span class="mono">Adım 06</span><h3>Hızlandırma Programı</h3><p>Startuplara iş fikirlerini geliştirmek ve kurumsal entegrasyona hazır hale getirmek için eğitim ve mentorluk süreci ile destek sağlanır.</p></div><div class="rakam">06<small>/ 08</small></div></div>
+    <div class="kare yazi"><div><span class="mono">Adım 07</span><h3>Kurumsal Paydaşların Sandbox Altyapısına Erişim ve Pilot Uygulama</h3><p>Girişimler, kurumsal paydaşların sandbox ortamına entegre edilerek, ihtiyaca yönelik çözümler üreterek pilot uygulamaları gerçekleştirir.</p></div><div class="rakam">07<small>/ 08</small></div></div>
+    <div class="kare yazi lava"><div><span class="mono">Adım 08</span><h3>Demo Day ve Ticarileşme</h3><p>Başarılı olan projeler yatırımcı ve kurumlarla final sahnesine çıkarılarak yatırıma erişim sağlanır.</p></div><div class="rakam">08<small>/ 08</small></div></div>
   </div>
 </section>
 
-<!-- İLK DÖNEM: DEV RAKAMLAR -->
-<section class="bolum koyu" aria-label="İlk mentörlük döneminin rakamları">
+<!-- TAKVİM -->
+<section class="bolum beyaz" id="takvim">
   <div class="ic">
-    <div class="gorun" style="display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:56px"><h2>On beş günde <em class="b">1.935 dakika.</em></h2><span class="mono">İlk mentörlük döneminin gerçek rakamları.</span></div>
+    <div class="dergi-bas gorun">
+      <h2>Program <em class="v">takvimi.</em></h2>
+      <p class="ozet">Fintech Gate projesi 2026 sonuna kadar devam edecek.</p>
+    </div>
+    <div class="kartlar gorun">
+      <div><span class="mono">15 Haziran (Son Başvuru)</span><h3>Girişimci Başvuru</h3></div>
+      <div><span class="mono">15 Haziran – 30 Haziran</span><h3>Başvuru Değerlendirme</h3></div>
+      <div><span class="mono">1 Temmuz – 30 Ekim</span><h3>Eğitim ve Mentorluk</h3></div>
+      <div><span class="mono">30 Temmuz (Son Tarih)</span><h3>Kurumsal-Startup Eşleştirme</h3></div>
+      <div><span class="mono">1 Temmuz – 28 Şubat</span><h3>Pilot Uygulama ve Ticarileşme</h3></div>
+      <div><span class="mono">Aralık 2026</span><h3>Demo Day</h3></div>
+    </div>
+  </div>
+</section>
+
+<!-- HIZLANDIRMA PROGRAMI: DERGİ DÜZENİ -->
+<section class="bolum" id="hizlandirma">
+  <div class="ic">
+    <div class="dergi-bas gorun">
+      <h2>Fintech Gate <em class="v">Hızlandırma Programı.</em></h2>
+      <p class="ozet">Kurumsal ihtiyaçları ve girişimci çözümlerini aynı zeminde buluşturarak güçlü iş birlikleri oluşturuyoruz.</p>
+    </div>
+    <div class="dergi">
+      <div class="sutun ilk-harf gorun">
+        <p>Fintech Gate Hızlandırma Programı, girişimlerin ürünlerini geliştirmesi, kurumsal sistemlere hazırlanması ve ilk iş birliklerini oluşturması için tasarlanmış yoğun bir gelişim programıdır. Program boyunca startup'lar; teknik eğitimler, mentor desteği, kurumsal şirketlerle eşleşme ve birlikte çalışma fırsatı yakalayarak büyümelerini hızlandırma fırsatı yakalar.</p>
+        <p>Hızlandırma Programı, girişimlerin;</p>
+        <ul>
+          <li>Ürünlerini doğrulamasını ve ölçeklemesini,</li>
+          <li>Kurumsal sistemlere entegre olmasını,</li>
+          <li>Sürdürülebilir iş modelleri geliştirmesini,</li>
+          <li>Ticarileşme süreçlerini hızlandırmasını</li>
+        </ul>
+        <p>destekleyerek uzun vadeli iş birliklerinin önünü açar.</p>
+        <blockquote class="alinti">Finteklerin kapısı startup entegrasyonu için açılıyor.<small>Fintech Gate</small></blockquote>
+        <p>Kurumsal paydaşlarımızın sandbox altyapısına erişim ve hızlandırma süreçlerimizle fikirlerin test edilmesini, olgunlaşmasını ve ticarileşmesini destekliyoruz.</p>
+      </div>
+      <aside class="yan gorun">
+        <img src="../../gorsel/temsili-mentorluk-1600.webp" alt="Temsilî görsel: iki kişi toplantı masasında notlar üzerinden görüşüyor" loading="lazy" data-perde>
+        <p class="altyazi"><span class="cip cip-cizgi">Temsilî görsel</span> Canlı sitede Fintech Gate eğitimlerinden gerçek fotoğrafla değişecek.</p>
+        <div class="kutu">
+          <span class="mono">Kimler katılabilir?</span>
+          <p style="margin-top:10px">Girişimci bakış açısını kurumsal deneyimle bir araya getirmek isteyen tüm paydaşlar programa katılabilir.</p>
+          <a class="dugme dugme-cizgi" href="#kriterler">Katılım kriterleri</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- KATILIM KRİTERLERİ: SEKMELER -->
+<section class="bolum beyaz" id="kriterler">
+  <div class="ic">
+    <div class="dergi-bas gorun" style="margin-bottom:0">
+      <h2>Kimler <em class="v">katılabilir?</em></h2>
+      <p class="ozet">Girişimci bakış açısını kurumsal deneyimle bir araya getirmek isteyen tüm paydaşlar programa katılabilir.</p>
+    </div>
+    <div class="sekmeler gorun" role="tablist" aria-label="Katılımcı türü seçin">
+      <button class="sekme" role="tab" id="s-girisim" aria-selected="true" aria-controls="p-girisim">Girişimciler (Startuplar)</button>
+      <button class="sekme" role="tab" id="s-kurum" aria-selected="false" aria-controls="p-kurum">Kurumsal Şirketler (Partnerler)</button>
+    </div>
+    <div class="panel aktif" id="p-girisim" role="tabpanel" aria-labelledby="s-girisim">
+      <div><h3>Girişimciler (Startuplar) için katılım kriterleri</h3><p>Hızlandırma programına ve iş birliğine hazır, kurumsal ihtiyaçlara yönelik çözüm geliştiren fintekler.</p></div>
+      <div><ul>
+        <li><b>Dikey Uyumluluk</b>Ödeme sistemleri, açık bankacılık, InsurTech, RegTech, siber güvenlik veya gömülü finans alanlarında çözüm üretiyor olmak.</li>
+        <li><b>Teknolojik Olgunluk</b>En az MVP (Minimum Uygulanabilir Ürün) aşamasında olmak veya ticarileşmiş bir ürüne sahip olmak.</li>
+        <li><b>Ekip Yapısı</b>Ürünü teknik olarak geliştirebilecek ve Sandbox entegrasyonunu yürütebilecek yetkinlikte bir çekirdek ekibe sahip olmak.</li>
+        <li><b>Ölçeklenebilirlik</b>Kurumsal paydaşların (Banka, Sigorta vb.) sistemlerine entegre olabilecek ve yüksek işlem hacmini kaldırabilecek bir iş modeline sahip olmak.</li>
+        <li><b>İnovasyon Odaklılık</b>Mevcut finansal süreçlere yenilikçi, maliyet düşürücü veya verimlilik artırıcı bir yaklaşım sunmak.</li>
+      </ul></div>
+    </div>
+    <div class="panel" id="p-kurum" role="tabpanel" aria-labelledby="s-kurum">
+      <div><h3>Kurumsal Şirketler (Partnerler) için katılım kriterleri</h3><p>Dijital dönüşümünü açık inovasyonla güçlendirmek isteyen fintek dünyasının öncü kurumları.</p></div>
+      <div><ul>
+        <li><b>Sektörel Odak</b>Bankacılık, sigortacılık, ödeme hizmetleri, e-ticaret, perakende veya savunma sanayii gibi fintek çözümlerine ihtiyaç duyan sektörlerde faaliyet göstermek.</li>
+        <li><b>İnovasyon Vizyonu</b>Kurum bünyesinde dijital dönüşüm veya kurumsal girişimcilik süreçlerini yöneten bir birime veya stratejiye sahip olmak.</li>
+        <li><b>Mentörlük Kapasitesi</b>Seçilen girişimlere iş modellerini geliştirmeleri için sektörel tecrübe ve network desteği sunabilmek.</li>
+        <li><b>İş Birliği İştahı</b>Uygun bulunan girişimlerle Pilot Çalışma (PoC) yapma veya stratejik yatırım fırsatlarını değerlendirme niyetinde olmak.</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- MENTÖRLÜK OTURUMLARI: DEV RAKAMLAR (FTZ Instagram paylaşımı) -->
+<section class="bolum koyu" aria-label="Fintech Gate Mentörlük Oturumları">
+  <div class="ic">
+    <div class="gorun" style="display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:56px"><h2>Fintech Gate <em class="b">Mentörlük Oturumları.</em></h2><span class="mono">Rakamlarla</span></div>
     <div class="rakamlar gorun">
       <div><b data-sayac="15">0</b><span>gün</span></div>
       <div><b data-sayac="20">0</b><span>mentör</span></div>
       <div><b class="k" data-sayac="30">0</b><span>girişim</span></div>
       <div><b data-sayac="32">0</b><span>oturum</span></div>
-      <div><b data-sayac="288">0</b><span>soru ve cevap</span></div>
-      <div><b class="k" data-sayac="1935" data-bicim="tr">0</b><span>dakika birebir görüşme</span></div>
+      <div><b data-sayac="288">0</b><span>soru cevap</span></div>
+      <div><b class="k" data-sayac="1935">0</b><span>dakika görüşme</span></div>
     </div>
+    <p class="kaynak gorun">Kaynak: Fintech Zone Instagram paylaşımı, "Rakamlarla Fintech Gate Mentörlük Oturumları". Bu bilgi resmi web sitesinde yer almıyor.</p>
   </div>
 </section>
 
-<!-- OTURUM ANATOMİSİ: İNFOGRAFİK -->
-<section class="bolum beyaz" id="anatomi">
+<!-- GELİŞMELER -->
+<section class="bolum" id="gelismeler">
   <div class="ic">
     <div class="dergi-bas gorun">
-      <h2>Bir mentörlük oturumunun <em class="v">anatomisi.</em></h2>
-      <p class="ozet">İlk dönemin toplam rakamlarından türetildi: 1.935 dakika ve 288 soru-cevap, 32 oturuma bölündü.</p>
+      <h2>Fintech Gate'te <em class="v">gelişmeler.</em></h2>
+      <p class="ozet">2026 sonuna kadar devam edecek olan projemizle ilgili gelişmeleri bu bölümde inceleyebilirsiniz.</p>
     </div>
-    <div class="info info-oturum gorun" data-canli>
-      <svg viewBox="0 0 240 240" role="img" aria-label="Bir oturum yaklaşık 60 dakika">
-        <circle class="zemin" cx="120" cy="120" r="105"/>
-        <circle class="ilerleme" cx="120" cy="120" r="105"/>
-        <text class="merkez-b" x="120" y="132">60</text>
-        <text class="merkez-k" x="120" y="156">DAKİKA / OTURUM</text>
-      </svg>
-      <dl>
-        <div><dt class="k">9</dt><dd>soru ve cevap / oturum (288 ÷ 32)</dd></div>
-        <div><dt>2</dt><dd>oturum / gün (32 ÷ 15)</dd></div>
-        <div><dt>1,5</dt><dd>girişim / mentör (30 ÷ 20)</dd></div>
-        <div><dt data-sayac="1935" data-bicim="tr">0</dt><dd>dakika toplam görüşme</dd></div>
-      </dl>
-    </div>
-    <p class="info-not">Ortalamalar yuvarlanmıştır; kaynak: FTZ'nin ilk mentörlük dönemi özeti.</p>
+    <ol class="liste gorun">
+      <li><div><span class="no">Gelişme 01</span><h3>Kurumsal Paydaş Çalıştayı Yapıldı</h3></div><p>Fintech Gate Kurumsal Paydaşlar Çalıştayı'nı, değerli paydaşlarımızın katılımı ve katkılarıyla başarıyla gerçekleştirdik. <a href="haber-calistay.html" style="color:var(--lava);text-decoration:underline">Haberi okuyun</a></p></li>
+      <li><div><span class="no">Gelişme 02</span><h3>İlk Webinar Gerçekleştirildi</h3></div><p>Ziraat Teknoloji Genel Müdürü Sayın Bayram Tuzcu ile finansal teknolojilerdeki güncel gelişmeleri, sektörel dönüşümü ve geleceğin teknoloji trendlerini değerlendirdik. <a href="webinar.html" style="color:var(--lava);text-decoration:underline">Webinar serisi</a></p></li>
+      <li><div><span class="no">Gelişme 03</span><h3>Fintech Gate Girişimci Eğitimleri Serisi Başarıyla Tamamlandı</h3></div><p>Finansal veri güvenliği, KVKK &amp; GDPR, veri bilimi, fintek analitiği, dijital ürün yönetimi ve regülasyonlar gibi pek çok alanda uzman isimleri girişimcilerimizle buluşturduk.</p></li>
+      <li><div><span class="no">Gelişme 04</span><h3>Kick-off Toplantısı ve İlk Eğitimimizi Yoğun Katılımla Gerçekleştirdik</h3></div><p>İleri aşama girişimlerin kurumsal iş birliklerini güçlendirmeyi ve büyüme süreçlerini desteklemeyi amaçlayan programımız, eğitim, mentörlük ve stratejik eşleştirmelerle devam edecek.</p></li>
+      <li><div><span class="no">Gelişme 05</span><h3>Fintech Gate Hızlandırma Programı</h3></div><p>Fintech Gate Hızlandırma Programı, girişimlerin ürünlerini geliştirmelerini, kurumsal yapılara hazırlanmalarını ve yeni iş birlikleri kurmalarını destekleyen kapsamlı bir gelişim programıdır. 15 Haziran'a kadar başvurunuzu tamamlamayı unutmayın!</p></li>
+      <li><div><span class="no">Gelişme 06</span><h3>İSTKA'nın Destekleriyle Hayata Geçirilen Fintech Gate Lansmanını Gerçekleştirdik</h3></div><p>İstanbul Kalkınma Ajansı (İSTKA) desteğiyle hayata geçirilen Fintech Gate İstanbul Destek Programı'nın lansmanını, İstanbul Finans Merkezi ev sahipliğinde gerçekleştirdik.</p></li>
+      <li><div><span class="no">Gelişme 07</span><h3>Fintech Gate Başlıyor!</h3></div><p>Kurumsal şirketlerin ihtiyaçlarını startup'ların yenilikçi çözümleriyle buluşturmayı ve ticarileşme süreçlerini hızlandırmayı hedefleyen Fintech Gate Destek Programı başlıyor!</p></li>
+    </ol>
   </div>
 </section>
 
-<!-- ÇALIŞTAY: DERGİ DÜZENİ -->
-<section class="bolum kagit" id="calistay">
+<!-- PROJE PAYDAŞLARI: DERGİ DÜZENİ -->
+<section class="bolum kagit" id="paydaslar">
   <div class="ic">
     <div class="dergi-bas gorun">
-      <h2>Kurumlar ve girişimler <em class="v">aynı masada.</em></h2>
-      <p class="ozet">22 Eylül 2026'da İFM'de kurumlar ve girişimler bir araya geldi. Mentörlük döneminin çıktıları ve sipariş odaklı iş birliği modeli konuşuldu.</p>
+      <h2>Proje paydaşları ve <em class="v">iştirakler.</em></h2>
+      <p class="ozet">Fintech Gate projesi İstanbul Kalkınma Ajansı (İSTKA) desteğiyle yürütülüyor.</p>
     </div>
     <div class="dergi">
-      <div class="sutun ilk-harf gorun">
-        <h2>Kurumsal Paydaşlar Çalıştayı</h2>
-        <p>Programın son durağı kurumsal paydaş çalıştayıdır. Mentörlük döneminin çıktıları burada kurumlarla masaya yatırılır ve iş birliği siparişe dönüşür.</p>
-        <blockquote class="alinti">Finteklerin kapısı kurumsal entegrasyon için açılıyor.<small>Fintech Gate</small></blockquote>
-        <h2>Kimler için?</h2>
-        <p>Bankalar, ödeme kuruluşları, sigorta ve finansal hizmet şirketleri gibi kurumlar ile ürünü olan fintek girişimleri.</p>
-        <p>Girişim tarafında Fintech Zone üyesi olmak avantaj sağlar; kesin koşullar dönem çağrısında duyurulur.</p>
-        <p style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px"><a class="dugme dugme-cizgi" href="haber-calistay.html">Çalıştay haberini okuyun</a><a class="dugme dugme-lava" href="https://portal.fintech.zone/" target="_blank" rel="noopener">Ön Başvuru</a></p>
+      <div class="gorun">
+        <div class="kartlar iki-sutun">
+          <div><span class="mono">Yürütücü</span><h3>Fintech Zone</h3><p>İstanbul Finans ve Teknoloji Üssü</p></div>
+          <div><span class="mono">Destekleyen</span><h3>İstanbul Kalkınma Ajansı</h3><p>İSTKA</p></div>
+          <div><span class="mono">Proje Ortağı</span><h3>İstanbul Üniversitesi</h3></div>
+          <div><span class="mono">İştirakçiler</span><h3>Ser Danışmanlık &amp; Craftgate</h3></div>
+        </div>
       </div>
       <aside class="yan gorun">
-        <img src="../../gorsel/calistay-sunum-1600.webp" alt="Çalıştayda yöntem sunumu" loading="lazy" data-perde>
-        <p class="altyazi">Fintech Gate Kurumsal Paydaşlar Çalıştayı, İFM, 22 Eylül 2026.</p>
+        <img src="../../gorsel/calistay-sunum-1600.webp" alt="Fintech Gate Kurumsal Paydaşlar Çalıştayı'nda sunum, 22 Eylül 2026, İstanbul Finans Merkezi" loading="lazy" data-perde>
+        <p class="altyazi">Fintech Gate Kurumsal Paydaşlar Çalıştayı, 22 Eylül 2026, İstanbul Finans Merkezi.</p>
         <div class="kutu">
-          <span class="mono">Destek</span>
-          <h3 style="margin-top:10px">İSTKA desteği</h3>
-          <span class="cip cip-cizgi">İSTKA logosu (FTZ'den alınacak)</span>
-          <p>Fintech Gate, İstanbul Kalkınma Ajansı (İSTKA) desteğiyle yürütülmektedir. Destek logoları program görsellerinde yer alır.</p>
+          <span class="mono">22.09.2026</span>
+          <h3 style="margin-top:10px">Fintech Gate Kurumsal Paydaşlar Çalıştayı Gerçekleştirildi</h3>
+          <a class="dugme dugme-cizgi" href="haber-calistay.html">Haberi okuyun</a>
         </div>
       </aside>
     </div>
+  </div>
+</section>
+
+<!-- İSTKA DESTEK METNİ -->
+<section class="bolum-sik beyaz" id="istka" aria-label="İSTKA destek bildirimi">
+  <div class="ic">
+    <p class="info-not">Bu yayın, İstanbul Kalkınma Ajansının desteklediği "İş Birliği İstanbul – Kurumsal Şirketler ile Startuplar Arası İş Birliklerini Güçlendirme Mali Destek Programı" kapsamında hazırlanmıştır. İçerik ile ilgili tek sorumluluk Fintech Zone İstanbul'a aittir ve İstanbul Kalkınma Ajansı ile Kalkınma Ajansları Genel Müdürlüğü'nün görüşlerini yansıtmaz.</p>
   </div>
 </section>
 </main>
@@ -180,27 +267,27 @@
 <section class="final">
   <svg class="final-yay" viewBox="0 0 150 159.88" aria-hidden="true"><g transform="translate(-470 0)"><path fill="#E1251B" d="M485.36,28.91c6.74-8.67,15.17-15.62,25.06-20.66,30.68-15.63,67.3-8.58,89.06,17.15,2.28,2.69-7.77,11.04-10.05,8.34-17.87-21.14-47.97-26.93-73.19-14.08-8.13,4.15-15.06,9.86-20.59,16.97-2.21,2.84-11.86-5.67-10.27-7.71Z"/><path fill="#E1251B" d="M515.25,154.1c.68.62,1.5,1.1,2.43,1.39,31.51,9.77,66.26.38,88.54-23.93,2.4-2.61-7.07-11.29-9.47-8.68-18.93,20.66-48.48,28.65-75.26,20.34-3.39-1.05-8.02,9.25-6.24,10.87Z"/></g></svg>
   <div class="ic final-ic">
-    <span class="cip">Ön başvuru açık</span>
-    <h2>Finans kentinde <em class="v">yerinizi alın.</em></h2>
-    <p>Ön başvuru birkaç dakika sürer; değerlendirme ve sözleşmeyle İFM'deki kampüse yerleşirsiniz.</p>
+    <span class="cip">Ön Başvuru</span>
+    <h2>Fintek teknoparkında <em class="v">yerinizi alın.</em></h2>
+    <p>Fintech Zone bünyesinde yer almak isteyen Ar-Ge proje sahipleri; Ön Başvuru, Başvuru ve Değerlendirme, Kabul ve Sözleşme aşamalarını tamamlayarak teknoparka dahil olur.</p>
     <div class="dugmeler"><a class="dugme dugme-lava" href="https://portal.fintech.zone/" target="_blank" rel="noopener">Ön Başvuru</a><a class="dugme dugme-cizgi" href="basvuru-sureci.html">Başvuru süreci</a></div>
-    <dl class="final-olgu"><div><dt>7</dt><dd>kurucu ortak</dd></div><div><dt>3</dt><dd>adımda üyelik</dd></div><div><dt>İFM</dt><dd>Ümraniye, İstanbul</dd></div></dl>
+    <dl class="final-olgu"><div><dt>7</dt><dd>ortak</dd></div><div><dt>8</dt><dd>kümelenme programı</dd></div><div><dt>İFM</dt><dd>Ümraniye, İstanbul</dd></div></dl>
   </div>
 </section>
 <footer class="footer">
   <div class="ic footer-ic">
-    <div><img src="../../logo/ftz-logo-renkli.svg" alt="Fintech Zone İstanbul"><p>İstanbul Finans ve Teknoloji Üssü A.Ş.<br>Finanskent Mah. Finans Cad. No: 13/1<br>Ümraniye, İstanbul</p>
+    <div><img src="../../logo/ftz-logo-renkli.svg" alt="Fintech Zone İstanbul"><p>İstanbul Finans ve Teknoloji Üssü A.Ş.<br>Finanskent mah. Finans cd. No: 13/1<br>Ümraniye - İstanbul<br><a href="mailto:info@fintech.zone">info@fintech.zone</a> · <a href="tel:+902162222963">0216 222 2963</a></p>
       <div class="sosyal">
         <a href="https://www.instagram.com/fintechzoneist" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM21.9 8.1c-.1-1.6-.4-3-1.6-4.2S17.5 2.3 15.9 2.2C14.3 2 9.7 2 8.1 2.2 6.5 2.3 5.1 2.6 3.9 3.8S2.3 6.5 2.2 8.1C2 9.7 2 14.3 2.2 15.9c.1 1.6.4 3 1.6 4.2s2.6 1.5 4.2 1.6c1.6.2 6.2.2 7.8 0 1.6-.1 3-.4 4.2-1.6s1.5-2.6 1.6-4.2c.2-1.6.2-6.2 0-7.8zm-2.2 9.5a3.3 3.3 0 0 1-1.9 1.9c-1.3.5-4.4.4-5.8.4s-4.5.1-5.8-.4a3.3 3.3 0 0 1-1.9-1.9c-.5-1.3-.4-4.4-.4-5.8s-.1-4.5.4-5.8A3.3 3.3 0 0 1 6.2 4.4c1.3-.5 4.4-.4 5.8-.4s4.5-.1 5.8.4a3.3 3.3 0 0 1 1.9 1.9c.5 1.3.4 4.4.4 5.8s.1 4.5-.4 5.8z"/></svg></a>
         <a href="https://www.linkedin.com/company/fintechzoneist" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.4 2H3.6A1.6 1.6 0 0 0 2 3.6v16.8A1.6 1.6 0 0 0 3.6 22h16.8a1.6 1.6 0 0 0 1.6-1.6V3.6A1.6 1.6 0 0 0 20.4 2zM8 19H5V9.5h3V19zM6.5 8.2a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4zM19 19h-3v-4.6c0-1.1 0-2.5-1.5-2.5s-1.8 1.2-1.8 2.4V19h-3V9.5h2.9v1.3h.1a3.2 3.2 0 0 1 2.8-1.6c3 0 3.6 2 3.6 4.6V19z"/></svg></a>
-        <a href="https://x.com/fintechzoneist" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24"><path d="M17.5 3h3.1l-6.8 7.7L21.8 21h-6.2l-4.9-6.4L5.1 21H2l7.3-8.3L1.6 3h6.4l4.4 5.8L17.5 3zm-1.1 16.2h1.7L6.7 4.7H4.9l11.5 14.5z"/></svg></a>
+        <a href="https://twitter.com/fintechzoneist" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24"><path d="M17.5 3h3.1l-6.8 7.7L21.8 21h-6.2l-4.9-6.4L5.1 21H2l7.3-8.3L1.6 3h6.4l4.4 5.8L17.5 3zm-1.1 16.2h1.7L6.7 4.7H4.9l11.5 14.5z"/></svg></a>
       </div></div>
     <div><h4>Kurum</h4><nav><a href="hakkimizda.html">Hakkımızda</a><a href="ekosistem.html">Ekosistem</a><a href="kulucka-merkezi.html">Kuluçka Merkezi</a><a href="muafiyet-ve-avantajlar.html">Muafiyet ve Avantajlar</a></nav></div>
     <div><h4>Programlar</h4><nav><a href="fintech-gate.html">Fintech Gate</a><a href="basvuru-sureci.html">Başvuru Süreci</a><a href="https://portal.fintech.zone/" target="_blank" rel="noopener">Ön Başvuru Portalı</a><a href="webinar.html">Webinar Serisi</a></nav></div>
     <div><h4>Güncel</h4><nav><a href="haberler.html">Haberler</a><a href="etkinlikler.html">Etkinlikler</a><a href="sss.html">Sık Sorulan Sorular</a><a href="iletisim.html">İletişim</a></nav></div>
   </div>
   <div class="footer-marka" aria-hidden="true">FINTECHZONE</div>
-  <div class="footer-alt"><span>© 2026 İstanbul Finans ve Teknoloji Üssü A.Ş. · Tasarım önerisi (demo) · TasarımMania</span><span><a href="#" title="Demo: yer tutucu">KVKK Aydınlatma Metni</a><a href="#" title="Demo: yer tutucu">Çerez Politikası</a><a href="../index.html">Konsept karşılaştırma</a></span></div>
+  <div class="footer-alt"><span>"Fintech Zone İstanbul" bir İstanbul Finans ve Teknoloji Üssü A.Ş. markasıdır. 2026 · İstanbul · Tasarım önerisi (demo) · TasarımMania</span><span><a href="https://fintech.zone/kvkk-ziyaretci-aydinlatma-metni/" target="_blank" rel="noopener">KVKK</a><a href="https://fintech.zone/aydinlatma-bildirimi/" target="_blank" rel="noopener">Aydınlatma Bildirimi</a><a href="https://fintech.zone/cerez-politikasi/" target="_blank" rel="noopener">Çerez Politikası</a><a href="../index.html">Konsept karşılaştırma</a></span></div>
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>

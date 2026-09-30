@@ -118,15 +118,23 @@ Görünür olunca canlanır (`data-canli` → IntersectionObserver `.canli`), `p
 - Hero videosu: `gorsel/hero-kampus.mp4` + `.webm` (1080×1080 kare, 6 sn, sessiz döngü) ve `hero-kampus-1440.mp4` (konsept A). 30 Eylül: kaynak Higgsfield ByteDance upscale ile 4K'ya (3864×2160) büyütüldü, `varliklar-kaynak/higgsfield/hero-video-a-4k.mp4`; kullanıcı kararı: video kalsın, çözünürlük yükselt. İlk kaynak `hero-video-a.mp4` (Cinema Studio V2, 1280×716). Hareket azaltmada, 700 px altında ve veri tasarrufunda inmez; poster `daire-meydan-700.webp` kalır. B varyantı da kaynakta duruyor.
 - Temsilî fotoğraflar (Soul V2, belgesel/film tarzı): `temsili-girisim-ekibi` (kuluçka), `temsili-mentorluk` (Fintech Gate), `temsili-danismanlik` (muafiyet). Sayfada "Temsilî görsel" diye etiketli; gerçek kişiyle eşleştirilmedi. Dördüncü kare (boş ofis katı) karanlık çıktı, kullanılmadı.
 
-## FTZ'den alınacaklar (sayfalarda "(FTZ'den alınacak)" diye işaretli)
+## Resmi bilgi denetimi (30 Eylül 2026)
 
-- Değerlendirme süresi ve kriterleri, belge listesi; kuluçka süresi, kontenjan, ücret
-- Muafiyet ve teşvik oranları (demoda hiç rakam verilmedi)
-- İSTKA logosu; Fintech Gate dönem takvimi
-- Webinar 2. bölüm tarihi ve 1. bölüm kaydı; TÜBİTAK 1707 son başvuru tarihi
-- E-posta ve telefon; çalıştay konuşmacı adları
-- İngilizce sürüm, KVKK ve çerez metinleri
-- Vizyon cümlesi tutarsızlığı: kimlik sayfası "Milli strateji ile… global bir merkez olmak", ana sayfa "evrensel bir üs olmak". Demoda kimlik sayfasındaki kullanıldı.
+Kullanıcı: "resmi siteyle aynı olmalı, asla beni hataya düşürme". fintech.zone'un 14 sayfası yavaş ve sıralı isteklerle çekildi. Doğruluk tabanı `kaynak/resmi-bilgi.md` oldu; bütün demolar (v1, v2, konsept A/B/C, tek sayfa konseptler, FTZ Asistan) buna göre düzeltildi. Kontrol betiğinin YASAK listesi resmi olmayan ifadeleri yakalar.
+
+**Resmi siteden doldurulanlar:** iki adres (Yönetim Ofisi, Teknopark Binası) ve konum bağlantıları, info@fintech.zone, KEP adresi, 0216 222 2963, resmi form alanları, KVKK/çerez/aydınlatma bağlantıları, beş adımlı başvuru süreci, değerlendirme ölçütleri ve ücret politikası, resmi 10 SSS, muafiyetlerin oran ve tarihleri, 8 kümelenme programı, 5 kuluçka program türü, vizyon/misyon/değerler, Fintech Gate takvimi, 8 adımlı yol haritası, katılım kriterleri, proje paydaşları ve İSTKA destek metni, webinar saati, LCV ve YouTube kaydı, 11 resmi haber, çalıştay katılımcıları, fintek etkinlikleri takvimi.
+
+**Resmi web sitesi dışından, kaynağı yazılarak kullanılanlar:** Fintech Gate Mentörlük Oturumları rakamları (FTZ Instagram), TÜBİTAK 1707 tarihleri (TÜBİTAK duyurusu).
+
+**Kaldırılanlar (resmi kaynağı yok):** "7 kurucu ortak" (resmi: ortaklık yapımız), GITEX/CBYFO standı, "sipariş odaklı", "ilk dönem", türetilmiş ortalamalar, ortakların kategori dağılımı, uydurma SSS soruları, profil bazlı yol haritaları ve belge listesi.
+
+**Resmi sitede hâlâ olmayan bilgiler (FTZ'ye sorulacak, demoda yazılmadı):** değerlendirme süresi, kuluçka süresi/kontenjanı/ücreti, Ar-Ge firma başvuru ücreti, çalıştay konuşmacıları ve program akışı, webinar 2. bölüm tarihi ve konuğu, İSTKA logosunun dosyası.
+
+**Resmi sitede fark edilen hatalar (FTZ'ye iletilebilir):**
+- Haber listesinde webinar haberi 23.08.2026, çalıştay haberi 22.08.2026 görünüyor; haber sayfalarında 28.09.2026 ve 22.09.2026. Etkinlikler Eylül'de.
+- `surec-ve-basvuru/#sss` ve `tr/surec-ve-basvuru/` bağlantıları 404 veriyor (menüde, footer'da ve ana sayfada kullanılıyor). SSS aslında `basvuru-sureci` sayfasında.
+- Yazım: "rekaberlik" (Hakkımızda, Temsiliyet), "vönetim ofisine" ve "planlanı" (ASELSAN haberi), "Etklinlikler" (etkinlik etiketleri), "DESTEKELEYEN" (Ekosistem). Türkçe sayfalarda İngilizce kalmış düğmeler: "Explore Solutions" (Hakkımızda), "Try Us Now" (Ekosistem).
+- Ana sayfada vizyon iki farklı cümleyle yazılmış ("evrensel bir üs" ve "global bir merkez").
 
 ## Canlıya geçerse
 
