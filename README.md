@@ -34,6 +34,8 @@ Kullanıcı: "site eski siteye hâlâ çok benziyor; scrolltide.co gibi çok boy
 | `konsept/b-sinematik.html` | **B · Finans Kenti Sinematik** (porselen, dergi) | Tam ekran fotoğraf + canvas "yaşayan ışık" (screen) + gren; "İFM'nin içinde" harflerinde kayan siluet (background-clip:text, scrub); yatay kampüs turu; sticky yığılan beş kart; dev sayaçlar; dergi düzeni iç sayfa (süslü ilk harf, alıntı). |
 | `konsept/c-terminal.html` | **C · Terminal** (Sherpa koyu, ızgara) | Akan veri şeridi; Three.js parçacık küre, İstanbul işareti, Lagos'a rota ve gezen nokta (Nijerya heyeti), sürükleyerek döndürme; metrik konsolu (sayaç, halka, çubuk); kendini yazan başvuru terminali; Fintech Gate konsolu + olay kaydı. |
 
+Yatay turlarda (A Fintech Gate, B kampüs) kaydırma aralığı 2,2 kat uzatıldı, duraklara yapışma (snap) ve nokta + ok gezinmesi eklendi; okla ya da noktaya tıklayınca ilgili durağa dönülür (30 Eyl, kullanıcı 'Durak 1'e geri dönemiyorum' dedi).
+
 Ortak: `konsept/konsept.css`. Kütüphaneler cdnjs'ten (three r128, gsap 3.12.5 + ScrollTrigger). Yalnız gerçek rakam ve görsel; WebGL döngüleri hero ekran dışındayken durur; `prefers-reduced-motion`'da sahneler sabit, içerik tam. Mobilde 3D soluklaşır, yatay turlar dikeye döner. Seçilen yön 13 sayfanın tamamına uygulanacak.
 
 ## Yayın adresleri (29 Eylül 2026)

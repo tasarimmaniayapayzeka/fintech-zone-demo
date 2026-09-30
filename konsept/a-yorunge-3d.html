@@ -42,13 +42,13 @@ body{background:var(--gece);color:#EEF1F4}
 @media (max-width:900px){.a-bes-ic{grid-template-columns:1fr;gap:28px}.a-bes-foto{max-height:38vh;aspect-ratio:16/10;border-radius:24px}.a-bes-sayi{top:8vh;font-size:120px}.a-bes-ilerleme{display:none}}
 
 /* ---------- fintech gate: yatay tur ---------- */
-.a-gate{position:relative;overflow:hidden;background:var(--charcoal-koyu)}
-.a-gate-bas{padding:96px var(--kenar) 0;max-width:var(--ic);margin:0 auto}
+.a-gate{position:relative;overflow:hidden;background:var(--charcoal-koyu);min-height:100dvh}
+.a-gate-bas{padding:76px var(--kenar) 0;max-width:var(--ic);margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end}
 .a-gate-bas h2{font-size:clamp(34px,4.4vw,60px);color:#fff}
 .a-gate-bas h2 em{color:var(--butter);font-style:italic}
 .a-gate-bas p{color:var(--sis);max-width:56ch;margin-top:14px}
-.a-ray{display:flex;height:calc(100dvh - 40px);align-items:center;gap:32px;padding:0 var(--kenar);will-change:transform}
-.a-vagon{flex:none;width:min(560px,80vw);height:64vh;border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:36px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));position:relative;overflow:hidden}
+.a-ray{display:flex;height:calc(100dvh - 236px);align-items:center;gap:32px;padding:0 var(--kenar);will-change:transform}
+.a-vagon{flex:none;width:min(560px,80vw);height:min(62vh,calc(100dvh - 300px));min-height:380px;border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:36px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));position:relative;overflow:hidden}
 .a-vagon .no{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--butter)}
 .a-vagon h3{font-size:clamp(30px,3.4vw,46px);color:#fff;margin-top:10px}
 .a-vagon p{color:var(--sis);font-size:16px;max-width:40ch;margin-top:12px}
@@ -57,7 +57,14 @@ body{background:var(--gece);color:#EEF1F4}
 .a-vagon img{position:absolute;right:-10%;bottom:-8%;width:62%;aspect-ratio:1;object-fit:cover;border-radius:50%;opacity:.55;mask-image:radial-gradient(circle,#000 55%,transparent 72%);-webkit-mask-image:radial-gradient(circle,#000 55%,transparent 72%)}
 .a-vagon.son{background:var(--lava);border-color:var(--lava)}
 .a-vagon.son h3,.a-vagon.son p{color:#fff}.a-vagon.son .no{color:#fff}
-@media (max-width:900px){.a-ray{height:auto;flex-direction:column;align-items:stretch;padding:32px var(--kenar) 64px}.a-vagon{width:100%;height:auto;min-height:340px}}
+.tur-nav{display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--sis)}
+.tur-nav .nokta{display:flex;gap:8px}
+.tur-nav .nokta button{width:10px;height:10px;border-radius:999px;background:rgba(255,255,255,.25);padding:0;transition:background .25s,transform .25s}
+.tur-nav .nokta button.aktif{background:var(--butter);transform:scale(1.4)}
+.tur-nav .ok{width:40px;height:40px;border-radius:999px;border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;color:#fff;transition:background .2s,border-color .2s}
+.tur-nav .ok:hover{background:var(--lava);border-color:var(--lava)}
+.tur-nav .ok svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:900px){.a-ray{height:auto;flex-direction:column;align-items:stretch;padding:32px var(--kenar) 64px}.a-vagon{width:100%;height:auto;min-height:340px}.a-gate-bas{grid-template-columns:1fr}.tur-nav{display:none}.a-gate{min-height:0}}
 
 /* ---------- ekosistem: 3D halka carousel ---------- */
 .a-halka{background:#141A20;padding:120px 0;overflow:hidden}
@@ -137,7 +144,9 @@ body{background:var(--gece);color:#EEF1F4}
 
 <!-- FINTECH GATE: YATAY TUR -->
 <section class="a-gate" id="gate">
-  <div class="a-gate-bas"><span class="cip">Fintech Gate</span><h2 style="margin-top:16px">Kurumdan girişime, <em>dört durak.</em></h2><p>İSTKA destekli eşleştirme programı. Kaydırdıkça sağa doğru ilerler; her durakta ilk dönemin gerçek rakamı.</p></div>
+  <div class="a-gate-bas"><div><span class="cip">Fintech Gate</span><h2 style="margin-top:16px">Kurumdan girişime, <em>dört durak.</em></h2><p>İSTKA destekli eşleştirme programı. Kaydırdıkça sağa doğru ilerler; her durakta ilk dönemin gerçek rakamı.</p></div>
+    <div class="tur-nav" data-tur="ray"><button class="ok" data-yon="-1" aria-label="Önceki durak"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button><div class="nokta"><button class="aktif" aria-label="Durak 1"></button><button aria-label="Durak 2"></button><button aria-label="Durak 3"></button><button aria-label="Durak 4"></button></div><button class="ok" data-yon="1" aria-label="Sonraki durak"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button><span class="sayi">01 / 04</span></div>
+  </div>
   <div class="a-ray" id="ray">
     <article class="a-vagon"><div><span class="no">DURAK 01</span><h3>Başvuru</h3><p>Kurumlar ihtiyacını, girişimler ürününü dönem çağrısına bırakır.</p></div><div class="rakam" data-sayac="30">0<small>girişim başvurdu ve seçildi</small></div><img src="../gorsel/daire-calistay-600.webp" alt=""></article>
     <article class="a-vagon"><div><span class="no">DURAK 02</span><h3>Eşleştirme</h3><p>İhtiyaç ile çözüm bir araya getirilir; mentör atanır.</p></div><div class="rakam" data-sayac="20">0<small>mentör</small></div><img src="../gorsel/daire-nijerya-600.webp" alt=""></article>
@@ -299,8 +308,14 @@ body{background:var(--gece);color:#EEF1F4}
   /* ---------- fintech gate: yatay tur ---------- */
   var ray=document.getElementById('ray');
   if(!azHareket && !dar){
-    var mesafe=function(){return ray.scrollWidth-innerWidth;};
-    gsap.to(ray,{x:function(){return -mesafe();},ease:'none',scrollTrigger:{trigger:'.a-gate',start:'top top',end:function(){return '+='+mesafe();},pin:true,scrub:1,invalidateOnRefresh:true}});
+    var mes=function(){return ray.scrollWidth-innerWidth;}, adet=ray.children.length;
+    var nav=document.querySelector('.tur-nav[data-tur="ray"]'), noktalar=Array.prototype.slice.call(nav.querySelectorAll('.nokta button')), sayiEl=nav.querySelector('.sayi');
+    var st=ScrollTrigger.create({trigger:'.a-gate',start:'top top',end:function(){return '+='+Math.round(mes()*2.2);},pin:true,scrub:1,invalidateOnRefresh:true,anticipatePin:1,
+      snap:{snapTo:1/(adet-1),duration:{min:.2,max:.6},ease:'power2.inOut'},
+      onUpdate:function(t){ gsap.set(ray,{x:-mes()*t.progress}); var k=Math.round(t.progress*(adet-1)); noktalar.forEach(function(n,i){n.classList.toggle('aktif',i===k);}); sayiEl.textContent=('0'+(k+1)).slice(-2)+' / 0'+adet; }});
+    function git(k){ k=Math.max(0,Math.min(adet-1,k)); window.scrollTo({top:st.start+(st.end-st.start)*k/(adet-1),behavior:'smooth'}); }
+    noktalar.forEach(function(n,i){ n.addEventListener('click',function(){git(i);}); });
+    nav.querySelectorAll('.ok').forEach(function(o){ o.addEventListener('click',function(){ git(Math.round(st.progress*(adet-1))+parseInt(o.getAttribute('data-yon'),10)); }); });
   }
 
   /* ---------- haber: paralaks ---------- */

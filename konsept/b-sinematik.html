@@ -39,17 +39,24 @@ body{background:var(--porcelain);color:var(--charcoal)}
 .b-maske small{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#66727F;margin-top:16px}
 
 /* ---------- kampüs turu: yatay ---------- */
-.b-tur{position:relative;overflow:hidden;background:#fff}
-.b-tur-bas{padding:96px var(--kenar) 8px;max-width:var(--ic);margin:0 auto}
+.b-tur{position:relative;overflow:hidden;background:#fff;min-height:100dvh}
+.b-tur-bas{padding:76px var(--kenar) 8px;max-width:var(--ic);margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end}
 .b-tur-bas h2{font-size:clamp(34px,4.4vw,60px)}
 .b-tur-bas h2 em{color:var(--lava);font-style:italic}
-.b-ray{display:flex;align-items:center;gap:40px;height:calc(100dvh - 40px);padding:0 var(--kenar);will-change:transform}
+.b-ray{display:flex;align-items:center;gap:40px;height:calc(100dvh - 190px);padding:0 var(--kenar);will-change:transform}
 .b-kare{flex:none;width:min(880px,86vw);display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:24px;align-items:end}
-.b-kare img{width:100%;height:60vh;object-fit:cover;border-radius:4px}
+.b-kare img{width:100%;height:min(58vh,calc(100dvh - 300px));min-height:300px;object-fit:cover;border-radius:4px}
 .b-kare .alt{font-size:15px;color:#66727F}
 .b-kare .alt b{display:block;font-family:var(--serif);font-weight:400;font-size:30px;color:var(--charcoal);margin-bottom:8px}
 .b-kare .alt .mono{color:var(--lava);display:block;margin-bottom:12px}
-@media (max-width:900px){.b-ray{height:auto;flex-direction:column;align-items:stretch;padding:24px var(--kenar) 56px}.b-kare{width:100%;grid-template-columns:1fr}.b-kare img{height:46vh}}
+.tur-nav{display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:#66727F}
+.tur-nav .nokta{display:flex;gap:8px}
+.tur-nav .nokta button{width:10px;height:10px;border-radius:999px;background:#D5DBE0;padding:0;transition:background .25s,transform .25s}
+.tur-nav .nokta button.aktif{background:var(--lava);transform:scale(1.4)}
+.tur-nav .ok{width:40px;height:40px;border-radius:999px;border:1.5px solid var(--charcoal);display:grid;place-items:center;color:var(--charcoal);transition:background .2s,color .2s}
+.tur-nav .ok:hover{background:var(--charcoal);color:#fff}
+.tur-nav .ok svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:900px){.b-ray{height:auto;flex-direction:column;align-items:stretch;padding:24px var(--kenar) 56px}.b-kare{width:100%;grid-template-columns:1fr}.b-kare img{height:46vh;min-height:0}.b-tur-bas{grid-template-columns:1fr}.tur-nav{display:none}.b-tur{min-height:0}}
 
 /* ---------- beş başlık: yığılan kartlar ---------- */
 .b-yigin{background:var(--porcelain);padding:96px 0 0}
@@ -136,7 +143,7 @@ body{background:var(--porcelain);color:var(--charcoal)}
 
 <!-- KAMPÜS TURU: YATAY -->
 <section class="b-tur">
-  <div class="b-tur-bas"><h2>Kampüs <em>turu.</em></h2></div>
+  <div class="b-tur-bas"><h2>Kampüs <em>turu.</em></h2><div class="tur-nav" data-tur="bray"><button class="ok" data-yon="-1" aria-label="Önceki kare"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button><div class="nokta"><button class="aktif" aria-label="Kare 1"></button><button aria-label="Kare 2"></button><button aria-label="Kare 3"></button><button aria-label="Kare 4"></button></div><button class="ok" data-yon="1" aria-label="Sonraki kare"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button><span class="sayi">01 / 04</span></div></div>
   <div class="b-ray" id="bray">
     <div class="b-kare"><img src="../gorsel/bina-meydan-1600.webp" alt="Kubbeli meydan"><div class="alt"><span class="mono">01 · Meydan</span><b>Kubbeli meydan</b>Etkinliklerin ve karşılaşmaların açık hava sahnesi.</div></div>
     <div class="b-kare"><img src="../gorsel/bina-cephe-1600.webp" alt="Bina cephesi"><div class="alt"><span class="mono">02 · Bina</span><b>Fintech Zone binası</b>Ofisler, kuluçka merkezi ve ortak alanlar tek çatıda.</div></div>
@@ -241,7 +248,16 @@ body{background:var(--porcelain);color:var(--charcoal)}
 
   /* kampüs turu: yatay */
   var ray=document.getElementById('bray');
-  if(!azHareket && !dar){ var mes=function(){return ray.scrollWidth-innerWidth;}; gsap.to(ray,{x:function(){return -mes();},ease:'none',scrollTrigger:{trigger:'.b-tur',start:'top top',end:function(){return '+='+mes();},pin:true,scrub:1,invalidateOnRefresh:true}}); }
+  if(!azHareket && !dar){
+    var mes=function(){return ray.scrollWidth-innerWidth;}, adet=ray.children.length;
+    var nav=document.querySelector('.tur-nav[data-tur="bray"]'), noktalar=Array.prototype.slice.call(nav.querySelectorAll('.nokta button')), sayiEl=nav.querySelector('.sayi');
+    var st=ScrollTrigger.create({trigger:'.b-tur',start:'top top',end:function(){return '+='+Math.round(mes()*2.2);},pin:true,scrub:1,invalidateOnRefresh:true,anticipatePin:1,
+      snap:{snapTo:1/(adet-1),duration:{min:.2,max:.6},ease:'power2.inOut'},
+      onUpdate:function(t){ gsap.set(ray,{x:-mes()*t.progress}); var k=Math.round(t.progress*(adet-1)); noktalar.forEach(function(n,i){n.classList.toggle('aktif',i===k);}); sayiEl.textContent=('0'+(k+1)).slice(-2)+' / 0'+adet; }});
+    function git(k){ k=Math.max(0,Math.min(adet-1,k)); window.scrollTo({top:st.start+(st.end-st.start)*k/(adet-1),behavior:'smooth'}); }
+    noktalar.forEach(function(n,i){ n.addEventListener('click',function(){git(i);}); });
+    nav.querySelectorAll('.ok').forEach(function(o){ o.addEventListener('click',function(){ git(Math.round(st.progress*(adet-1))+parseInt(o.getAttribute('data-yon'),10)); }); });
+  }
 
   /* yığılan kartlar: sonraki kart gelirken önceki küçülür */
   var kartlar=gsap.utils.toArray('.b-kart');
