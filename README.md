@@ -130,6 +130,8 @@ Kullanıcı: "resmi siteyle aynı olmalı, asla beni hataya düşürme". fintech
 
 **Resmi sitede hâlâ olmayan bilgiler (FTZ'ye sorulacak, demoda yazılmadı):** değerlendirme süresi, kuluçka süresi/kontenjanı/ücreti, Ar-Ge firma başvuru ücreti, çalıştay konuşmacıları ve program akışı, webinar 2. bölüm tarihi ve konuğu, İSTKA logosunun dosyası.
 
+**Resmi site hata raporu (30 Eylül 2026):** `rapor/fintech-zone-resmi-site-hata-raporu.pdf` (22 sayfa; ayrıca .md ve .html). 41 sayfa, 58 iç bağlantı taraması: 5 kırık bağlantı, 9 teknik/SEO bulgusu, 183 satır içerik bulgusu (125 kesin). Yeniden üretmek: `cd rapor; python rapor-kur.py; node pdf-uret.js`. Klasör `.gitignore`'da; herkese açık demo deposuna girmez.
+
 **Resmi sitede fark edilen hatalar (FTZ'ye iletilebilir):**
 - Haber listesinde webinar haberi 23.08.2026, çalıştay haberi 22.08.2026 görünüyor; haber sayfalarında 28.09.2026 ve 22.09.2026. Etkinlikler Eylül'de.
 - `surec-ve-basvuru/#sss` ve `tr/surec-ve-basvuru/` bağlantıları 404 veriyor (menüde, footer'da ve ana sayfada kullanılıyor). SSS aslında `basvuru-sureci` sayfasında.
