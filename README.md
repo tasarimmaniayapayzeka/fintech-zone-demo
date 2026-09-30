@@ -98,7 +98,7 @@ Görünür olunca canlanır (`data-canli` → IntersectionObserver `.canli`), `p
 `gorsel/` içindeki WebP'ler `36-FintechZone-Teklif/varliklar/figma/*.jpg`'den ffmpeg ile üretildi (1600 + 800 px, `srcset`). Çalıştay fotoğraflarında alt %20 (FINTECHZONE filigranı) kırpıldı. Devir varlıklarındaki eski temsilî görseller kullanılmadı; yeni üretilenler aşağıda. Ortak logoları: CBYFO ve İFM devir varlıklarından; diğer beşi fintech.zone'dan 1,5 sn arayla indirildi.
 
 **Higgsfield üretimleri (29 Eylül, kullanıcı onayıyla, toplam ~13 kredi):**
-- Hero videosu: `gorsel/hero-kampus.mp4` + `.webm` (720×720 kare kırpım, 6 sn, sessiz döngü; kaynak `varliklar-kaynak/higgsfield/hero-video-a.mp4`, model Cinema Studio V2, başlangıç karesi bina renderı 1). Hareket azaltmada, 700 px altında ve veri tasarrufunda inmez; poster `daire-meydan-700.webp` kalır. B varyantı da kaynakta duruyor.
+- Hero videosu: `gorsel/hero-kampus.mp4` + `.webm` (1080×1080 kare, 6 sn, sessiz döngü) ve `hero-kampus-1440.mp4` (konsept A). 30 Eylül: kaynak Higgsfield ByteDance upscale ile 4K'ya (3864×2160) büyütüldü, `varliklar-kaynak/higgsfield/hero-video-a-4k.mp4`; kullanıcı kararı: video kalsın, çözünürlük yükselt. İlk kaynak `hero-video-a.mp4` (Cinema Studio V2, 1280×716). Hareket azaltmada, 700 px altında ve veri tasarrufunda inmez; poster `daire-meydan-700.webp` kalır. B varyantı da kaynakta duruyor.
 - Temsilî fotoğraflar (Soul V2, belgesel/film tarzı): `temsili-girisim-ekibi` (kuluçka), `temsili-mentorluk` (Fintech Gate), `temsili-danismanlik` (muafiyet). Sayfada "Temsilî görsel" diye etiketli; gerçek kişiyle eşleştirilmedi. Dördüncü kare (boş ofis katı) karanlık çıktı, kullanılmadı.
 
 ## FTZ'den alınacaklar (sayfalarda "(FTZ'den alınacak)" diye işaretli)

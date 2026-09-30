@@ -118,6 +118,7 @@ body{background:var(--gece);color:#EEF1F4}
 <!-- HERO -->
 <section class="a-hero">
   <canvas id="sahne" aria-hidden="true"></canvas>
+  <video id="kampus-video" muted loop playsinline preload="auto" crossorigin="anonymous" poster="../gorsel/daire-meydan-1024.webp" style="display:none"><source src="../gorsel/hero-kampus-1440.mp4" type="video/mp4"></video>
   <div class="ic a-hero-ic">
     <div>
       <h1>Türkiye'nin fintek <em>yörüngesi.</em></h1>
@@ -197,7 +198,7 @@ body{background:var(--gece);color:#EEF1F4}
   <h3>Bu yön nedir?</h3>
   <ul>
     <li><b>Zemin:</b> gece charcoal, sinematik. Lava Red ve Butterscotch vurgu. DM Serif beyaz.</li>
-    <li><b>Hero:</b> Three.js sahnesi; kampüs renderı (1024 px, yavaş yakınlaşan) merkezde, logonun iki kırmızı yayı ve iki yörünge halkası uzayda döner; fare kamerayı oynatır, kaydırma sahneyi geri çeker.</li>
+    <li><b>Hero:</b> Three.js sahnesi; 4K'dan büyütülmüş kampüs videosu (1440 px kare) merkezde, logonun iki kırmızı yayı ve iki yörünge halkası uzayda döner; fare kamerayı oynatır, kaydırma sahneyi geri çeker.</li>
     <li><b>Beş başlık:</b> ekran sabitlenir, kaydırdıkça madde ve fotoğraf değişir (GSAP ScrollTrigger).</li>
     <li><b>Fintech Gate:</b> dikey kaydırma yatay tura dönüşür; dört durak, gerçek rakamlar.</li>
     <li><b>Ekosistem:</b> CSS 3D halka carousel. <b>İç sayfa:</b> fotoğraf içinden açılan haber; paralaks ve sayaçlar.</li>
@@ -244,8 +245,10 @@ body{background:var(--gece);color:#EEF1F4}
     var grup=new THREE.Group(); sahne.add(grup);
 
     /* merkez: video dokulu daire */
-    /* merkez: 1024 px keskin render (video 720 px'te yumuşak kalıyordu); dokuya yavaş yakınlaşma ve kayma */
-    var doku=new THREE.TextureLoader().load('../gorsel/daire-meydan-1024.webp');
+    /* merkez: 4K'dan büyütülmüş kampüs videosu (1440 px kare); dar ekranda ve hareket azaltmada keskin render */
+    var video=document.getElementById('kampus-video'), doku;
+    if(video && !dar && !azHareket){ doku=new THREE.VideoTexture(video); video.play().catch(function(){}); }
+    else { doku=new THREE.TextureLoader().load('../gorsel/daire-meydan-1024.webp'); }
     doku.anisotropy=ren.capabilities.getMaxAnisotropy(); doku.center.set(.5,.5);
     var daire=new THREE.Mesh(new THREE.CircleGeometry(1.75,96),new THREE.MeshBasicMaterial({map:doku}));
     grup.add(daire);
@@ -299,7 +302,7 @@ body{background:var(--gece);color:#EEF1F4}
         grup.rotation.x = kaydir.v*.9 + fare.y*.08; grup.rotation.y = -fare.x*.12;
         kam.position.z = 9 + kaydir.v*6;
         grup.position.y = -kaydir.v*1.5;
-        var z=.86+Math.sin(t*.09)*.06; doku.repeat.set(z,z); doku.offset.set((1-z)/2+Math.sin(t*.07)*.02,(1-z)/2+Math.cos(t*.05)*.02);
+        if(!video || dar){ var z=.86+Math.sin(t*.09)*.06; doku.repeat.set(z,z); doku.offset.set((1-z)/2+Math.sin(t*.07)*.02,(1-z)/2+Math.cos(t*.05)*.02); }
         daire.rotation.z = 0; daire.lookAt(kam.position);
       }
       kam.lookAt(0,0,0);
