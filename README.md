@@ -36,7 +36,23 @@ Kullanıcı: "site eski siteye hâlâ çok benziyor; scrolltide.co gibi çok boy
 
 Yatay turlarda (A Fintech Gate, B kampüs) kaydırma aralığı 2,2 kat uzatıldı, duraklara yapışma (snap) ve nokta + ok gezinmesi eklendi; okla ya da noktaya tıklayınca ilgili durağa dönülür (30 Eyl, kullanıcı 'Durak 1'e geri dönemiyorum' dedi).
 
-Ortak: `konsept/konsept.css`. Kütüphaneler cdnjs'ten (three r128, gsap 3.12.5 + ScrollTrigger). Yalnız gerçek rakam ve görsel; WebGL döngüleri hero ekran dışındayken durur; `prefers-reduced-motion`'da sahneler sabit, içerik tam. Mobilde 3D soluklaşır, yatay turlar dikeye döner. Seçilen yön 13 sayfanın tamamına uygulanacak.
+Ortak: `konsept/konsept.css`. Kütüphaneler cdnjs'ten (three r128, gsap 3.12.5 + ScrollTrigger). Yalnız gerçek rakam ve görsel; WebGL döngüleri hero ekran dışındayken durur; `prefers-reduced-motion`'da sahneler sabit, içerik tam. Mobilde 3D soluklaşır, yatay turlar dikeye döner.
+
+## Üç yönün tam siteleri (30 Eylül 2026)
+
+Kullanıcı: "sırayla gidicez, önce A'nın tam sitesi, sonra B, sonra C". Her yön 13 sayfalık ayrı bir site oldu; içerik `kaynak/sayfalar/` ile aynı (gerçek bilgi, "(FTZ'den alınacak)" yerleri korunur), tasarım ve etkileşim yönüne göre tamamen farklı. Karşılaştırma sayfası (`konsept/index.html`) üç tam siteye ve tek sayfa demolara bağlanır.
+
+| Klasör | Yön | Tasarım sistemi | Sayfa başlığı ve imza bileşenler |
+|---|---|---|---|
+| `konsept/a/` | A · Yörünge 3D | `stil.css` gece charcoal; `betik.js` (GSAP + ana sayfada Three.js) | Ana sayfa Three.js yörünge; iç sayfalarda dairesel foto + dönen logo yayları. Sabitlenen anlatı (`.sabit`), yatay tur (`.tur`), üçlü yay carousel (`.yay`), fotoğraftan açılan sahne (`.sahne`), koyu infografikler. |
+| `konsept/b/` | B · Finans Kenti Sinematik | `stil.css` porselen/beyaz dergi; `betik.js` (GSAP + canvas) | Ana sayfa tam ekran foto + yaşayan ışık; iç sayfalarda dergi kapağı (`.kapak`) ya da kısa sinema başlığı. Harf maskesi (`.maske`), yığılan kartlar (`.yigin`), kare turu (`.tur .kare`), perde açılışlı görseller (`data-perde`), dergi düzeni (`.dergi`, süslü ilk harf, yapışkan yan sütun). |
+| `konsept/c/` | C · Terminal | `stil.css` Sherpa ızgara; `betik.js` (GSAP + ana sayfada Three.js küre) | Üst barın altında kayan veri şeridi; iç sayfalarda yol + kendini yazan terminal başlığı. Metrik konsolu (`.konsol`), veri hücreleri (`.hucre`), akış + olay kaydı (`.akis-kutu`, `.log`), tablo (`.tablo`), tarama çizgili fotoğraf (`.foto`). |
+
+- Her klasörde `_parcalar.html` şablondur (HEAD, üst bar, sayfa başlığı, final, footer blokları); alt çizgi yüzünden GitHub Pages (Jekyll) onu yayınlamaz. Sayfalar bu bloklarla elle birleştirildi; toplu değişiklikte bloklar her sayfada aynı metinle değiştirilir.
+- Her klasörde `asistan.js` kopyası var (logo yolu `../../logo/`); FTZ Asistan 39 sayfanın hepsinde.
+- İç sayfalar paralel ajanlarla, yön başına tek brif ve ortak kontrol betiğiyle üretildi (tek h1, dengeli etiketler, eksik dosya, kalan yer tutucu, temsilî görsel etiketi, emoji). Ardından tarayıcıda 1440 ve 375 px'te taşma, kırık görsel ve asistan kontrolü yapıldı.
+- Türetilmiş değerler (ör. 1.935 ÷ 32 ≈ 60 dk/oturum, 288 ÷ 32 = 9 soru/oturum) sayfada hesabıyla yazılır; kaynakta olmayan rakam yok.
+- Temsilî görseller (`temsili-*`) her kullanımda görünür "Temsilî görsel" etiketiyle.
 
 ## Yayın adresleri (29 Eylül 2026)
 
