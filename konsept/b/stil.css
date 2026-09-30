@@ -316,7 +316,7 @@ em.b{font-style:italic;color:var(--butter)}
 .info svg{width:100%;height:auto;overflow:visible}
 .info text{font-family:var(--sans);fill:var(--charcoal)}
 .info-not{font-family:var(--mono);font-size:12px;color:var(--soluk);margin-top:16px}
-.info-akis{max-width:960px;margin:0 auto}
+.info-akis{width:100%;max-width:960px;margin:0 auto}
 .info-akis .kutu-c{fill:#fff;stroke:var(--charcoal);stroke-width:1.5}
 .info-akis .merkez{fill:var(--lava)}
 .info-akis .baglanti{fill:none;stroke:var(--charcoal);stroke-width:1.5;stroke-dasharray:6 6;animation:infoAk 1.4s linear infinite}
@@ -330,7 +330,7 @@ em.b{font-style:italic;color:var(--butter)}
 .info-akis text.b{font-size:17px;font-weight:500;text-anchor:middle}
 .info-akis text.k{font-size:12.5px;fill:var(--soluk);text-anchor:middle}
 .info-akis .merkez-t{fill:#fff;font-family:var(--serif);font-size:20px;text-anchor:middle}
-.info-yorunge{max-width:640px;margin:0 auto}
+.info-yorunge{width:100%;max-width:640px;margin:0 auto}
 .info-yorunge .halka{fill:none;stroke:var(--cizgi2);stroke-width:1;stroke-dasharray:3 6}
 .info-yorunge .don{transform-box:view-box;transform-origin:300px 300px}
 .info-yorunge .don-1{animation:infoDon 90s linear infinite}
@@ -372,7 +372,7 @@ em.b{font-style:italic;color:var(--butter)}
 .info-oturum dt{font-family:var(--serif);font-size:38px;line-height:1;color:var(--charcoal)}
 .info-oturum dt.k{color:var(--lava)}
 .info-oturum dd{margin:6px 0 0;font-family:var(--mono);font-size:12px;color:var(--soluk)}
-.info-yolculuk{max-width:960px;margin:0 auto}
+.info-yolculuk{width:100%;max-width:960px;margin:0 auto}
 .info-yolculuk .yol{fill:none;stroke:var(--lava);stroke-width:3;stroke-linecap:round;stroke-dasharray:1400;stroke-dashoffset:1400;transition:stroke-dashoffset 2.2s var(--gecis)}
 .info-yolculuk.canli .yol{stroke-dashoffset:0}
 .info-yolculuk .gezgin{fill:var(--butter);stroke:#fff;stroke-width:3;opacity:0;transition:opacity .4s 2.2s}
