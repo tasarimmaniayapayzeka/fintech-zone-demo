@@ -16,6 +16,10 @@
 .kare.lava .rakam,.kare.lava .rakam small{color:var(--beyaz)}
 /* uzun başlık kelimesi (şekillendirelim) 375 px ekranda taşmasın */
 @media (max-width:420px){.kapak h1{font-size:38px}}
+.kare.yazi{grid-template-rows:auto minmax(0,1fr) auto}
+.kare.yazi .kare-cizim{width:100%;max-width:380px;height:100%;min-height:0;max-height:240px;object-fit:contain;object-position:left center;align-self:center;justify-self:start;margin-left:-18px;opacity:.95}
+@media (min-width:901px) and (max-height:780px){.kare.yazi .kare-cizim{display:none}}
+@media (max-width:900px){.kare.yazi{grid-template-rows:auto}.kare.yazi .kare-cizim{height:auto;max-width:300px;margin-left:-14px}}
 </style>
 </head>
 <body>
@@ -102,14 +106,14 @@
     <div class="tur-nav"><button class="ok" data-yon="-1" aria-label="Önceki program"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button><div class="nokta"></div><button class="ok" data-yon="1" aria-label="Sonraki program"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button><span class="sayi">01 / 08</span></div>
   </div>
   <div class="ray">
-    <div class="kare yazi"><div><span class="mono">01 / 08</span><h3>Fintech Hub</h3><p>Fintech Hub; girişimcilerin ve yenilikçilerin, ulusal ve uluslararası ağlarla buluştuğu, destek ve kaynaklarla donatılmıştır.</p></div><div class="rakam">01<small>kümelenme programı</small></div></div>
-    <div class="kare yazi lava"><div><span class="mono">02 / 08</span><h3>Fintech Sandbox</h3><p>Fintek girişimlerinin inovatif ürünlerini gerçek dünya koşullarında test etmelerine olanak tanıyacak, regülasyonlara uyumlarına yardımcı olacaktır.</p></div><div class="rakam">02<small>kümelenme programı</small></div></div>
-    <div class="kare yazi"><div><span class="mono">03 / 08</span><h3>Fintech G-Local</h3><p>Türk fintek ekosistemini uluslararası pazarlara açarak, yerel girişimlerin küresel rekabetçiliğini artırmayı ve yabancı girişimlerin Türkiye'de filizlenmesini sağlayacaktır.</p></div><div class="rakam">03<small>kümelenme programı</small></div></div>
-    <div class="kare yazi"><div><span class="mono">04 / 08</span><h3>Fintech Academy</h3><p>Öğrenciler, girişimciler, akademisyenler ve finans sektörü profesyonellerini hedef alarak, fintek alanında bilgi ve beceri gelişimine katkıda bulunacaktır.</p></div><div class="rakam">04<small>kümelenme programı</small></div></div>
-    <div class="kare yazi lava"><div><span class="mono">05 / 08</span><h3>Fintech Forum</h3><p>Fintek ekosisteminin çeşitli paydaşlarını birleştirerek bilgi paylaşımı, iş birlikleri ve ağ oluşturma fırsatları sunacak ve katılımcılara yeni bakış açıları kazandıracaktır.</p></div><div class="rakam">05<small>kümelenme programı</small></div></div>
-    <div class="kare yazi"><div><span class="mono">06 / 08</span><h3>Fintech Library</h3><p>Fintek ekosisteminin kapsamlı bir şekilde anlaşılmasını ve sektörel bilginin geliştirilmesini hedefleyen yayınlar sunacaktır.</p></div><div class="rakam">06<small>kümelenme programı</small></div></div>
-    <div class="kare yazi"><div><span class="mono">07 / 08</span><h3>Fintech Database</h3><p>Fintek ekosisteminin dinamiklerini kavramak ve finteklerin veriye dayalı karar alma süreçlerine yardımcı olacaktır.</p></div><div class="rakam">07<small>kümelenme programı</small></div></div>
-    <div class="kare yazi lava"><div><span class="mono">08 / 08</span><h3>Fintech ScoreCard</h3><p>Fintek girişimlerine performanslarını objektif kriterler temelinde değerlendirme ve gelişim alanlarını belirleme imkanı sunacaktır.</p></div><div><a class="dugme dugme-beyaz-cizgi" href="https://portal.fintech.zone/" target="_blank" rel="noopener">Ön Başvuru</a></div></div>
+    <div class="kare yazi"><div><span class="mono">01 / 08</span><h3>Fintech Hub</h3><p>Fintech Hub; girişimcilerin ve yenilikçilerin, ulusal ve uluslararası ağlarla buluştuğu, destek ve kaynaklarla donatılmıştır.</p></div><img class="kare-cizim" src="../../gorsel/program-hub.svg" width="440" height="275" alt="" loading="lazy"></div>
+    <div class="kare yazi lava"><div><span class="mono">02 / 08</span><h3>Fintech Sandbox</h3><p>Fintek girişimlerinin inovatif ürünlerini gerçek dünya koşullarında test etmelerine olanak tanıyacak, regülasyonlara uyumlarına yardımcı olacaktır.</p></div><img class="kare-cizim" src="../../gorsel/program-sandbox.svg" width="440" height="275" alt="" loading="lazy"></div>
+    <div class="kare yazi"><div><span class="mono">03 / 08</span><h3>Fintech G-Local</h3><p>Türk fintek ekosistemini uluslararası pazarlara açarak, yerel girişimlerin küresel rekabetçiliğini artırmayı ve yabancı girişimlerin Türkiye'de filizlenmesini sağlayacaktır.</p></div><img class="kare-cizim" src="../../gorsel/program-g-local.svg" width="440" height="275" alt="" loading="lazy"></div>
+    <div class="kare yazi"><div><span class="mono">04 / 08</span><h3>Fintech Academy</h3><p>Öğrenciler, girişimciler, akademisyenler ve finans sektörü profesyonellerini hedef alarak, fintek alanında bilgi ve beceri gelişimine katkıda bulunacaktır.</p></div><img class="kare-cizim" src="../../gorsel/program-academy.svg" width="440" height="275" alt="" loading="lazy"></div>
+    <div class="kare yazi lava"><div><span class="mono">05 / 08</span><h3>Fintech Forum</h3><p>Fintek ekosisteminin çeşitli paydaşlarını birleştirerek bilgi paylaşımı, iş birlikleri ve ağ oluşturma fırsatları sunacak ve katılımcılara yeni bakış açıları kazandıracaktır.</p></div><img class="kare-cizim" src="../../gorsel/program-forum.svg" width="440" height="275" alt="" loading="lazy"></div>
+    <div class="kare yazi"><div><span class="mono">06 / 08</span><h3>Fintech Library</h3><p>Fintek ekosisteminin kapsamlı bir şekilde anlaşılmasını ve sektörel bilginin geliştirilmesini hedefleyen yayınlar sunacaktır.</p></div><img class="kare-cizim" src="../../gorsel/program-library.svg" width="440" height="275" alt="" loading="lazy"></div>
+    <div class="kare yazi"><div><span class="mono">07 / 08</span><h3>Fintech Database</h3><p>Fintek ekosisteminin dinamiklerini kavramak ve finteklerin veriye dayalı karar alma süreçlerine yardımcı olacaktır.</p></div><img class="kare-cizim" src="../../gorsel/program-database.svg" width="440" height="275" alt="" loading="lazy"></div>
+    <div class="kare yazi lava"><div><span class="mono">08 / 08</span><h3>Fintech ScoreCard</h3><p>Fintek girişimlerine performanslarını objektif kriterler temelinde değerlendirme ve gelişim alanlarını belirleme imkanı sunacaktır.</p></div><img class="kare-cizim" src="../../gorsel/program-scorecard.svg" width="440" height="275" alt="" loading="lazy"><div><a class="dugme dugme-beyaz-cizgi" href="https://portal.fintech.zone/" target="_blank" rel="noopener">Ön Başvuru</a></div></div>
   </div>
 </section>
 

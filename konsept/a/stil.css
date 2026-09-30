@@ -453,3 +453,7 @@ em.b{font-style:italic;color:var(--butter)}
 .logo-duvari img{height:72px;max-width:200px}
 .logo-duvari.kayan .kayan-ic{gap:44px;padding-right:44px}
 @media (max-width:600px){.logo-duvari img{height:52px;max-width:150px}.logo-duvari{gap:14px 20px}.logo-duvari.kayan .kayan-ic{gap:28px;padding-right:28px}}
+
+/* yay carousel kenar kartları telefonda sayfayı yana genişletmesin (30.09.2026) */
+html{overflow-x:clip}
+section:has(> .yay),section:has(> .ic > .yay){overflow-x:clip}
