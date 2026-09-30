@@ -118,7 +118,6 @@ body{background:var(--gece);color:#EEF1F4}
 <!-- HERO -->
 <section class="a-hero">
   <canvas id="sahne" aria-hidden="true"></canvas>
-  <video id="kampus-video" muted loop playsinline preload="auto" crossorigin="anonymous" style="display:none"><source src="../gorsel/hero-kampus.mp4" type="video/mp4"></video>
   <div class="ic a-hero-ic">
     <div>
       <h1>Türkiye'nin fintek <em>yörüngesi.</em></h1>
@@ -198,7 +197,7 @@ body{background:var(--gece);color:#EEF1F4}
   <h3>Bu yön nedir?</h3>
   <ul>
     <li><b>Zemin:</b> gece charcoal, sinematik. Lava Red ve Butterscotch vurgu. DM Serif beyaz.</li>
-    <li><b>Hero:</b> Three.js sahnesi; kampüs videosu merkezde, logonun iki kırmızı yayı ve iki yörünge halkası uzayda döner; fare kamerayı oynatır, kaydırma sahneyi geri çeker.</li>
+    <li><b>Hero:</b> Three.js sahnesi; kampüs renderı (1024 px, yavaş yakınlaşan) merkezde, logonun iki kırmızı yayı ve iki yörünge halkası uzayda döner; fare kamerayı oynatır, kaydırma sahneyi geri çeker.</li>
     <li><b>Beş başlık:</b> ekran sabitlenir, kaydırdıkça madde ve fotoğraf değişir (GSAP ScrollTrigger).</li>
     <li><b>Fintech Gate:</b> dikey kaydırma yatay tura dönüşür; dört durak, gerçek rakamlar.</li>
     <li><b>Ekosistem:</b> CSS 3D halka carousel. <b>İç sayfa:</b> fotoğraf içinden açılan haber; paralaks ve sayaçlar.</li>
@@ -243,13 +242,11 @@ body{background:var(--gece);color:#EEF1F4}
     var sahne=new THREE.Scene();
     var kam=new THREE.PerspectiveCamera(38,1,.1,100); kam.position.set(0,0,9);
     var grup=new THREE.Group(); sahne.add(grup);
-    grup.position.x = dar ? 0 : 3.1;
 
     /* merkez: video dokulu daire */
-    var video=document.getElementById('kampus-video');
-    var doku;
-    if(!dar && !azHareket){ doku=new THREE.VideoTexture(video); video.play().catch(function(){}); }
-    else { doku=new THREE.TextureLoader().load('../gorsel/daire-meydan-700.webp'); }
+    /* merkez: 1024 px keskin render (video 720 px'te yumuşak kalıyordu); dokuya yavaş yakınlaşma ve kayma */
+    var doku=new THREE.TextureLoader().load('../gorsel/daire-meydan-1024.webp');
+    doku.anisotropy=ren.capabilities.getMaxAnisotropy(); doku.center.set(.5,.5);
     var daire=new THREE.Mesh(new THREE.CircleGeometry(1.75,96),new THREE.MeshBasicMaterial({map:doku}));
     grup.add(daire);
 
@@ -281,7 +278,11 @@ body{background:var(--gece);color:#EEF1F4}
     var kaydir={v:0};
     if(!azHareket) gsap.to(kaydir,{v:1,ease:'none',scrollTrigger:{trigger:'.a-hero',start:'top top',end:'bottom top',scrub:true}});
 
-    function boyut(){ var w=tuval.clientWidth,h=tuval.clientHeight; ren.setSize(w,h,false); kam.aspect=w/h; kam.updateProjectionMatrix(); }
+    function boyut(){ var w=tuval.clientWidth,h=tuval.clientHeight; ren.setSize(w,h,false); kam.aspect=w/h; kam.updateProjectionMatrix();
+      /* yörünge ekranın sağ yarısında kalır; dar oranlarda küçülür */
+      var yariGenislik=9*Math.tan(19*Math.PI/180)*kam.aspect;
+      grup.position.x = dar ? 0 : yariGenislik*.5;
+      grup.scale.setScalar(dar ? .8 : Math.min(1, Math.max(.6, kam.aspect/1.55))); }
     boyut(); addEventListener('resize',boyut);
 
     var t0=performance.now(), gorunur=true, calisiyor=false;
@@ -298,6 +299,7 @@ body{background:var(--gece);color:#EEF1F4}
         grup.rotation.x = kaydir.v*.9 + fare.y*.08; grup.rotation.y = -fare.x*.12;
         kam.position.z = 9 + kaydir.v*6;
         grup.position.y = -kaydir.v*1.5;
+        var z=.86+Math.sin(t*.09)*.06; doku.repeat.set(z,z); doku.offset.set((1-z)/2+Math.sin(t*.07)*.02,(1-z)/2+Math.cos(t*.05)*.02);
         daire.rotation.z = 0; daire.lookAt(kam.position);
       }
       kam.lookAt(0,0,0);
