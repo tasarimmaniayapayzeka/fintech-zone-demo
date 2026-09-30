@@ -66,22 +66,33 @@ body{background:var(--gece);color:#EEF1F4}
 .tur-nav .ok svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 @media (max-width:900px){.a-ray{height:auto;flex-direction:column;align-items:stretch;padding:32px var(--kenar) 64px}.a-vagon{width:100%;height:auto;min-height:340px}.a-gate-bas{grid-template-columns:1fr}.tur-nav{display:none}.a-gate{min-height:0}}
 
-/* ---------- ekosistem: 3D halka carousel ---------- */
-.a-halka{background:#141A20;padding:120px 0;overflow:hidden}
+/* ---------- ekosistem: üçlü yay carousel ---------- */
+.a-halka{background:#141A20;padding:120px 0 100px;overflow:hidden}
 .a-halka h2{font-size:clamp(34px,4.4vw,60px);color:#fff;text-align:center}
 .a-halka h2 em{color:var(--lava);font-style:italic}
-.a-halka > p{text-align:center;color:var(--sis);margin-top:14px}
-.sahne3d{height:440px;perspective:1400px;margin-top:56px;display:grid;place-items:center}
-.halka3d{position:relative;width:260px;height:300px;transform-style:preserve-3d;animation:halkaDon 46s linear infinite}
-.sahne3d:hover .halka3d{animation-play-state:paused}
-@keyframes halkaDon{to{transform:rotateY(360deg)}}
-.kart3d{position:absolute;inset:0;border-radius:20px;padding:26px;background:linear-gradient(160deg,#2B3743,#1C242C);border:1px solid rgba(255,255,255,.14);transform:rotateY(var(--a)) translateZ(420px);backface-visibility:hidden;display:flex;flex-direction:column;justify-content:flex-end;box-shadow:0 30px 60px rgba(0,0,0,.35)}
-.kart3d.kirmizi{background:linear-gradient(160deg,var(--lava),#A61810);border-color:var(--lava)}
-.kart3d .mono{color:var(--butter)}
-.kart3d h3{font-size:28px;color:#fff;margin:8px 0 6px}
-.kart3d p{font-size:14px;color:var(--sis)}
-.kart3d img{width:56px;height:56px;border-radius:50%;object-fit:cover;position:absolute;top:26px;left:26px;border:2px solid rgba(255,255,255,.2)}
-@media (max-width:600px){.kart3d{transform:rotateY(var(--a)) translateZ(300px)}.halka3d{width:210px;height:260px}.sahne3d{height:380px}}
+.a-halka > .ic > p{text-align:center;color:var(--sis);margin-top:14px}
+.yay{position:relative;height:560px;perspective:1700px;margin-top:48px}
+.yay-kart{position:absolute;left:50%;top:0;width:min(440px,86vw);margin-left:calc(min(440px,86vw) / -2);border-radius:22px;overflow:hidden;background:linear-gradient(170deg,#2B3743,#1C242C);border:1px solid rgba(255,255,255,.14);box-shadow:0 30px 70px rgba(0,0,0,.4);opacity:0;pointer-events:none;transform:translateX(0) translateZ(-600px);transition:transform .85s var(--gecis),opacity .5s,filter .6s;will-change:transform;backface-visibility:hidden}
+.yay-kart img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.yay-kart .govde{padding:22px 26px 26px}
+.yay-kart .mono{color:var(--butter)}
+.yay-kart h3{font-size:30px;color:#fff;margin:8px 0 6px}
+.yay-kart p{font-size:15px;color:var(--sis)}
+.yay-kart.kirmizi{background:linear-gradient(170deg,var(--lava),#A61810);border-color:var(--lava)}
+.yay-kart.kirmizi .mono{color:#fff}.yay-kart.kirmizi p{color:#FBD9D6}
+.yay-kart[data-poz="0"]{opacity:1;pointer-events:auto;z-index:3;transform:translateX(0) translateZ(0)}
+.yay-kart[data-poz="-1"]{opacity:1;z-index:2;transform:translateX(-82%) translateZ(-240px) rotateY(26deg);filter:brightness(.72)}
+.yay-kart[data-poz="1"]{opacity:1;z-index:2;transform:translateX(82%) translateZ(-240px) rotateY(-26deg);filter:brightness(.72)}
+.yay-kart[data-poz="-2"]{transform:translateX(-150%) translateZ(-560px) rotateY(40deg)}
+.yay-kart[data-poz="2"]{transform:translateX(150%) translateZ(-560px) rotateY(-40deg)}
+.yay-nav{display:flex;justify-content:center;align-items:center;gap:16px;margin-top:28px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--sis)}
+.yay-nav .nokta{display:flex;gap:8px}
+.yay-nav .nokta button{width:10px;height:10px;border-radius:999px;background:rgba(255,255,255,.25);padding:0;transition:background .25s,transform .25s}
+.yay-nav .nokta button.aktif{background:var(--butter);transform:scale(1.4)}
+.yay-nav .ok{width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;color:#fff;transition:background .2s,border-color .2s}
+.yay-nav .ok:hover{background:var(--lava);border-color:var(--lava)}
+.yay-nav .ok svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:700px){.yay{height:520px}.yay-kart[data-poz="-1"]{transform:translateX(-58%) translateZ(-320px) rotateY(30deg);opacity:.5}.yay-kart[data-poz="1"]{transform:translateX(58%) translateZ(-320px) rotateY(-30deg);opacity:.5}}
 
 /* ---------- iç sayfa: haber detayı (sinematik) ---------- */
 .a-haber{position:relative;min-height:100dvh;overflow:hidden;background:#000;display:flex;align-items:flex-end}
@@ -155,22 +166,21 @@ body{background:var(--gece);color:#EEF1F4}
   </div>
 </section>
 
-<!-- EKOSİSTEM: 3D HALKA -->
+<!-- EKOSİSTEM: ÜÇLÜ YAY CAROUSEL -->
 <section class="a-halka" id="eko">
   <div class="ic">
     <h2>Herkes aynı <em>halkada.</em></h2>
-    <p>Altı paydaş, tek kampüs. Halka kendi döner; üzerine gelince durur.</p>
+    <p>Altı paydaş, tek kampüs. Ortadaki kart net, yanlar sırada; kendi ilerler, üzerine gelince durur.</p>
   </div>
-  <div class="sahne3d">
-    <div class="halka3d">
-      <div class="kart3d kirmizi" style="--a:0deg"><img src="../gorsel/daire-calistay-600.webp" alt=""><span class="mono">iç halka</span><h3>Girişimler</h3><p>Kuluçkadan Fintech Gate'e.</p></div>
-      <div class="kart3d" style="--a:60deg"><img src="../gorsel/daire-ifm-600.webp" alt=""><span class="mono">iç halka</span><h3>Finansal kurumlar</h3><p>İhtiyaçtan pilota.</p></div>
-      <div class="kart3d" style="--a:120deg"><img src="../gorsel/daire-meydan-700.webp" alt=""><span class="mono">iç halka</span><h3>Yatırımcılar</h3><p>Doğrulanmış portföye erken erişim.</p></div>
-      <div class="kart3d" style="--a:180deg"><img src="../gorsel/daire-nijerya-600.webp" alt=""><span class="mono">dış halka</span><h3>Düzenleyiciler</h3><p>Aynı kampüste doğrudan temas.</p></div>
-      <div class="kart3d" style="--a:240deg"><img src="../gorsel/daire-ifm-600.webp" alt=""><span class="mono">dış halka</span><h3>Akademi</h3><p>Üç üniversite ortak.</p></div>
-      <div class="kart3d" style="--a:300deg"><img src="../gorsel/daire-calistay-600.webp" alt=""><span class="mono">dış halka</span><h3>Hizmet ve danışmanlık</h3><p>Altyapı, hukuk, uyum.</p></div>
-    </div>
+  <div class="yay" id="yay">
+    <article class="yay-kart kirmizi"><img src="../gorsel/calistay-toplanti-800.webp" alt="Girişimler: çalıştayda masa başı"><div class="govde"><span class="mono">İç halka</span><h3>Girişimler</h3><p>Kuluçkadan Fintech Gate'e: ilk dönemde 30 girişim.</p></div></article>
+    <article class="yay-kart"><img src="../gorsel/ifm-siluet-800.webp" alt="Finansal kurumlar: İFM silueti"><div class="govde"><span class="mono">İç halka</span><h3>Finansal kurumlar</h3><p>İhtiyaç tanımından pilot projeye; 20 mentör kurumlardan.</p></div></article>
+    <article class="yay-kart"><img src="../gorsel/gitex-stand-800.webp" alt="Yatırımcılar: GITEX standı"><div class="govde"><span class="mono">İç halka</span><h3>Yatırımcılar</h3><p>Doğrulanmış girişim portföyüne erken erişim.</p></div></article>
+    <article class="yay-kart"><img src="../gorsel/bina-cephe-800.webp" alt="Düzenleyiciler: kampüs binası"><div class="govde"><span class="mono">Dış halka</span><h3>Düzenleyiciler</h3><p>Aynı kampüste doğrudan temas ve istişare.</p></div></article>
+    <article class="yay-kart"><img src="../gorsel/bina-meydan-800.webp" alt="Akademi: kampüs meydanı"><div class="govde"><span class="mono">Dış halka</span><h3>Akademi</h3><p>İstanbul, Marmara ve İbn Haldun üniversiteleri ortak.</p></div></article>
+    <article class="yay-kart"><img src="../gorsel/calistay-sunum-800.webp" alt="Hizmet ve danışmanlık: çalıştayda sunum"><div class="govde"><span class="mono">Dış halka</span><h3>Hizmet ve danışmanlık</h3><p>Altyapı, hukuk, uyum ve büyüme danışmanlığı.</p></div></article>
   </div>
+  <div class="yay-nav"><button class="ok" data-yon="-1" aria-label="Önceki"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button><div class="nokta" id="yay-nokta"></div><button class="ok" data-yon="1" aria-label="Sonraki"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button><span class="sayi" id="yay-sayi">01 / 06</span></div>
 </section>
 
 <!-- İÇ SAYFA GÖRÜNÜMÜ: HABER DETAYI -->
@@ -317,6 +327,24 @@ body{background:var(--gece);color:#EEF1F4}
     noktalar.forEach(function(n,i){ n.addEventListener('click',function(){git(i);}); });
     nav.querySelectorAll('.ok').forEach(function(o){ o.addEventListener('click',function(){ git(Math.round(st.progress*(adet-1))+parseInt(o.getAttribute('data-yon'),10)); }); });
   }
+
+  /* ---------- ekosistem: üçlü yay carousel ---------- */
+  (function(){
+    var yay=document.getElementById('yay'); if(!yay) return;
+    var kartlar=Array.prototype.slice.call(yay.children), n=kartlar.length, i=0, zam=null;
+    var noktaKap=document.getElementById('yay-nokta'), sayi=document.getElementById('yay-sayi');
+    kartlar.forEach(function(k,j){ var b=document.createElement('button'); b.setAttribute('aria-label','Kart '+(j+1)); b.addEventListener('click',function(){git(j);}); noktaKap.appendChild(b); });
+    function yerlestir(){ kartlar.forEach(function(k,j){ var d=((j-i)%n+n+Math.floor(n/2))%n-Math.floor(n/2); if(d<-2||d>2){ k.removeAttribute('data-poz'); } else { k.setAttribute('data-poz',d); } }); Array.prototype.forEach.call(noktaKap.children,function(b,j){b.classList.toggle('aktif',j===i);}); sayi.textContent=('0'+(i+1)).slice(-2)+' / 0'+n; }
+    function git(k){ i=(k%n+n)%n; yerlestir(); }
+    document.querySelectorAll('.yay-nav .ok').forEach(function(o){ o.addEventListener('click',function(){ git(i+parseInt(o.getAttribute('data-yon'),10)); baslat(); }); });
+    kartlar.forEach(function(k,j){ k.addEventListener('click',function(){ if(j!==i){ git(j); baslat(); } }); });
+    /* sürükleme */
+    var basX=null; yay.addEventListener('pointerdown',function(e){basX=e.clientX;}); yay.addEventListener('pointerup',function(e){ if(basX===null)return; var f=e.clientX-basX; basX=null; if(Math.abs(f)>40){ git(i+(f<0?1:-1)); baslat(); } });
+    function baslat(){ if(zam) clearInterval(zam); if(!azHareket) zam=setInterval(function(){git(i+1);},4200); }
+    yay.addEventListener('pointerenter',function(){ if(zam){clearInterval(zam);zam=null;} });
+    yay.addEventListener('pointerleave',baslat);
+    yerlestir(); baslat();
+  })();
 
   /* ---------- haber: paralaks ---------- */
   if(!azHareket){ gsap.to('#haber-foto',{yPercent:-10,ease:'none',scrollTrigger:{trigger:'.a-haber',start:'top bottom',end:'bottom top',scrub:true}}); }
