@@ -118,7 +118,7 @@ body{background:var(--gece);color:#EEF1F4}
 <!-- HERO -->
 <section class="a-hero">
   <canvas id="sahne" aria-hidden="true"></canvas>
-  <video id="kampus-video" muted loop playsinline preload="auto" crossorigin="anonymous" poster="../gorsel/daire-meydan-1024.webp" style="display:none"><source src="../gorsel/hero-kampus-1440.mp4" type="video/mp4"></video>
+  <video id="kampus-video" autoplay muted loop playsinline preload="auto" crossorigin="anonymous" poster="../gorsel/daire-meydan-1024.webp" style="display:none"><source src="../gorsel/hero-kampus-1440.mp4" type="video/mp4"></video>
   <div class="ic a-hero-ic">
     <div>
       <h1>Türkiye'nin fintek <em>yörüngesi.</em></h1>
@@ -247,7 +247,10 @@ body{background:var(--gece);color:#EEF1F4}
     /* merkez: video dokulu daire */
     /* merkez: 4K'dan büyütülmüş kampüs videosu (1440 px kare); dar ekranda ve hareket azaltmada keskin render */
     var video=document.getElementById('kampus-video'), doku;
-    if(video && !dar && !azHareket){ doku=new THREE.VideoTexture(video); video.play().catch(function(){}); }
+    if(video && !dar && !azHareket){ doku=new THREE.VideoTexture(video); var oynat=function(){ var p=video.play(); if(p&&p.catch) p.catch(function(){}); }; oynat();
+      /* tarayıcı otomatik oynatmayı engellerse ilk etkileşimde tekrar dene */
+      ['pointerdown','keydown','touchstart'].forEach(function(ev){ addEventListener(ev,function(){ if(video.paused) oynat(); },{once:true,passive:true}); });
+      document.addEventListener('visibilitychange',function(){ if(!document.hidden && video.paused) oynat(); }); }
     else { doku=new THREE.TextureLoader().load('../gorsel/daire-meydan-1024.webp'); }
     doku.anisotropy=ren.capabilities.getMaxAnisotropy(); doku.center.set(.5,.5);
     var daire=new THREE.Mesh(new THREE.CircleGeometry(1.75,96),new THREE.MeshBasicMaterial({map:doku}));
